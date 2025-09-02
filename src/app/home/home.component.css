@@ -1,0 +1,89 @@
+
+
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page-header,
+.site-header {
+  background-color: #222;
+  color: #fff;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.page-content,
+.site-content {
+  padding: 40px 0;
+  min-height: calc(100vh - 240px);
+}
+
+.page-footer,
+.site-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.footer-note {
+  font-size: 0.95rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-logo .logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .site-header h1,
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .site-content,
+  .page-content {
+    padding: 20px 0;
+  }
+
+  .site-footer,
+  .page-footer {
+    font-size: 0.9rem;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-title h1 {
+    font-size: 1rem;
+  }
+}

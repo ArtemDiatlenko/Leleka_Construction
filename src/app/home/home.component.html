@@ -1,11 +1,28 @@
-<header class="site-header">
+<header class="site-header dark-section">
   <div class="container">
     <div class="header-inner">
       <div class="header-logo">
-        <span class="logo-text">LELEKA</span>
+        <!-- Здесь будет лого -->
       </div>
-      <div class="header-title">
-        <h1>Oficjalna strona firmy</h1>
+      <div class="header-menu">
+        <nav class="header-links">
+          <ul class="header-nav">
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/about">O firmie</a></li>
+            <li class="dropdown header-nav-item">
+              <a href="/oferta"><span class="dropdown-arrow">▶</span>Oferta</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">—</a></li>
+                <li><a href="#">—</a></li>
+                <li><a href="#">—</a></li>
+                <li><a href="#">—</a></li>
+                <li><a href="#">—</a></li>
+              </ul>
+            </li>
+            <li><a href="/realizacje">Realizacje</a></li>
+            <li><a href="/kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -18,10 +35,14 @@
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p class="footer-note">
-      Wszelkie prawa zastrzeżone © LELEKA CONSTRUCTION {{ currentYear }}
-    </p>
+<footer class="site-footer dark-section">
+  <div class="footer-container">
+    <div class="footer-contact">
+      <p>📞 +48 733 071 777</p>
+      <p>✉️ biuro&#64;leleka.pl</p>
+    </div>
+    <div class="footer-bottom">
+      <p>Wszelkie prawa zastrzeżone © LELEKA CONSTRUCTION {{ currentYear }}</p>
+    </div>
   </div>
 </footer>

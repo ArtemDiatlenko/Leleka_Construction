@@ -5,18 +5,11 @@
   color: #333;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
 .site-header {
-  background-color: #222;
+  background-color: #1e324b;
   color: #fff;
   padding: 24px 0;
   text-align: center;
-  position: fixed;
   top: 0;
   width: 100%;
 }
@@ -27,7 +20,7 @@
 }
 
 .site-footer {
-  background-color: #222;
+  background-color: #1e324b;
   color: #fff;
   padding: 24px 0;
   text-align: center;

@@ -83,7 +83,7 @@
 }
 
 .photo-box:hover .photo-img {
-  transform: scale(1.05) rotateX(5deg) rotateY(-5deg);
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

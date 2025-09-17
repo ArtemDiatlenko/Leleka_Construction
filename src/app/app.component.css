@@ -10,8 +10,10 @@
   color: #fff;
   padding: 24px 0;
   text-align: center;
+  position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
 }
 
 .site-content {

@@ -1,5 +1,4 @@
 <header class="site-header dark-section">
-  <div class="container">
     <div class="header-inner">
       <div class="header-logo">
         <!-- Логотип -->
@@ -12,18 +11,17 @@
             <li class="dropdown header-nav-item">
               <a href="/oferta"><span class="dropdown-arrow">▶</span>Oferta</a>
               <ul class="dropdown-menu">
-                <li><a href="#">—</a></li>
-                <li><a href="#">—</a></li>
-                <li><a href="#">—</a></li>
-                <li><a href="#">—</a></li>
-                <li><a href="#">—</a></li>
+                <li *ngFor="let vacancy of vacancies">
+                  <a [routerLink]="['/vacancies', vacancy.path]">
+                    {{ vacancy.title }}
+                  </a>
+                </li>
               </ul>
             </li>
             <li><a routerLink="/realizacje">Realizacje</a></li>
             <li><a routerLink="/kontakt">Kontakt</a></li>
           </ul>
         </nav>
-      </div>
     </div>
   </div>
 </header>

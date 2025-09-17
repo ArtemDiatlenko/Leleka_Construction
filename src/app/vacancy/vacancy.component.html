@@ -1,7 +1,12 @@
-<div *ngIf="vacancy" class="vacancy-details">
-  <h1>{{ vacancy.title }}</h1>
-  <h2>{{ vacancy.header }}</h2>
-  <p>{{ vacancy.description }}</p>
+<div class="oferta-page">
+  <div class="oferta-header">
+    <h2>{{ vacancy.title }}</h2>
+    <p>{{ vacancy.description }}</p>
+  </div>
+
+  <div class="oferta-grid">
+    <div class="oferta-box" *ngFor="let vacancy of otherVacancies">{{vacancy.title}}</div>
+  </div>
 </div>
 
 <div *ngIf="!vacancy" class="not-found">

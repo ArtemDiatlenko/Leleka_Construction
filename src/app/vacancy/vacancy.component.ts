@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { VacancyStorage } from '../storage/vacancy-storage'; // Импортируйте ваш класс
+import { VacancyStorage } from '../storage/vacancy-storage';
 
 @Component({
   selector: 'app-vacancy',
@@ -12,9 +12,11 @@ import { VacancyStorage } from '../storage/vacancy-storage'; // Импортир
 export class VacancyComponent implements OnInit {
 
   vacancy: any = null;
+  otherVacancies: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router, // ← Добавлен Router для навигации
     private vacancyStorage: VacancyStorage
   ) {}
 
@@ -22,10 +24,11 @@ export class VacancyComponent implements OnInit {
     this.route.params.subscribe(params => {
       const vacancyPath = params['path'];
       this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath);
+      this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(v => v.path === vacancyPath);
 
       if (!this.vacancy) {
-        console.log('Vacancy not found');
-        // Здесь можно добавить редирект на страницу 404
+        console.log('Vacancy not found, redirecting to home');
+        this.router.navigate(['/']); // Редирект на домашнюю страницу
       }
     });
   }

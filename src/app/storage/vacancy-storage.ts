@@ -48,4 +48,8 @@ export class VacancyStorage {
   getVacancyById(id: number) {
     return this.vacancies.find(vacancy => vacancy.id === id);
   }
+
+  getVacanciesExcluding(predicate: (vacancy: any) => boolean) {
+    return this.vacancies.filter(vacancy => !predicate(vacancy));
+  }
 }

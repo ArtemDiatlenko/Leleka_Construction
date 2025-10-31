@@ -32,4 +32,9 @@ export class VacancyComponent implements OnInit {
       }
     });
   }
+
+  selectVacancy(selected: any) {
+    this.router.navigate(['/vacancy', selected.path]);
+    this.otherVacancies = this.otherVacancies.filter(v => v.path !== selected.path);
+  }
 }

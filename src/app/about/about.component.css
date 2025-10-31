@@ -1,0 +1,118 @@
+.about-page {
+  max-width: 1100px;
+  margin: 5% auto;
+  padding: 3%;
+  color: #222;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ===== HERO SECTION ===== */
+.about-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* was flex-start */
+  gap: 5%;
+  margin-bottom: 5%;
+}
+
+.about-hero__text {
+  flex: 1 1 48%;
+}
+
+.about-hero__text h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2%;
+  color: #111;
+}
+
+.about-hero__text p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  margin-bottom: 2%;
+  color: #333;
+}
+
+.about-hero__photo {
+  flex: 1 1 48%;
+  max-width: 50%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  /* margin-top removed */
+  align-self: center;
+}
+
+.about-hero__photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ===== WHY SECTION ===== */
+.about-why {
+  margin-top: 8%;
+}
+
+.about-why h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 3%;
+  color: #111;
+}
+
+.about-why__list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 3%;
+}
+
+.about-why__list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 2%;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.about-why__list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f0b429;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* ===== CTA SECTION ===== */
+.about-why__cta {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #222;
+  margin-top: 3%;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+  .about-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-hero__photo {
+    max-width: 90%;
+    margin-top: 6%;
+  }
+
+  .about-why h2 {
+    text-align: center;
+  }
+
+  .about-why__list {
+    text-align: left;
+  }
+}

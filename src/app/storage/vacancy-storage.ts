@@ -2,38 +2,31 @@ export class VacancyStorage {
   private vacancies = [
     {
       id: 1,
-      title: "Brygadzista Budowlany",
-      path: "brygadzista-budowlany",
-      header: "Brygadzista na placach budowy",
-      description: "Poszukujemy doświadczonego brygadzisty do kierowania zespołami budowlanymi. Obowiązki: kontrola jakości prac, tworzenie harmonogramów, prowadzenie dokumentacji, zamawianie materiałów. Wymagane min. 3 lata doświadczenia."
+      title: "Cieśla Szalunkowy",
+      path: "ciesla-szalunkowy",
+      header: "Cieśla Szalunkowy",
+      description: "Poszukujemy doświadczonych cieśli szalunkowych do realizacji konstrukcji żelbetowych. Praca przy montażu i demontażu systemów szalunkowych PERI, DOKA, ULMA. Wymagana znajomość rysunku technicznego i umiejętność pracy w zespole."
     },
     {
       id: 2,
-      title: "Murarz",
-      path: "murarz",
-      header: "Wykwalifikowany Murarz",
-      description: "Poszukujemy murarzy do pracy na obiektach budownictwa mieszkaniowego. Wymagane doświadczenie w murowaniu cegieł, bloczków i kamienia naturalnego. Zapewniamy narzędzia i odzież roboczą."
+      title: "Zbrojarz",
+      path: "zbrojarz",
+      header: "Zbrojarz Konstrukcji Żelbetowych",
+      description: "Zatrudnimy zbrojarzy do prac przy zbrojeniu fundamentów, słupów, ścian i stropów. Wymagana umiejętność wiązania zbrojenia zgodnie z dokumentacją techniczną oraz doświadczenie w pracy na dużych budowach."
     },
     {
       id: 3,
-      title: "Dekarz",
-      path: "dekarz",
-      header: "Specjalista od Montażu Dachów",
-      description: "Poszukujemy dekarza do pracy z pokryciami miękkimi, blachodachówką i dachówką ceramiczną. Znajomość technologii montażu, min. 2 lata doświadczenia. Możliwość szkoleń."
+      title: "Kierownik Robót Żelbetowych",
+      path: "kierownik-robot-zelbetowych",
+      header: "Kierownik Robót Żelbetowych",
+      description: "Poszukujemy kierownika robót żelbetowych z doświadczeniem w prowadzeniu zespołów i nadzorze nad realizacją prac konstrukcyjnych. Wymagana znajomość procesów budowlanych, umiejętność czytania dokumentacji projektowej i planowania robót."
     },
     {
       id: 4,
-      title: "Spawacz",
-      path: "spawacz",
-      header: "Spawacz na place budowy",
-      description: "Potrzebny spawacz z doświadczeniem na placach budowy. Wymagana umiejętność pracy z różnymi rodzajami metali oraz znajomość BHP. Uprawnienia spawalnicze wymagane."
-    },
-    {
-      id: 5,
-      title: "Specjalista Od Wykończenia Wnętrz",
-      path: "specjalista-od-wykonczenia-wnetrz",
-      header: "Monter Zabudowy i Robót Wykończeniowych",
-      description: "Poszukujemy specjalisty od robót wykończeniowych wnętrz. Tynkowanie, malowanie, układanie płytek, montaż płyt g-k. Wymagana dokładność i dbałość o szczegóły."
+      title: "Pracownik Ogólnobudowlany",
+      path: "pracownik-ogolnobudowlany",
+      header: "Pracownik Ogólnobudowlany",
+      description: "Zatrudnimy pracowników ogólnobudowlanych do prac pomocniczych przy realizacji konstrukcji żelbetowych. Mile widziane doświadczenie na budowie, chęć do pracy i zaangażowanie. Zapewniamy narzędzia, szkolenie oraz zakwaterowanie."
     }
   ];
 

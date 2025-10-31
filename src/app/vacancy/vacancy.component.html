@@ -5,7 +5,14 @@
   </div>
 
   <div class="oferta-grid">
-    <div class="oferta-box" *ngFor="let vacancy of otherVacancies">{{vacancy.title}}</div>
+    <div
+      class="oferta-box"
+      *ngFor="let other of otherVacancies"
+      (click)="selectVacancy(other)"
+      [hidden]="other.title === vacancy.title"
+    >
+      {{ other.title }}
+    </div>
   </div>
 </div>
 

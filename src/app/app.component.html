@@ -9,7 +9,7 @@
             <li><a routerLink="/">Strona główna</a></li>
             <li><a routerLink="/about">O firmie</a></li>
             <li class="dropdown header-nav-item">
-              <a href="/oferta"><span class="dropdown-arrow">▶</span>Oferta</a>
+              <a href="/oferta"><span class="dropdown-arrow">▶</span>Kariera</a>
               <ul class="dropdown-menu">
                 <li *ngFor="let vacancy of vacancies">
                   <a [routerLink]="['/vacancies', vacancy.path]">

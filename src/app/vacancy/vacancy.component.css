@@ -1,41 +1,121 @@
-.oferta-page {
-  padding: 60px 20px;
+/* Легкий градієнт фону сторінки (якщо хочеш глобально, перемістити в styles.css) */
+:host ::ng-deep body {
+  background: linear-gradient(135deg, #f4f7fb, #e8eef6);
+}
+
+/* Контейнер */
+.vacancy {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 44px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(11, 35, 77, 0.06);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #222;
+}
+
+/* Заголовок */
+.vacancy h1 {
+  font-size: 30px;
+  color: #0d47a1;
   text-align: center;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+.vacancy h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  background: linear-gradient(90deg, #1565c0, #42a5f5);
+  margin: 12px auto 0;
+  border-radius: 2px;
 }
 
-.oferta-header {
-  margin-bottom: 40px;
+/* Секції контенту */
+.vacancy-content {
+  margin-top: 14px;
+  line-height: 1.8;
+  font-size: 16.5px;
+  color: #333;
 }
-
-.oferta-header h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.oferta-header p {
-  font-size: 16px;
-  color: #555;
-}
-
-.oferta-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 28px;
-  height: calc(100vh - 160px); /* почти весь экран с учётом отступов */
-}
-
-.oferta-box {
-  background-color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.vacancy-content h3 {
   font-size: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #1b2644;
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  border-left: 4px solid #2b5cff;
+  padding-left: 12px;
 }
 
-.oferta-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+/* Списки */
+.vacancy-content ul {
+  margin: 10px 0 18px 22px;
+  padding-left: 6px;
+  list-style-type: disc;
+}
+.vacancy-content li {
+  margin-bottom: 8px;
+}
+
+/* Other vacancies */
+.other-vacancies {
+  margin-top: 28px;
+  border-top: 1px dashed #e6eef9;
+  padding-top: 18px;
+}
+.other-vacancies ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.other-vacancies li {
+  background: #f6f9ff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(11,35,77,0.04);
+}
+.other-vacancies a {
+  color: #0d47a1;
+  text-decoration: none;
+}
+.other-vacancies a:hover {
+  text-decoration: underline;
+}
+
+/* Not found */
+.not-found {
+  text-align: center;
+  padding: 60px;
+  color: #777;
+}
+
+/* Анімація при скролі */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Адаптив */
+@media (max-width: 720px) {
+  .vacancy {
+    padding: 26px;
+    margin: 30px 16px;
+  }
+  .vacancy h1 {
+    font-size: 22px;
+  }
+  .other-vacancies ul {
+    gap: 8px;
+  }
 }

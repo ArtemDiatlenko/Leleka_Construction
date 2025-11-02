@@ -1,22 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { VacancyStorage } from '../storage/vacancy-storage';
 
 @Component({
   selector: 'app-vacancy',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './vacancy.component.html',
-  styleUrl: './vacancy.component.css'
+  styleUrls: ['./vacancy.component.css']
 })
-export class VacancyComponent implements OnInit {
+export class VacancyComponent implements OnInit, OnDestroy {
 
   vacancy: any = null;
   otherVacancies: any[] = [];
 
+  private scrollHandler = this.handleScrollAnimation.bind(this);
+
   constructor(
     private route: ActivatedRoute,
-    private router: Router, // ← Добавлен Router для навигации
+    private router: Router,
     private vacancyStorage: VacancyStorage
   ) {}
 
@@ -27,8 +31,28 @@ export class VacancyComponent implements OnInit {
       this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(v => v.path === vacancyPath);
 
       if (!this.vacancy) {
-        console.log('Vacancy not found, redirecting to home');
-        this.router.navigate(['/']); // Редирект на домашнюю страницу
+        this.router.navigate(['/']);
+      } else {
+        // невелика затримка, щоб DOM встиг відрендеритись
+        setTimeout(() => this.handleScrollAnimation(), 100);
+      }
+    });
+
+    window.addEventListener('scroll', this.scrollHandler);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.scrollHandler);
+  }
+
+  handleScrollAnimation() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const triggerBottom = window.innerHeight * 0.9;
+
+    elements.forEach((el: Element) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < triggerBottom) {
+        el.classList.add('visible');
       }
     });
   }

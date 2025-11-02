@@ -1,15 +1,20 @@
-<div class="oferta-page">
-  <div class="oferta-header">
-    <h2>{{ vacancy.title }}</h2>
-    <p>{{ vacancy.description }}</p>
-  </div>
+<div class="vacancy animate-on-scroll" *ngIf="vacancy">
+  <h1 class="animate-on-scroll">{{ vacancy.title }}</h1>
 
-  <div class="oferta-grid">
-    <div class="oferta-box" *ngFor="let vacancy of otherVacancies">{{vacancy.title}}</div>
+  <div class="vacancy-content animate-on-scroll" [innerHTML]="vacancy.description"></div>
+
+  <div class="animate-on-scroll other-vacancies" *ngIf="otherVacancies.length > 0">
+    <h2>Inne oferty</h2>
+    <ul>
+      <li *ngFor="let v of otherVacancies">
+        <a [routerLink]="['/vacancies', v.path]">{{ v.title }}</a>
+      </li>
+    </ul>
   </div>
 </div>
 
-<div *ngIf="!vacancy" class="not-found">
+<div *ngIf="!vacancy" class="not-found animate-on-scroll">
   <h2>Vacancy not found</h2>
   <p>The requested vacancy does not exist.</p>
 </div>
+  

@@ -18,11 +18,15 @@ export const routes: Routes = [
     component: VacancyComponent
   },
   {
+    path: 'vacancies',
+    component: VacancyComponent
+  },
+  {
     path: 'contact',
     component: ContactComponent
   },
-  { 
-    path: 'about', 
+  {
+    path: 'about',
     component: AboutComponent
    },
 ];

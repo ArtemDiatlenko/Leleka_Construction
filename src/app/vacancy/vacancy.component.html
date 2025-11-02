@@ -24,7 +24,22 @@
   </div>
 </div>
 
-<div *ngIf="!vacancy" class="not-found animate-on-scroll">
-  <h2>Vacancy not found</h2>
-  <p>The requested vacancy does not exist.</p>
+<div *ngIf="vacancy == null" class="not-found animate-on-scroll">
+  <p>Kariera</p>
+
+  <div class="grid-container">
+    <div class="box" *ngFor="let item of items">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.content }}</p>
+    </div>
+  </div>
+
+  <div class="statistics-container">
+    <div class="stats-grid">
+      <div class="stat-item" *ngFor="let item of statsItems">
+        <div class="stat-value">{{ item.value }}</div>
+        <h3 class="stat-title">{{ item.title }}</h3>
+      </div>
+    </div>
+  </div>
 </div>

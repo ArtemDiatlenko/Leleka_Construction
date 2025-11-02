@@ -24,18 +24,35 @@ export class VacancyComponent implements OnInit, OnDestroy {
     private vacancyStorage: VacancyStorage
   ) {}
 
+  statsItems = [
+    { title: 'Мы работаем', value: '7 лет' },
+    { title: 'Довольных клиентов', value: '500+' },
+    { title: 'Выполненных проектов', value: '1200' },
+    { title: 'Команда специалистов', value: '25' }
+  ];
+
+  items = [
+    { title: 'Бокс 1', content: 'Содержимое первого бокса' },
+    { title: 'Бокс 2', content: 'Содержимое второго бокса' },
+    { title: 'Бокс 3', content: 'Содержимое третьего бокса' },
+    { title: 'Бокс 4', content: 'Содержимое четвертого бокса' }
+  ];
+
   ngOnInit() {
+
     this.route.params.subscribe(params => {
       const vacancyPath = params['path'];
-      this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath);
-      this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(v => v.path === vacancyPath);
+      if (vacancyPath) {
+        this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath);
+        this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(v => v.path === vacancyPath);
 
-      if (!this.vacancy) {
-        this.router.navigate(['/']);
-      } else {
-        // невелика затримка, щоб DOM встиг відрендеритись
-        setTimeout(() => this.handleScrollAnimation(), 100);
-      }
+        if (!this.vacancy) {
+          this.router.navigate(['/']);
+        } else {
+          // невелика затримка, щоб DOM встиг відрендеритись
+          setTimeout(() => this.handleScrollAnimation(), 100);
+        }
+    }
     });
 
     window.addEventListener('scroll', this.scrollHandler);

@@ -5,19 +5,21 @@
   color: #333;
 }
 
+/* Хедер */
 .site-header {
   background-color: #1e324b;
   color: #fff;
-  padding: 24px 0;
-  text-align: center;
+  padding: 12px 0; /* зменшено, щоб не займав багато місця */
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
+/* Додаємо відступ для контенту, щоб його не перекривав фіксований хедер */
 .site-content {
-  padding: 40px 0;
+  padding-top: 120px; /* 💡 тепер контент починається нижче */
   min-height: calc(100vh - 240px);
 }
 
@@ -28,31 +30,53 @@
   text-align: center;
 }
 
-.footer-note {
-  font-size: 0.95rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
+/* Внутрішній блок хедера */
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 0 32px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.header-logo .logo-text {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: white;
-}
-
-.header-nav-container {
+/* Лого */
+.logo-link {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: logoFadeIn 0.9s ease-out forwards;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.07);
+}
+
+/* Анімація появи логотипу */
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Меню справа */
+.header-menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header-nav {
@@ -62,12 +86,6 @@
   margin: 0;
   padding: 0;
   align-items: center;
-  flex-direction: row;
-}
-
-.header-nav li {
-  display: inline-block;
-  margin: 0 12px;
 }
 
 .header-nav a {
@@ -77,32 +95,15 @@
   font-weight: 500;
 }
 
-
-@media (max-width: 768px) {
-  .site-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .site-content {
-    padding: 20px 0;
-  }
-
-  .site-footer {
-    font-size: 0.9rem;
-  }
-
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
+.header-nav a:hover {
+  text-decoration: underline;
 }
 
+/* Dropdown */
 .header-nav-item {
   position: relative;
 }
 
-/* Dropdown menu styles */
 .dropdown-menu {
   position: absolute;
   left: 0;
@@ -114,10 +115,7 @@
   z-index: 100;
   min-width: 200px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  top: calc(100% + 22px);
+  top: calc(100% + 14px);
 }
 
 .header-nav-item:hover .dropdown-menu {
@@ -147,4 +145,25 @@
   margin-right: 6px;
   font-size: 0.7rem;
   transform: rotate(90deg);
+}
+
+/* 📱 Адаптив */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-menu {
+    justify-content: center;
+  }
+
+  .logo-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .site-content {
+    padding-top: 160px; /* трохи більше відступу на мобільних */
+  }
 }

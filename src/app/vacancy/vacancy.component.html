@@ -1,22 +1,30 @@
-<div class="oferta-page">
-  <div class="oferta-header">
-    <h2>{{ vacancy.title }}</h2>
-    <p>{{ vacancy.description }}</p>
+<div class="vacancy animate-on-scroll" *ngIf="vacancy">
+  <h1 class="animate-on-scroll">{{ vacancy.title }}</h1>
+
+  <div class="vacancy-content animate-on-scroll" [innerHTML]="vacancy.description"></div>
+
+  <div class="animate-on-scroll other-vacancies" *ngIf="otherVacancies.length > 0">
+    <h2>Inne oferty</h2>
+    <ul>
+      <li *ngFor="let v of otherVacancies">
+        <a [routerLink]="['/vacancies', v.path]">{{ v.title }}</a>
+      </li>
+    </ul>
   </div>
 
-  <div class="oferta-grid">
-    <div
-      class="oferta-box"
-      *ngFor="let other of otherVacancies"
-      (click)="selectVacancy(other)"
-      [hidden]="other.title === vacancy.title"
-    >
-      {{ other.title }}
-    </div>
+  <!-- 🔹 Sekcja "Skontaktuj się z nami" -->
+  <div class="contact-section animate-on-scroll">
+    <h2>Chcesz do nas dołączyć?</h2>
+    <p>
+      Skontaktuj się z nami, aby dowiedzieć się więcej o tej ofercie lub innych możliwościach.
+    </p>
+    <button class="contact-button" [routerLink]="['/contact']">
+      Skontaktuj się z nami
+    </button>
   </div>
 </div>
 
-<div *ngIf="!vacancy" class="not-found">
+<div *ngIf="!vacancy" class="not-found animate-on-scroll">
   <h2>Vacancy not found</h2>
   <p>The requested vacancy does not exist.</p>
 </div>

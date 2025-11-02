@@ -1,7 +1,9 @@
 <header class="site-header dark-section">
     <div class="header-inner">
       <div class="header-logo">
-        <!-- Логотип -->
+        <a routerLink="/" class="logo-link">
+          <img src="../../assets/video/photos/white-logo.jpeg" alt="Leleka Construction Logo" class="logo-img animate-logo">
+        </a>
       </div>
       <div class="header-menu">
         <nav class="header-links">
@@ -9,7 +11,7 @@
             <li><a routerLink="/">Strona główna</a></li>
             <li><a routerLink="/about">O firmie</a></li>
             <li class="dropdown header-nav-item">
-              <a href="/oferta"><span class="dropdown-arrow">▶</span>Oferta</a>
+              <a href="/oferta"><span class="dropdown-arrow">▶</span>Kariera</a>
               <ul class="dropdown-menu">
                 <li *ngFor="let vacancy of vacancies">
                   <a [routerLink]="['/vacancies', vacancy.path]">
@@ -32,7 +34,7 @@
   <div class="footer-container">
     <div class="footer-contact">
       <p>📞 +48 733 071 777</p>
-      <p>✉️ biuro&#64;leleka.pl</p>
+      <p>✉️ contact&#64;lelekaconstruction.com</p>
     </div>
     <div class="footer-bottom">
       <p>Wszelkie prawa zastrzeżone © LELEKA CONSTRUCTION {{ currentYear }}</p>

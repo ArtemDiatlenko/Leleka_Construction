@@ -1,0 +1,33 @@
+
+
+{
+  "nav": {
+    "home": "Home",
+    "vacancies": "Vacancies",
+    "contact": "Contact"
+  },
+  "career": {
+    "headline": "Career at Leleka Construction",
+    "intro1": "Leleka Construction is a company that has built its reputation for years on solid foundations – honesty, stability and respect for people.",
+    "intro2": "We offer official employment, paid breaks and free accommodation near the workplace, as well as on‑time payments.",
+    "intro3": "At Leleka there is no chaos or empty promises – from day one you know exactly what to expect. We also support legalization of stay and work in Poland, from documents to permits.",
+    "intro4": "People are the most important at Leleka Construction. Thanks to your experience, knowledge and daily effort, durable and solid structures are created. Your ideas help us grow.",
+    "intro5": "Join a team where your work truly matters, every day brings satisfaction and a sense of stability.",
+    "footer": "Leleka – a reliable partner for hard work.",
+    "cta": "See offers"
+  },
+  "vacancies": {
+    "title": "Vacancies",
+    "seeOffer": "See offer"
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "map": "We are on the map"
+  },
+  "footer": {
+    "rights": "All rights reserved © Leleka Construction 2025"
+  }
+}

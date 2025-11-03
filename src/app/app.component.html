@@ -25,6 +25,35 @@
           </ul>
         </nav>
     </div>
+    <div class="header-actions">
+      <div class="lang-switcher" [class.open]="langMenuOpen">
+        <button
+          class="lang-toggle"
+          type="button"
+          (click)="toggleLangMenu($event)"
+          aria-haspopup="listbox"
+          [attr.aria-expanded]="langMenuOpen"
+        >
+          <span class="globe" aria-hidden="true">🌐</span>
+          <span class="lang-code">{{ activeLang?.toUpperCase() }}</span>
+        </button>
+        <ul
+          *ngIf="langMenuOpen"
+          class="lang-menu"
+          role="listbox"
+        >
+          <li role="option">
+            <button type="button" (click)="setLang('pl')">PL — Polski</button>
+          </li>
+          <li role="option">
+            <button type="button" (click)="setLang('uk')">UK — Українська</button>
+          </li>
+          <li role="option">
+            <button type="button" (click)="setLang('en')">EN — English</button>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>
 

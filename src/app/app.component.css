@@ -173,3 +173,47 @@
     padding-top: 160px; /* трохи більше відступу на мобільних */
   }
 }
+
+/* 🌐 Language switcher — final compact styles */
+.header-inner { position: static; }
+
+.header-actions {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1100;
+}
+
+.lang-switcher { position: relative; display: inline-block; }
+
+.lang-toggle {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  background: transparent; color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.lang-toggle:hover { background: rgba(255, 255, 255, 0.12); }
+
+.lang-menu {
+  position: absolute;
+  right: 0; top: calc(100% + 8px);
+  min-width: 180px;
+  background: #1e324b;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  padding: 6px 0;
+  z-index: 2000;
+}
+.lang-menu li { list-style: none; }
+.lang-menu button {
+  width: 100%; text-align: left;
+  padding: 8px 12px;
+  background: transparent; border: 0; color: #fff;
+  cursor: pointer; border-radius: 4px;
+}
+.lang-menu button:hover { background: rgba(255, 255, 255, 0.1); }

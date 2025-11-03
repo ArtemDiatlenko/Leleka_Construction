@@ -3,7 +3,6 @@
 /* === Stats Banner (Żółty licznik) === */
 .statistics-container {
   background: #f0c43c; /* firmowy żółty */
-  margin: 32px auto 0;
   padding: 22px 24px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);

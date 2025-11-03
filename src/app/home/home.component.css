@@ -42,7 +42,7 @@
 .main-title {
   font-family: 'Titillium Web';
   font-weight: normal;
-  font-size: 36px;
+  font-size: 48px;
   color: #ffffff;
   line-height: 42px;
   letter-spacing: 1px;
@@ -51,7 +51,7 @@
 .main-subtitle {
   font-family: 'Lato';
   font-weight: normal;
-  font-size: 18px;
+  font-size: 24px;
   color: #ffffff;
   line-height: 36px;
   letter-spacing: 1px;
@@ -125,7 +125,6 @@
   margin-top: -10px; /* лёгкое наложение на видео */
   position: relative;
   z-index: 5;
-  margin-bottom: 80px; /* Отступ между жёлтой полосой и фото */
 }
 
 .market-experience-banner strong {

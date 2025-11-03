@@ -244,3 +244,60 @@
     padding: 10px 24px;
   }
 }
+
+/* === Sekcja opisu firmy === */
+.about-intro {
+  background-color: #f9f9f9;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.about-intro-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-intro h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+.about-intro p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.about-btn {
+  display: inline-block;
+  background-color: #f3cb46;
+  color: #1a1a1a;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #e2ba2e;
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    padding: 60px 16px;
+  }
+
+  .about-intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-intro p {
+    font-size: 1rem;
+  }
+}

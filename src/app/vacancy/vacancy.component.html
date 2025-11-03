@@ -52,7 +52,7 @@
     <h2 id="otherVacanciesHeading">Inne oferty</h2>
     <ul aria-labelledby="otherVacanciesHeading">
       <li *ngFor="let v of otherVacancies">
-        <a [routerLink]="['/vacancies', v.path]">{{ v.title }}</a>
+        <a [routerLink]="['/vacancies', v.path]" (click)="scrollTop()">{{ v.title }}</a>
       </li>
     </ul>
   </section>
@@ -70,21 +70,9 @@
 </article>
 
 <div *ngIf="vacancy == null" class="not-found animate-on-scroll">
-  <h1>Kariera</h1>
-
-  <div class="grid-container">
-    <div class="box" *ngFor="let item of items">
-      <h3>{{ item.title }}</h3>
-      <p>{{ item.content }}</p>
-    </div>
-  </div>
-
-  <div class="statistics-container">
-    <div class="stats-grid">
-      <div class="stat-item" *ngFor="let item of statsItems">
-        <div class="stat-value">{{ item.value }}</div>
-        <h3 class="stat-title">{{ item.title }}</h3>
-      </div>
-    </div>
-  </div>
+  <h2>Oferta nie znaleziona</h2>
+  <p>Przepraszamy, ale nie możemy znaleźć tej oferty pracy.</p>
+  <a class="back-button" [routerLink]="['/vacancies']" aria-label="Powrót do ofert pracy">
+    Powrót do ofert pracy
+  </a>
 </div>

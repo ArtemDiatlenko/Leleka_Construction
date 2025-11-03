@@ -1,0 +1,42 @@
+<main class="vacancies-page">
+  <div class="decorative-top">
+    <div class="decor-line"></div>
+  </div>
+  <section class="about-vacancies">
+    <h1>Kariera w Leleka Construction</h1>
+    <hr class="section-line" />
+    <p>
+      Leleka Construction to firma, która od lat buduje swoją pozycję na solidnych fundamentach – uczciwości, stabilności i szacunku do ludzi. Wierzymy, że sukces każdej realizacji zaczyna się od zaangażowanego zespołu, dlatego tworzymy warunki, w których pracownicy mogą czuć się pewnie i docenieni.
+    </p>
+    <p>
+      Oferujemy oficjalne zatrudnienie na podstawie umowy o pracę, płatne przerwy, bezpłatne zakwaterowanie w pobliżu miejsca pracy oraz terminowe wypłaty bez opóźnień.
+    </p>
+    <p>
+      W Leleka nie ma miejsca na chaos ani puste obietnice – od pierwszego dnia wiesz, na co możesz liczyć.
+      Dbamy również o sprawy formalne. Pomagamy naszym pracownikom w legalizacji pobytu i pracy w Polsce, zapewniając wsparcie na każdym etapie – od przygotowania dokumentów po uzyskanie zezwoleń. Dzięki temu możesz skupić się na pracy, mając pewność, że wszystko jest w porządku.
+    </p>
+    <p>
+      W Leleka Construction najważniejsi są ludzie. To właśnie dzięki Waszemu doświadczeniu, wiedzy i codziennemu wysiłkowi powstają trwałe, solidne konstrukcje.
+      Wasze opinie i pomysły pomagają nam się rozwijać, a wspólna praca buduje nie tylko obiekty, ale i zaufanie.
+    </p>
+    <p>
+      Dołącz do zespołu, w którym Twoja praca naprawdę się liczy, a każdy dzień przynosi satysfakcję i poczucie stabilności.
+    </p>
+    <h3 class="about-footer">Leleka – pewny partner do ciężkiej roboty.</h3>
+  </section>
+  <div class="divider"></div>
+
+  <div class="grid-container">
+    <article class="box" *ngFor="let v of vacancies; trackBy: trackByPath">
+      <div class="box-content">
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.subtitle }}</p>
+        <a [routerLink]="['/vacancies', v.path]" class="offer-button" [attr.aria-label]="v.title" (click)="scrollTop()">Zobacz ofertę</a>
+      </div>
+      <!-- Фото под текстом  -->
+      <img class="box-photo" [src]="v.image || 'assets/video/photos/karier.jpg'" [alt]="v.title" />
+    </article>
+  </div>
+
+  <app-stats-banner [stats]="statsItems"></app-stats-banner>
+</main>

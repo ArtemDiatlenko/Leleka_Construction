@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { VacancyStorage } from '../storage/vacancy-storage';
+import { Subject, takeUntil } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-vacancy',
@@ -11,10 +13,12 @@ import { VacancyStorage } from '../storage/vacancy-storage';
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.css']
 })
-export class VacancyComponent implements OnInit, OnDestroy {
+export class VacancyComponent implements OnInit, AfterViewInit, OnDestroy {
 
   vacancy: any = null;
   otherVacancies: any[] = [];
+
+  private destroy$ = new Subject<void>();
 
   private scrollHandler = this.handleScrollAnimation.bind(this);
 
@@ -24,23 +28,10 @@ export class VacancyComponent implements OnInit, OnDestroy {
     private vacancyStorage: VacancyStorage
   ) {}
 
-  statsItems = [
-    { title: 'Мы работаем', value: '7 лет' },
-    { title: 'Довольных клиентов', value: '500+' },
-    { title: 'Выполненных проектов', value: '1200' },
-    { title: 'Команда специалистов', value: '25' }
-  ];
-
-  items = [
-    { title: 'Бокс 1', content: 'Содержимое первого бокса' },
-    { title: 'Бокс 2', content: 'Содержимое второго бокса' },
-    { title: 'Бокс 3', content: 'Содержимое третьего бокса' },
-    { title: 'Бокс 4', content: 'Содержимое четвертого бокса' }
-  ];
 
   ngOnInit() {
 
-    this.route.params.subscribe(params => {
+    this.route.params.pipe(takeUntil(this.destroy$)).subscribe(params => {
       const vacancyPath = params['path'];
       if (vacancyPath) {
         this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath);
@@ -48,17 +39,21 @@ export class VacancyComponent implements OnInit, OnDestroy {
 
         if (!this.vacancy) {
           this.router.navigate(['/']);
-        } else {
-          // невелика затримка, щоб DOM встиг відрендеритись
-          setTimeout(() => this.handleScrollAnimation(), 100);
-        }
+        } 
     }
     });
 
+  }
+
+  ngAfterViewInit(): void {
+    // Trigger initial reveal after the view has mounted
+    requestAnimationFrame(() => this.handleScrollAnimation());
     window.addEventListener('scroll', this.scrollHandler);
   }
 
   ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
     window.removeEventListener('scroll', this.scrollHandler);
   }
 
@@ -77,5 +72,8 @@ export class VacancyComponent implements OnInit, OnDestroy {
   selectVacancy(selected: any) {
     this.router.navigate(['/vacancy', selected.path]);
     this.otherVacancies = this.otherVacancies.filter(v => v.path !== selected.path);
+  }
+  scrollTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

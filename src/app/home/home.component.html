@@ -7,8 +7,8 @@
     </video>
 
     <div class="main-textbox">
-      <p class="main-title">BUDOWNICTWO PRZEMYSŁOWE</p>
-      <span class="main-subtitle">OBIEKTY SPECJALNEGO PRZEZNACZENIA</span>
+      <p class="main-title">PRACE ŻELBETOWE</p>
+      <span class="main-subtitle">OBIEKTY BUDOWNICTWO MIESZKANIOWE/PRZEMYSŁOWE</span>
     </div>
   </div>
 
@@ -30,7 +30,9 @@
         Realizuj projekty na największą skalę, rozwijaj się i wpływaj na
         rzeczywistość wokół Ciebie.
       </p>
-      <a class="hero-cta-button" routerLink="/vacancies">Sprawdź oferty pracy</a>
+      <a class="hero-cta-button" routerLink="/vacancies" (click)="scrollTop()">Sprawdź oferty pracy</a>
     </div>
   </section>
+
+  <app-stats-banner [stats]="statsItems"></app-stats-banner>
 </main>

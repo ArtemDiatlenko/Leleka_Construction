@@ -1,16 +1,61 @@
-<div class="vacancy animate-on-scroll" *ngIf="vacancy">
-  <h1 class="animate-on-scroll">{{ vacancy.title }}</h1>
+<article class="vacancy animate-on-scroll" *ngIf="vacancy">
+  <div class="job-poster animate-on-scroll">
+    <div
+      class="poster-header"
+      [ngStyle]="{
+        'background-image': 'url(assets/video/photos/karier.jpg)',
+        'background-size': 'cover',
+        'background-position': 'center'
+      }"
+    >
+      <div class="poster-overlay">
+        <h1 class="poster-title">{{ vacancy.title || 'PRACOWNIK OGÓLNOBUDOWLANY' }}</h1>
+      </div>
+    </div>
 
-  <div class="vacancy-content animate-on-scroll" [innerHTML]="vacancy.description"></div>
+    <div class="poster-body">
+      <div class="poster-left">
+        <section class="poster-section" *ngIf="vacancy.offers?.length">
+          <h2>Oferujemy:</h2>
+          <ul>
+            <li *ngFor="let item of vacancy.offers">{{ item }}</li>
+          </ul>
+        </section>
 
-  <div class="animate-on-scroll other-vacancies" *ngIf="otherVacancies.length > 0">
-    <h2>Inne oferty</h2>
-    <ul>
+        <section class="poster-section" *ngIf="vacancy.responsibilities?.length">
+          <h2>Obowiązki:</h2>
+          <ul>
+            <li *ngFor="let item of vacancy.responsibilities">{{ item }}</li>
+          </ul>
+        </section>
+
+        <section class="poster-section" *ngIf="vacancy.requirements?.length">
+          <h2>Wymagania:</h2>
+          <ul>
+            <li *ngFor="let item of vacancy.requirements">{{ item }}</li>
+          </ul>
+        </section>
+
+        <!-- fallback: если нет структурированных списков -->
+        <section class="poster-section" *ngIf="!(vacancy.offers?.length || vacancy.responsibilities?.length || vacancy.requirements?.length)">
+          <div class="vacancy-content" [innerHTML]="vacancy.description"></div>
+        </section>
+      </div>
+
+      <div class="poster-right">
+        <img [src]="vacancy.image || 'assets/video/photos/123.png'" [alt]="vacancy.title || 'Zdjęcie oferty'" />
+      </div>
+    </div>
+  </div>
+
+  <section class="animate-on-scroll other-vacancies" *ngIf="otherVacancies.length > 0" aria-labelledby="otherVacanciesHeading">
+    <h2 id="otherVacanciesHeading">Inne oferty</h2>
+    <ul aria-labelledby="otherVacanciesHeading">
       <li *ngFor="let v of otherVacancies">
         <a [routerLink]="['/vacancies', v.path]">{{ v.title }}</a>
       </li>
     </ul>
-  </div>
+  </section>
 
   <!-- 🔹 Sekcja "Skontaktuj się z nami" -->
   <div class="contact-section animate-on-scroll">
@@ -18,14 +63,14 @@
     <p>
       Skontaktuj się z nami, aby dowiedzieć się więcej o tej ofercie lub innych możliwościach.
     </p>
-    <button class="contact-button" [routerLink]="['/contact']">
+    <a class="contact-button" [routerLink]="['/contact']" aria-label="Skontaktuj się z Leleka Construction">
       Skontaktuj się z nami
-    </button>
+    </a>
   </div>
-</div>
+</article>
 
 <div *ngIf="vacancy == null" class="not-found animate-on-scroll">
-  <p>Kariera</p>
+  <h1>Kariera</h1>
 
   <div class="grid-container">
     <div class="box" *ngFor="let item of items">

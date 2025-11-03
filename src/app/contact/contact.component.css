@@ -1,4 +1,21 @@
 
+/* === Анимация плавного появления страницы === */
+:host {
+  display: block;
+  animation: fadeIn 0.9s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* ===== CONTACT PAGE LAYOUT ===== */
 .contact-page {

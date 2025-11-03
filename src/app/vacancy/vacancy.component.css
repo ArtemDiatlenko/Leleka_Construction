@@ -1,7 +1,4 @@
 /* Легкий градієнт фону сторінки (якщо хочеш глобально, перемістити в styles.css) */
-:host ::ng-deep body {
-  background: linear-gradient(135deg, #f4f7fb, #e8eef6);
-}
 
 /* Контейнер */
 .vacancy {
@@ -18,7 +15,7 @@
 /* Заголовок */
 .vacancy h1 {
   font-size: 30px;
-  color: #0d47a1;
+  color: #fff;
   text-align: center;
   margin-bottom: 22px;
   font-weight: 700;
@@ -28,7 +25,7 @@
   display: block;
   width: 72px;
   height: 4px;
-  background: linear-gradient(90deg, #1565c0, #42a5f5);
+  background: #fff;
   margin: 12px auto 0;
   border-radius: 2px;
 }
@@ -204,6 +201,7 @@
   font-weight: 700;
   margin: 0;
   line-height: 1;
+  
 }
 
 /* Адаптивность для планшетов */
@@ -258,3 +256,133 @@
     gap: 8px;
   }
 }
+
+/* === UX/A11Y improvements for Vacancy page === */
+/* Make .contact-button work perfectly when it's an <a> link and improve focus styles */
+.contact-button {
+  display: inline-flex;           /* proper box for anchor */
+  align-items: center;            /* center text vertically */
+  justify-content: center;        /* center text horizontally */
+  text-decoration: none;          /* remove underline on links */
+  user-select: none;              /* avoid text selection on tapping */
+}
+
+/* Keyboard focus visibility */
+.contact-button:focus-visible {
+  outline: 3px solid #0d47a1;     /* accessible focus ring */
+  outline-offset: 2px;
+}
+
+/* Focus ring for links in the other vacancies list */
+.other-vacancies a:focus-visible {
+  outline: 2px solid #0d47a1;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Respect system setting: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {            /* disable heavy entrance animations */
+    transition: none !important;
+    transform: none !important;
+  }
+  .contact-button,
+  .box {                          /* tone down hover transitions */
+    transition: none !important;
+  }
+}
+
+/* === JOB POSTER (двухколоночный макет под новое HTML) === */
+.job-poster {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 35, 77, 0.08);
+}
+
+/* Верхняя тёмная полоса с заголовком */
+.poster-header {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.poster-title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgb(215, 99, 81) !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(28px, 5vw, 72px);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
+  padding: 0 24px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+.poster-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: rgb(215, 99, 81) !important;
+  margin: 12px auto 0; 
+  border-radius: 2px;
+}
+
+/* Две колонки: текст слева, фото справа */
+.poster-body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* текст шире, чем изображение */
+  gap: 0;
+}
+.poster-left {
+  padding: 28px 28px 28px 32px;
+}
+.poster-right {
+  position: relative;
+  min-height: 480px; /* чтобы справа картинка не схлопывалась */
+}
+.poster-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Секции и списки */
+.poster-section + .poster-section { margin-top: 22px; }
+.poster-section h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+.poster-section ul {
+  margin: 0;
+  padding-left: 22px; /* маркеры */
+  line-height: 1.7;
+}
+.poster-section li { margin: 6px 0; }
+
+/* Адаптив под планшеты */
+@media (max-width: 992px) {
+  .poster-body { grid-template-columns: 1fr; }
+  .poster-right { min-height: 360px; }
+}
+
+/* Адаптив под телефоны */
+@media (max-width: 600px) {
+  .poster-title { font-size: 22px; }
+  .poster-left { padding: 22px; }
+  .poster-right { min-height: 260px; }
+}
+
+
+/* Ensure no tint over the header image */
+.poster-overlay { background: none !important; }

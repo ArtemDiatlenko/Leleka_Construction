@@ -1,3 +1,20 @@
+/* === Анимация плавного появления страницы === */
+:host {
+  display: block;
+  animation: fadeIn 0.9s ease-in-out; /* плавное появление */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* лёгкое движение при входе */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* === Основной блок с видео === */
 .main-content {
   width:  100%;
@@ -10,7 +27,7 @@
   width: 100%;
   object-fit: cover; /* заполняет весь контейнер */
   display: block;
-  height: 50vh; /* адаптивная высота видео */
+  height: 75vh; /* адаптивная высота видео */
 }
 
 .main-textbox {

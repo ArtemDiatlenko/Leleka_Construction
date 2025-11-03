@@ -1,4 +1,3 @@
-
 /* === Анимация плавного появления страницы === */
 :host {
   display: block;
@@ -101,4 +100,21 @@
     margin-top: 30px;
     max-width: 90%;
   }
+}
+
+/* === GOOGLE MAP STYLING === */
+.contact-map-wrap {
+  margin: 20px 0 60px 0;
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.contact-map-wrap google-map {
+  display: block;
+  width: 100%;
+  height: 520px;
 }

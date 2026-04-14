@@ -1,10 +1,9 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { VacancyStorage } from '../storage/vacancy-storage';
 import { Subject, takeUntil } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Vacancy, VacancyStorage } from '../storage/vacancy-storage';
 
 @Component({
   selector: 'app-vacancy',
@@ -13,66 +12,40 @@ import { filter } from 'rxjs/operators';
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.css']
 })
-export class VacancyComponent implements OnInit, AfterViewInit, OnDestroy {
+export class VacancyComponent implements OnInit, OnDestroy {
+  vacancy: Vacancy | null = null;
+  otherVacancies: Vacancy[] = [];
 
-  vacancy: any = null;
-  otherVacancies: any[] = [];
-
-  private destroy$ = new Subject<void>();
-
-  private scrollHandler = this.handleScrollAnimation.bind(this);
+  private readonly destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private vacancyStorage: VacancyStorage
   ) {}
 
+  ngOnInit(): void {
+    this.route.paramMap
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params: ParamMap) => {
+        const vacancyPath = params.get('path');
 
-  ngOnInit() {
+        if (!vacancyPath) {
+          this.vacancy = null;
+          this.otherVacancies = this.vacancyStorage.getAllVacancies().slice(0, 3);
+          return;
+        }
 
-    this.route.params.pipe(takeUntil(this.destroy$)).subscribe(params => {
-      const vacancyPath = params['path'];
-      if (vacancyPath) {
-        this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath);
-        this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(v => v.path === vacancyPath);
-
-        if (!this.vacancy) {
-          this.router.navigate(['/']);
-        } 
-    }
-    });
-
+        this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath) ?? null;
+        this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(vacancyPath).slice(0, 3);
+        this.scrollTop();
+      });
   }
 
-  ngAfterViewInit(): void {
-    // Trigger initial reveal after the view has mounted
-    requestAnimationFrame(() => this.handleScrollAnimation());
-    window.addEventListener('scroll', this.scrollHandler);
-  }
-
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
-    window.removeEventListener('scroll', this.scrollHandler);
   }
 
-  handleScrollAnimation() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const triggerBottom = window.innerHeight * 0.9;
-
-    elements.forEach((el: Element) => {
-      const top = el.getBoundingClientRect().top;
-      if (top < triggerBottom) {
-        el.classList.add('visible');
-      }
-    });
-  }
-
-  selectVacancy(selected: any) {
-    this.router.navigate(['/vacancy', selected.path]);
-    this.otherVacancies = this.otherVacancies.filter(v => v.path !== selected.path);
-  }
   scrollTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

@@ -1,58 +1,141 @@
-<main class="site-content">
-  <!-- === Видео-блок === -->
-  <div class="main-content">
-    <video class="main-video fade-in" autoplay muted loop playsinline>
-      <source src="assets/video/Janbud_Budownictwo_Przemyslowe_1.mp4" type="video/mp4" />
-      Twój przeglądarka nie obsługuje tagu video.
-    </video>
-
-    <div class="main-textbox">
-      <p class="main-title">PRACE ŻELBETOWE</p>
-      <span class="main-subtitle"> BUDOWNICTWO MIESZKANIOWE/PRZEMYSŁOWE</span>
+<main class="home-page">
+  <section class="home-hero">
+    <div class="home-hero__media">
+      <video class="home-hero__video" autoplay muted loop playsinline>
+        <source src="assets/video/Janbud_Budownictwo_Przemyslowe_1.mp4" type="video/mp4" />
+        Twoja przeglądarka nie obsługuje video.
+      </video>
+      <div class="home-hero__shade"></div>
     </div>
-  </div>
 
-  <!-- === Жёлтая полоса под видео === -->
-  <div class="market-experience-banner">
-    <p>Jesteśmy ponad <strong>8</strong> lat na rynku</p>
-  </div>
+    <div class="page-shell home-hero__layout">
+      <div class="home-hero__copy">
+        <span class="section-kicker section-kicker--inverse">Leleka Construction</span>
+        <h1>Żelbetowe realizacje prowadzone pewnie, czysto i bez chaosu na budowie.</h1>
+        <p>
+          Wykonujemy monolityczne konstrukcje żelbetowe dla inwestycji mieszkaniowych, przemysłowych i komercyjnych.
+          Dowożimy organizację, termin i odpowiedzialność wykonawczą na każdym etapie budowy.
+        </p>
 
-  <!-- === Sekcja opisu firmy === -->
-  <section class="about-intro">
-    <div class="about-intro-container">
-      <h2>Leleka – pewny partner do ciężkiej roboty.</h2>
-      <p>
-        Leleka Construction to dynamicznie rozwijająca się firma budowlana, specjalizująca się w pracach żelbetowych i budownictwie monolitycznym. Nasz zespół tworzą doświadczeni inżynierowie oraz fachowcy, dla których budownictwo to nie tylko zawód, ale również pasja. Od początku działalności realizujemy projekty o wysokim stopniu złożoności, łącząc precyzję wykonania, bezpieczeństwo i terminowość.
-      </p>
-      <p>
-        Dzięki wieloletniemu doświadczeniu oraz zaangażowaniu potrafimy sprostać nawet najbardziej wymagającym inwestycjom – od konstrukcji mieszkaniowych, przez obiekty przemysłowe, po projekty komercyjne. Naszym priorytetem jest jakość i trwałość, dlatego każda realizacja Leleka Construction powstaje z dbałością o każdy detal.
-      </p>
-      <p>
-        Jesteśmy elastyczni i potrafimy dostosować się do potrzeb inwestora oraz warunków na budowie. Stawiamy na rzetelność, profesjonalizm i partnerską współpracę, co sprawia, że zdobywamy zaufanie coraz szerszego grona klientów.
-      </p>
-      <p>
-        Leleka Construction działa na terenie całej Polski, zapewniając kompleksową obsługę inwestycji – od fundamentów po gotową konstrukcję.
-      </p>
-      <a class="about-btn" routerLink="/about" (click)="scrollTop()">Dowiedz się więcej o nas</a>
-    </div>
-  </section>
+        <ul class="eyebrow-list home-hero__badges">
+          <li>Fundamenty, ściany, stropy</li>
+          <li>Realizacje w całej Polsce</li>
+          <li>Mocne brygady i nadzór</li>
+        </ul>
 
-  <!-- === Hero-секция с фото и текстом === -->
-  <section class="hero-career">
-    <img
-      class="hero-bg"
-      src="assets/video/photos/123.png"
-      alt="Zbuduj karierę razem z nami"
-    />
-    <div class="hero-overlay">
-      <h1>Zbuduj karierę razem z nami!</h1>
-      <p>
-        Realizuj projekty na największą skalę, rozwijaj się i wpływaj na
-        rzeczywistość wokół Ciebie.
-      </p>
-      <a class="hero-cta-button" routerLink="/vacancies" (click)="scrollTop()">Sprawdź oferty pracy</a>
+        <div class="home-hero__actions">
+          <a class="button-primary" routerLink="/contact" (click)="scrollTop()">Porozmawiaj o inwestycji</a>
+          <a class="button-ghost" routerLink="/about" (click)="scrollTop()">Zobacz jak pracujemy</a>
+        </div>
+      </div>
+
+      <aside class="home-hero__summary card-surface">
+        <div class="home-hero__summary-item">
+          <span>Od</span>
+          <strong>2018</strong>
+          <p>realizujemy roboty żelbetowe dla wymagających inwestycji</p>
+        </div>
+        <div class="home-hero__summary-item">
+          <span>Ponad</span>
+          <strong>60+</strong>
+          <p>ukończonych projektów i długofalowych współprac wykonawczych</p>
+        </div>
+        <div class="home-hero__summary-item">
+          <span>Standard</span>
+          <strong>100%</strong>
+          <p>skupienia na jakości, bezpieczeństwie i czytelnym harmonogramie</p>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <app-stats-banner [stats]="statsItems"></app-stats-banner>
+  <section class="home-signal page-shell">
+    <div class="home-signal__bar">
+      <p>Budujemy w oparciu o dyscyplinę wykonawczą, czytelną komunikację i realną odpowiedzialność za końcowy efekt.</p>
+      <span>Warszawa • Wrocław • Cała Polska</span>
+    </div>
+  </section>
+
+  <section class="page-section page-shell company-overview">
+    <div class="company-overview__intro section-heading">
+      <span class="section-kicker">O firmie</span>
+      <h2>Leleka to wykonawca, którego można włączyć do inwestycji bez ryzyka organizacyjnego.</h2>
+      <p>
+        Specjalizujemy się w pracach żelbetowych i budownictwie monolitycznym. Nasze zespoły tworzą doświadczeni
+        inżynierowie, kierownicy oraz brygady wykonawcze, które pracują według planu, a nie improwizacji na budowie.
+      </p>
+    </div>
+
+    <div class="company-overview__grid">
+      <article class="company-overview__story card-surface">
+        <h3>Kompleksowe wykonanie robót żelbetowych</h3>
+        <p>
+          Realizujemy fundamenty, ściany, słupy i stropy, prowadząc roboty z naciskiem na trwałość konstrukcji,
+          bezpieczeństwo i przewidywalność przebiegu budowy.
+        </p>
+        <a class="button-secondary" routerLink="/about" (click)="scrollTop()">Dowiedz się więcej o firmie</a>
+      </article>
+
+      <div class="company-overview__values">
+        <article class="company-overview__value card-surface">
+          <h3>Stabilny proces</h3>
+          <p>Przejrzyste etapy prac, koordynacja ekip i konsekwentne trzymanie harmonogramu.</p>
+        </article>
+        <article class="company-overview__value card-surface">
+          <h3>Silne zaplecze wykonawcze</h3>
+          <p>Doświadczeni fachowcy, którzy rozumieją wymagania inwestycji i tempo budowy.</p>
+        </article>
+        <article class="company-overview__value card-surface">
+          <h3>Partnerska współpraca</h3>
+          <p>Rzetelna komunikacja z inwestorem, szybkie decyzje i odpowiedzialność za rezultat.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-shell capabilities">
+    <div class="capabilities__media media-frame">
+      <img src="assets/video/photos/about-photo.png" alt="Realizacja Leleka Construction">
+    </div>
+
+    <div class="capabilities__content">
+      <span class="section-kicker">Zakres</span>
+      <h2>Pracujemy tam, gdzie konstrukcja musi być pewna, a wykonanie dobrze zorganizowane.</h2>
+      <div class="capabilities__list">
+        <article>
+          <strong>Budownictwo mieszkaniowe</strong>
+          <p>Monolity dla wieloetapowych inwestycji, w których liczy się powtarzalna jakość i terminowość.</p>
+        </article>
+        <article>
+          <strong>Obiekty przemysłowe</strong>
+          <p>Realizacje wymagające dyscypliny technologicznej, mocnych ekip i odpowiedzialnego prowadzenia robót.</p>
+        </article>
+        <article>
+          <strong>Projekty komercyjne</strong>
+          <p>Zakres robót dopasowany do skali inwestycji i standardów generalnego wykonawcy.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-shell career-banner">
+    <div class="career-banner__layout dark-panel">
+      <div class="career-banner__copy">
+        <span class="section-kicker section-kicker--inverse">Kariera</span>
+        <h2>Buduj z nami projekty, które wymagają fachu i odpowiedzialności.</h2>
+        <p>
+          Szukamy ludzi, którzy chcą pracować w uporządkowanym zespole, przy realnych inwestycjach i na przejrzystych zasadach.
+        </p>
+        <a class="button-primary" routerLink="/vacancies" (click)="scrollTop()">Sprawdź oferty pracy</a>
+      </div>
+
+      <div class="career-banner__media">
+        <img src="assets/video/photos/123.png" alt="Kariera w Leleka Construction">
+      </div>
+    </div>
+  </section>
+
+  <section class="page-shell">
+    <app-stats-banner [stats]="statsItems"></app-stats-banner>
+  </section>
 </main>

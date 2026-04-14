@@ -1,48 +1,63 @@
-
-
-/* === Stats Banner (Żółty licznik) === */
 .statistics-container {
-  background: #f0c43c; /* firmowy żółty */
-  padding: 22px 24px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 28px;
+  border-radius: 34px;
+  background:
+    linear-gradient(135deg, rgba(242, 194, 48, 0.98), rgba(255, 217, 108, 0.98));
+  box-shadow: 0 28px 56px rgba(242, 194, 48, 0.24);
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  align-items: center;
-  text-align: center;
 }
 
 .stat-item {
+  min-height: 156px;
+  padding: 22px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .stat-value {
-  font-weight: 800;
-  font-size: clamp(22px, 3.5vw, 36px);
-  line-height: 1.1;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.92;
+  color: var(--color-navy-980);
+  font-weight: 900;
 }
 
 .stat-title {
+  margin-top: 18px;
+  color: rgba(6, 18, 38, 0.82);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.55;
   text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.02em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .statistics-container {
+    padding: 22px;
+    border-radius: 26px;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    min-height: 132px;
   }
 }

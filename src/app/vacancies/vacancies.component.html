@@ -1,42 +1,55 @@
 <main class="vacancies-page">
-  <div class="decorative-top">
-    <div class="decor-line"></div>
-  </div>
-  <section class="about-vacancies">
-    <h1>Kariera w Leleka Construction</h1>
-    <hr class="section-line" />
-    <p>
-      Leleka Construction to firma, która od lat buduje swoją pozycję na solidnych fundamentach – uczciwości, stabilności i szacunku do ludzi. Wierzymy, że sukces każdej realizacji zaczyna się od zaangażowanego zespołu, dlatego tworzymy warunki, w których pracownicy mogą czuć się pewnie i docenieni.
-    </p>
-    <p>
-      Oferujemy oficjalne zatrudnienie na podstawie umowy o pracę, płatne przerwy, bezpłatne zakwaterowanie w pobliżu miejsca pracy oraz terminowe wypłaty bez opóźnień.
-    </p>
-    <p>
-      W Leleka nie ma miejsca na chaos ani puste obietnice – od pierwszego dnia wiesz, na co możesz liczyć.
-      Dbamy również o sprawy formalne. Pomagamy naszym pracownikom w legalizacji pobytu i pracy w Polsce, zapewniając wsparcie na każdym etapie – od przygotowania dokumentów po uzyskanie zezwoleń. Dzięki temu możesz skupić się na pracy, mając pewność, że wszystko jest w porządku.
-    </p>
-    <p>
-      W Leleka Construction najważniejsi są ludzie. To właśnie dzięki Waszemu doświadczeniu, wiedzy i codziennemu wysiłkowi powstają trwałe, solidne konstrukcje.
-      Wasze opinie i pomysły pomagają nam się rozwijać, a wspólna praca buduje nie tylko obiekty, ale i zaufanie.
-    </p>
-    <p>
-      Dołącz do zespołu, w którym Twoja praca naprawdę się liczy, a każdy dzień przynosi satysfakcję i poczucie stabilności.
-    </p>
-    <h3 class="about-footer">Leleka – pewny partner do ciężkiej roboty.</h3>
+  <section class="page-shell vacancies-hero">
+    <div class="vacancies-hero__content">
+      <span class="section-kicker">Kariera</span>
+      <h1>Praca dla fachowców, którzy chcą działać w uporządkowanym zespole.</h1>
+      <p>
+        W Leleka Construction budujemy stabilne warunki pracy wokół realnych projektów, terminowych wypłat
+        i czytelnych zasad współpracy. Szukamy ludzi, którzy chcą pracować solidnie i długofalowo.
+      </p>
+
+      <ul class="eyebrow-list">
+        <li>Oficjalne zatrudnienie</li>
+        <li>Zakwaterowanie przy pracy</li>
+        <li>Wsparcie formalne i legalizacyjne</li>
+      </ul>
+    </div>
+
+    <div class="vacancies-hero__panel dark-panel">
+      <strong>Leleka Construction</strong>
+      <p>
+        Bez chaosu, bez pustych obietnic. Od pierwszego dnia wiadomo, na co można liczyć i jak wygląda współpraca.
+      </p>
+    </div>
   </section>
-  <div class="divider"></div>
 
-  <div class="grid-container">
-    <article class="box" *ngFor="let v of vacancies; trackBy: trackByPath">
-      <div class="box-content">
-        <h3>{{ v.title }}</h3>
-        <p>{{ v.subtitle }}</p>
-        <a [routerLink]="['/vacancies', v.path]" class="offer-button" [attr.aria-label]="v.title" (click)="scrollTop()">Zobacz ofertę</a>
-      </div>
-      <!-- Фото под текстом  -->
-      <img class="box-photo" [src]="v.image || 'assets/video/photos/karier.jpg'" [alt]="v.title" />
-    </article>
-  </div>
+  <section class="page-shell page-section vacancies-grid-section">
+    <div class="vacancies-grid-section__head">
+      <span class="section-kicker">Oferty pracy</span>
+      <h2>Aktualne role w zespole wykonawczym.</h2>
+    </div>
 
-  <app-stats-banner [stats]="statsItems"></app-stats-banner>
+    <div class="vacancies-grid">
+      <article class="vacancy-card" *ngFor="let v of vacancies; trackBy: trackByPath">
+        <img class="vacancy-card__photo" [src]="v.image || 'assets/video/photos/karier.jpg'" [alt]="v.title">
+        <div class="vacancy-card__overlay"></div>
+        <div class="vacancy-card__content">
+          <div class="vacancy-card__meta">
+            <span>{{ v.location }}</span>
+            <span>{{ v.employmentType }}</span>
+          </div>
+          <h3>{{ v.title }}</h3>
+          <p>{{ v.summary }}</p>
+          <ul class="vacancy-card__highlights">
+            <li *ngFor="let item of v.highlights">{{ item }}</li>
+          </ul>
+          <a [routerLink]="['/vacancies', v.path]" class="button-primary" [attr.aria-label]="v.title" (click)="scrollTop()">Zobacz ofertę</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-shell">
+    <app-stats-banner [stats]="statsItems"></app-stats-banner>
+  </section>
 </main>

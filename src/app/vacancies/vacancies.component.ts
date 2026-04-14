@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { StatsBannerComponent } from '../shared/stats-banner/stats-banner.component';
-import { VacancyStorage } from '../storage/vacancy-storage';
+import { Vacancy, VacancyStorage } from '../storage/vacancy-storage';
 
 @Component({
   selector: 'app-vacancies',
@@ -19,9 +19,9 @@ export class VacanciesComponent implements OnInit {
     { value: '100+',   title: 'Zespół specjalistów' }
   ];
 
-  vacancies: any[] = [];
+  vacancies: Vacancy[] = [];
 
-  trackByPath = (_: number, v: any) => v?.path || v?.title;
+  trackByPath = (_: number, vacancy: Vacancy) => vacancy.path;
 
   constructor(private vacancyStorage: VacancyStorage) {}
 

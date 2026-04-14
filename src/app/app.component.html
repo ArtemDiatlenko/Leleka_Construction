@@ -1,57 +1,63 @@
-<header class="site-header dark-section">
-    <div class="header-inner">
-      <div class="header-logo">
-        <a routerLink="/" class="logo-link">
-          <img src="assets/video/photos/logo.png" alt="Leleka Construction Logo" class="logo-img animate-logo">
-        </a>
+<header class="site-header">
+  <div class="site-header__inner page-shell">
+    <a routerLink="/" class="site-brand" aria-label="Leleka Construction" (click)="closeNavigation()">
+      <img src="assets/video/photos/logo.png" alt="Leleka Construction" class="site-brand__logo">
+      <div class="site-brand__text">
+        <strong>Leleka Construction</strong>
+        <span>Monolithic concrete contractor</span>
       </div>
-      <div class="header-menu">
-        <nav class="header-links">
-          <ul class="header-nav">
-            <li><a routerLink="/">Strona główna</a></li>
-            <li><a routerLink="/about">O firmie</a></li>
-            <li class="dropdown header-nav-item">
-              <a href="/vacancies"><span class="dropdown-arrow">▶</span>Kariera</a>
-              <ul class="dropdown-menu">
-                <li *ngFor="let vacancy of vacancies">
-                  <a [routerLink]="['/vacancies', vacancy.path]">
-                    {{ vacancy.title }}
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li><a routerLink="/realizacje">Realizacje</a></li>
-            <li><a routerLink="/contact">Kontakt</a></li>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="mobileMenuOpen"
+      aria-label="Otwórz menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="site-header__panel" [class.site-header__panel--open]="mobileMenuOpen">
+      <nav class="site-nav" aria-label="Główna nawigacja">
+        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavigation()">Strona główna</a>
+        <a routerLink="/about" routerLinkActive="is-active" (click)="closeNavigation()">O firmie</a>
+        <div class="site-nav__group" [class.site-nav__group--open]="careerMenuOpen">
+          <button class="site-nav__group-toggle" type="button" (click)="toggleCareerMenu()">
+            Kariera
+          </button>
+          <div class="site-nav__dropdown">
+            <a routerLink="/vacancies" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavigation()">Wszystkie oferty</a>
+            <a *ngFor="let vacancy of vacancies" [routerLink]="['/vacancies', vacancy.path]" (click)="closeNavigation()">
+              {{ vacancy.title }}
+            </a>
+          </div>
+        </div>
+        <a routerLink="/contact" routerLinkActive="is-active" (click)="closeNavigation()">Kontakt</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <div class="lang-switcher" [class.open]="langMenuOpen">
+          <button
+            class="lang-toggle"
+            type="button"
+            (click)="toggleLangMenu($event)"
+            aria-haspopup="listbox"
+            [attr.aria-expanded]="langMenuOpen"
+          >
+            <span class="lang-toggle__label">Lang</span>
+            <span class="lang-code">{{ activeLang.toUpperCase() }}</span>
+          </button>
+          <ul *ngIf="langMenuOpen" class="lang-menu" role="listbox">
+            <li role="option"><button type="button" (click)="setLang('pl')">PL — Polski</button></li>
+            <li role="option"><button type="button" (click)="setLang('uk')">UK — Українська</button></li>
+            <li role="option"><button type="button" (click)="setLang('en')">EN — English</button></li>
           </ul>
-        </nav>
-    </div>
-    <div class="header-actions">
-      <div class="lang-switcher" [class.open]="langMenuOpen">
-        <button
-          class="lang-toggle"
-          type="button"
-          (click)="toggleLangMenu($event)"
-          aria-haspopup="listbox"
-          [attr.aria-expanded]="langMenuOpen"
-        >
-          <span class="globe" aria-hidden="true">🌐</span>
-          <span class="lang-code">{{ activeLang?.toUpperCase() }}</span>
-        </button>
-        <ul
-          *ngIf="langMenuOpen"
-          class="lang-menu"
-          role="listbox"
-        >
-          <li role="option">
-            <button type="button" (click)="setLang('pl')">PL — Polski</button>
-          </li>
-          <li role="option">
-            <button type="button" (click)="setLang('uk')">UK — Українська</button>
-          </li>
-          <li role="option">
-            <button type="button" (click)="setLang('en')">EN — English</button>
-          </li>
-        </ul>
+        </div>
+
+        <a routerLink="/contact" class="header-cta button-primary" (click)="closeNavigation()">Zapytaj o realizację</a>
       </div>
     </div>
   </div>
@@ -59,14 +65,53 @@
 
 <router-outlet></router-outlet>
 
-<footer class="site-footer dark-section">
-  <div class="footer-container">
-    <div class="footer-contact">
-      <p>📞 +48 733 071 777</p>
-      <p>✉️ contact&#64;lelekaconstruction.com</p>
-    </div>
-    <div class="footer-bottom">
-      <p>Wszelkie prawa zastrzeżone © LELEKA CONSTRUCTION {{ currentYear }}</p>
-    </div>
+<footer class="site-footer">
+  <div class="page-shell site-footer__grid">
+    <section class="site-footer__brand dark-panel">
+      <img src="assets/video/photos/white-logo.jpeg" alt="Leleka Construction" class="site-footer__logo">
+      <h2>Budujemy monolit, który dowozi harmonogram i jakość.</h2>
+      <p>
+        Realizujemy konstrukcje żelbetowe dla inwestycji mieszkaniowych, przemysłowych i komercyjnych w całej Polsce.
+        Łączymy mocne ekipy wykonawcze z odpowiedzialnym prowadzeniem budowy.
+      </p>
+    </section>
+
+    <section class="site-footer__contact card-surface">
+      <span class="section-kicker">Kontakt</span>
+      <div class="site-footer__details">
+        <div>
+          <strong>Biuro</strong>
+          <p>ul. Osowska 23/3A, 04-302 Warszawa</p>
+        </div>
+        <div>
+          <strong>Telefon</strong>
+          <p><a href="tel:+48733071777">+48 733 071 777</a></p>
+        </div>
+        <div>
+          <strong>E-mail</strong>
+          <p><a href="mailto:contact@lelekaconstruction.com">contact&#64;lelekaconstruction.com</a></p>
+        </div>
+        <div>
+          <strong>Obsługa inwestycji</strong>
+          <p>Warszawa, Wrocław i realizacje w całej Polsce</p>
+        </div>
+      </div>
+      <a routerLink="/contact" class="button-secondary" (click)="closeNavigation()">Skontaktuj się z nami</a>
+    </section>
+
+    <section class="site-footer__links">
+      <div class="site-footer__nav card-surface">
+        <strong>Nawigacja</strong>
+        <a routerLink="/" (click)="closeNavigation()">Strona główna</a>
+        <a routerLink="/about" (click)="closeNavigation()">O firmie</a>
+        <a routerLink="/vacancies" (click)="closeNavigation()">Kariera</a>
+        <a routerLink="/contact" (click)="closeNavigation()">Kontakt</a>
+      </div>
+
+      <div class="site-footer__meta">
+        <p>Leleka Construction © {{ currentYear }}</p>
+        <p>Solidny wykonawca robót żelbetowych.</p>
+      </div>
+    </section>
   </div>
 </footer>

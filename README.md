@@ -51,3 +51,4 @@ npm run build
 ## Engineering Notes
 
 The project keeps the architecture intentionally small. Page components own page layout, layout components handle shell behavior, and vacancy content is separated from the service that localizes it. This keeps the code easy to scan while still showing realistic Angular structure, routing, forms and multilingual behavior.
+

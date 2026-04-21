@@ -1,0 +1,466 @@
+{
+  "shell": {
+    "brandAlt": "Leleka Construction",
+    "brandTagline": "Monolityczny wykonawca konstrukcji"
+  },
+  "nav": {
+    "primary": "Główna nawigacja",
+    "home": "Strona główna",
+    "about": "O firmie",
+    "clients": "Klienci",
+    "career": "Kariera",
+    "allVacancies": "Wszystkie oferty",
+    "contact": "Kontakt",
+    "cta": "Wyślij zgłoszenie",
+    "language": "Język",
+    "languageSwitcher": "Wybierz język",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "footer": {
+    "brandTitle": "Tworzymy zespół dla ludzi, którzy chcą pracować przy mocnych realizacjach żelbetowych.",
+    "brandText": "Leleka Construction to nie tylko wykonawca, ale też miejsce dla cieśli, zbrojarzy, brygadzistów i kierowników, którzy szukają stabilnej pracy, legalnego zatrudnienia i realnych budów w Polsce.",
+    "contactKicker": "Kontakt",
+    "officeLabel": "Biuro",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-mail",
+    "operationsLabel": "Lokalizacje pracy",
+    "operationsText": "Warszawa, Wrocław i budowy w całej Polsce",
+    "contactCta": "Zapytaj o pracę",
+    "navigationLabel": "Nawigacja",
+    "metaText": "Rekrutacja do robót żelbetowych i monolitycznych."
+  },
+  "stats": {
+    "ariaLabel": "Statystyki firmy",
+    "founded": "rok założenia firmy",
+    "projects": "ukończonych inwestycji",
+    "cities": "miast, w których działamy",
+    "commitment": "zaangażowania w każdy projekt",
+    "marketYears": "lat działamy na rynku",
+    "businessPartners": "partnerów biznesowych",
+    "completedProjects": "zrealizowanych projektów",
+    "teamSize": "zespół specjalistów"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Leleka Construction",
+      "title": "Dołącz do ekipy, która pracuje przy realnych budowach żelbetowych bez chaosu i pustych obietnic.",
+      "text": "Szukamy fachowców do prac monolitycznych i żelbetowych w całej Polsce. Dajemy uporządkowaną organizację pracy, legalne warunki współpracy, zakwaterowanie przy wybranych projektach i jasne zasady od pierwszego dnia.",
+      "videoFallback": "Twoja przeglądarka nie obsługuje video.",
+      "badges": [
+        "Oficjalne zatrudnienie",
+        "Budowy w całej Polsce",
+        "Mocne brygady i jasne zasady"
+      ],
+      "primaryCta": "Sprawdź oferty pracy",
+      "secondaryCta": "Poznaj warunki współpracy",
+      "summary": [
+        {
+          "label": "Od",
+          "text": "budujemy zespół do robót żelbetowych i monolitycznych"
+        },
+        {
+          "label": "Ponad",
+          "text": "zrealizowanych projektów, przy których można zdobywać praktykę i stabilne doświadczenie"
+        },
+        {
+          "label": "Standard",
+          "text": "czytelnych zasad, terminowych rozliczeń i porządku na budowie"
+        }
+      ]
+    },
+    "signal": {
+      "text": "Rekrutujemy ludzi, którzy chcą pracować konkretnie: z dyscypliną, dobrym tempem i jasnym podziałem odpowiedzialności.",
+      "locations": "Warszawa • Wrocław • Cała Polska"
+    },
+    "overview": {
+      "kicker": "O firmie",
+      "title": "Leleka to miejsce dla ludzi, którzy chcą wejść do dobrze zorganizowanego zespołu wykonawczego.",
+      "text": "Pracujemy przy konstrukcjach żelbetowych i monolitycznych, ale równie ważne jak same realizacje są dla nas warunki pracy. Zespół tworzą inżynierowie, kierownicy, brygadziści i fachowcy, którzy wiedzą, czego się od nich oczekuje i za co odpowiadają.",
+      "story": {
+        "title": "Praca przy pełnym zakresie robót żelbetowych",
+        "text": "Na naszych budowach pracuje się przy fundamentach, ścianach, słupach i stropach. To realne projekty, w których liczy się fach, odpowiedzialność i tempo pracy zespołu.",
+        "cta": "Poznaj firmę i zespół"
+      },
+      "values": [
+        {
+          "title": "Stabilne warunki",
+          "text": "Czytelne zasady współpracy, terminowe rozliczenia i praca bez organizacyjnego chaosu."
+        },
+        {
+          "title": "Mocne zaplecze wykonawcze",
+          "text": "Doświadczeni brygadziści i kierownicy, którzy potrafią poprowadzić pracę i wdrożyć nowych ludzi."
+        },
+        {
+          "title": "Przejrzysta współpraca",
+          "text": "Jasna komunikacja, konkretne oczekiwania i odpowiedzialność rozpisana po stronie zespołu."
+        }
+      ]
+    },
+    "capabilities": {
+      "kicker": "Gdzie pracujemy",
+      "title": "Dołączasz do projektów, w których żelbet musi być wykonany solidnie i bez improwizacji.",
+      "imageAlt": "Realizacja Leleka Construction",
+      "items": [
+        {
+          "title": "Budownictwo mieszkaniowe",
+          "text": "Praca przy wieloetapowych inwestycjach, gdzie liczy się powtarzalność, tempo i dobra organizacja ekip."
+        },
+        {
+          "title": "Obiekty przemysłowe",
+          "text": "Budowy wymagające dyscypliny, mocnych brygad i ludzi, którzy rozumieją odpowiedzialność za zakres."
+        },
+        {
+          "title": "Projekty komercyjne",
+          "text": "Realizacje prowadzone według wysokiego standardu organizacji i współpracy z generalnym wykonawcą."
+        }
+      ]
+    },
+    "career": {
+      "kicker": "Kariera",
+      "title": "Szukamy ludzi, którzy chcą wejść do mocnej ekipy i zostać na dłużej.",
+      "text": "Jeżeli masz doświadczenie w żelbecie, monolicie albo prowadzeniu brygady, zobacz aktualne oferty. Jeśli dopiero budujesz swoją pozycję, też chcemy rozmawiać z konkretnymi ludźmi.",
+      "cta": "Sprawdź oferty pracy",
+      "imageAlt": "Kariera w Leleka Construction"
+    }
+  },
+  "about": {
+    "hero": {
+      "kicker": "O firmie",
+      "title": "Leleka Construction to firma budowlana, która rozwija się razem z ludźmi na budowie.",
+      "text1": "Działamy w robotach żelbetowych i monolitycznych od 2018 roku. Prowadzimy prace szalunkowe, zbrojarskie i betoniarskie, ale równolegle budujemy stabilny zespół ludzi, którzy chcą pracować długofalowo i na jasnych zasadach.",
+      "text2": "Naszą siłą są nie tylko realizacje, ale też to, jak wygląda praca od środka: organizacja budowy, odpowiedzialni kierownicy, mocne brygady i konkretny przepływ informacji. Dzięki temu wiadomo, czego się trzymać i jak rozwijać się dalej.",
+      "badges": [
+        "Realne budowy",
+        "Legalne zatrudnienie",
+        "Praca w całej Polsce"
+      ],
+      "imageAlt": "Leleka Construction realizacja"
+    },
+    "framework": {
+      "kicker": "Jak pracujemy",
+      "title": "Nie obiecujemy złotych gór. Dajemy realną pracę, mocne projekty i porządek w organizacji.",
+      "text": "Nasze podejście do ludzi opiera się na jakości pracy, bezpieczeństwie, terminowych ustaleniach i konkretnej komunikacji na budowie.",
+      "leadTitle": "Leleka Construction",
+      "leadText": "Dobre miejsce dla ludzi, którzy chcą wejść do uporządkowanego środowiska pracy i rozwijać się przy dużych realizacjach.",
+      "items": [
+        {
+          "title": "Legalna i czytelna współpraca",
+          "text": "Od początku wiadomo, na jakich zasadach pracujesz, jak wygląda rozliczenie i czego oczekuje zespół."
+        },
+        {
+          "title": "Organizacja bez chaosu",
+          "text": "Budowa ma trzymać tempo, ale bez improwizacji, bez rozjechanego zakresu i bez niejasnych poleceń."
+        },
+        {
+          "title": "Doświadczeni ludzie na budowie",
+          "text": "Pracujesz z brygadzistami, kierownikami i fachowcami, którzy znają tempo dużych realizacji."
+        },
+        {
+          "title": "Realne projekty i zakres",
+          "text": "Od fundamentów po stropy i ściany robisz robotę, która daje praktykę, stabilność i konkretne doświadczenie."
+        },
+        {
+          "title": "Szacunek do pracy i ludzi",
+          "text": "Stawiamy na jasną komunikację, szybkie decyzje i normalne warunki współpracy, bez pustych obietnic."
+        }
+      ]
+    }
+  },
+  "clients": {
+    "hero": {
+      "kicker": "Dla klientów",
+      "title": "Pewny partner do robót żelbetowych i monolitycznych na wymagających inwestycjach.",
+      "text": "Jeśli szukasz wykonawcy, który potrafi dowieźć zakres, utrzymać porządek realizacyjny i współpracować konkretnie z inwestorem lub generalnym wykonawcą, ta strona jest dla Ciebie. Pokazujemy, jak pracujemy i jak wygląda współpraca po stronie komercyjnej.",
+      "badges": [
+        "Żelbet i monolit",
+        "Realizacje w całej Polsce",
+        "Czytelna organizacja robót"
+      ],
+      "primaryCta": "Napisz o realizacji",
+      "secondaryCta": "Zadzwoń do nas",
+      "imageAlt": "Realizacja dla klientów Leleka Construction",
+      "panelTitle": "Zakres obsługi",
+      "panelText": "Warszawa, Wrocław i inwestycje prowadzone w całej Polsce."
+    },
+    "proof": {
+      "kicker": "Dlaczego Leleka",
+      "title": "Współpraca, która ma dawać przewidywalność po stronie inwestycji.",
+      "text": "Dla klienta liczy się nie tylko sam zakres robót, ale też sposób prowadzenia realizacji. Dlatego stawiamy na klarowną organizację, odpowiedzialne prowadzenie ekip i komunikację, która ułatwia podejmowanie decyzji na budowie.",
+      "items": [
+        {
+          "title": "Czytelne prowadzenie robót",
+          "text": "Zakres, tempo i odpowiedzialność są prowadzone w uporządkowany sposób, bez niepotrzebnego chaosu operacyjnego."
+        },
+        {
+          "title": "Mocne zaplecze wykonawcze",
+          "text": "Pracujemy z brygadami i kadrą, które mają doświadczenie w robotach żelbetowych i monolitycznych."
+        },
+        {
+          "title": "Partnerowa komunikacja",
+          "text": "Na budowie liczy się szybka decyzja i rzetelna informacja. Dbamy o jedno i drugie."
+        }
+      ]
+    },
+    "scope": {
+      "kicker": "Zakres współpracy",
+      "title": "Obsługujemy inwestycje, w których liczy się jakość wykonania i dobra organizacja procesu.",
+      "text": "Pracujemy przy budownictwie mieszkaniowym, przemysłowym i komercyjnym. Dobieramy organizację robót do realiów inwestycji, harmonogramu oraz standardu oczekiwanego przez inwestora i generalnego wykonawcę.",
+      "imageAlt": "Zakres współpracy Leleka Construction",
+      "items": [
+        {
+          "title": "Budownictwo mieszkaniowe",
+          "text": "Roboty żelbetowe dla inwestycji wieloetapowych, gdzie liczy się rytm, jakość i terminowość."
+        },
+        {
+          "title": "Obiekty przemysłowe",
+          "text": "Realizacje wymagające technologicznej dyscypliny, mocnych ekip i odpowiedzialnego nadzoru."
+        },
+        {
+          "title": "Projekty komercyjne",
+          "text": "Zakres dostosowany do skali realizacji i standardów współpracy po stronie generalnego wykonawcy."
+        }
+      ]
+    },
+    "process": {
+      "kicker": "Proces współpracy",
+      "title": "Działamy w prostym i konkretnym modelu współpracy.",
+      "text": "Klient powinien wiedzieć, czego może oczekiwać na starcie, w trakcie realizacji i przy dalszych ustaleniach. Dlatego prowadzimy współpracę w przejrzystym rytmie.",
+      "steps": [
+        {
+          "title": "Rozpoznanie zakresu",
+          "text": "Na początku ustalamy typ inwestycji, zakres robót, warunki wejścia na budowę i oczekiwany harmonogram."
+        },
+        {
+          "title": "Dobór organizacji wykonawczej",
+          "text": "Dopasowujemy zespół, nadzór i model pracy do skali realizacji oraz wymagań inwestycji."
+        },
+        {
+          "title": "Prowadzenie i komunikacja",
+          "text": "Podczas realizacji dbamy o jakość, rytm pracy i komunikację, która pozwala sprawnie prowadzić projekt dalej."
+        }
+      ]
+    },
+    "cta": {
+      "kicker": "Porozmawiajmy",
+      "title": "Jeśli chcesz omówić realizację, skontaktuj się bezpośrednio z nami.",
+      "text": "Możemy porozmawiać o zakresie robót, dostępności zespołu, lokalizacji inwestycji i możliwym modelu współpracy.",
+      "phoneLabel": "Telefon",
+      "emailLabel": "E-mail",
+      "primaryCta": "Wyślij wiadomość",
+      "secondaryCta": "Poznaj firmę"
+    }
+  },
+  "contact": {
+    "officeAddress": "ul. Osowska 23/3A, 04-302 Warszawa, Mazowieckie",
+    "hero": {
+      "kicker": "Kontakt",
+      "title": "Skontaktuj się z nami, jeśli szukasz pracy przy żelbecie albo chcesz dołączyć do ekipy.",
+      "text": "Ta strona kontaktowa ma przede wszystkim pomagać w rekrutacji. Jeśli chcesz zapytać o pracę, warunki współpracy, dostępne role lub termin rozpoczęcia, wyślij zgłoszenie i wrócimy z konkretną odpowiedzią.",
+      "imageAlt": "Biuro Leleka Construction",
+      "panelTitle": "Gdzie rekrutujemy",
+      "panelText": "Warszawa, Wrocław i budowy prowadzone w całej Polsce."
+    },
+    "cards": {
+      "officeLabel": "Biuro",
+      "phoneLabel": "Telefon",
+      "emailLabel": "E-mail",
+      "hoursLabel": "Godziny pracy",
+      "hoursValue": "Poniedziałek–Piątek, 8:00–16:00"
+    },
+    "inquiry": {
+      "kicker": "Zgłoszenie do pracy",
+      "title": "Zostaw dane, jeśli chcesz dołączyć do zespołu lub podjąć współpracę przy naszych realizacjach.",
+      "text": "To najprostszy sposób, żeby zgłosić się do pracy, zapytać o dostępne role i ustalić możliwy termin rozpoczęcia. Im konkretniej opiszesz swoje doświadczenie i dyspozycyjność, tym szybciej wrócimy z odpowiedzią.",
+      "signals": [
+        {
+          "title": "Konkretna odpowiedź",
+          "text": "Po otrzymaniu zgłoszenia kontaktujemy się z informacją o aktualnych możliwościach zatrudnienia lub dalszych krokach."
+        },
+        {
+          "title": "Szybsze dopasowanie roli",
+          "text": "Dzięki informacjom o doświadczeniu, lokalizacji i dostępności łatwiej od razu dopasować ofertę do Twojego profilu."
+        },
+        {
+          "title": "Jasny proces od początku",
+          "text": "Nie musisz przygotowywać rozbudowanego CV na start. Wystarczy krótki opis, a resztę ustalimy w bezpośrednim kontakcie."
+        }
+      ],
+      "processTitle": "Jak to działa",
+      "processSteps": [
+        "Wysyłasz podstawowe informacje o sobie, doświadczeniu i gotowości do pracy.",
+        "Sprawdzamy zgłoszenie pod kątem roli, lokalizacji i możliwego terminu rozpoczęcia.",
+        "Wracamy z odpowiedzią, dodatkowymi pytaniami albo propozycją rozmowy."
+      ]
+    },
+    "form": {
+      "kicker": "Zgłoszenie do pracy",
+      "title": "Wyślij zgłoszenie rekrutacyjne",
+      "text": "Wypełnij formularz, a szybciej ocenimy, do jakiej roli lub typu współpracy możesz pasować.",
+      "submit": "Wyślij zgłoszenie",
+      "submitLoading": "Wysyłanie...",
+      "footerText": "Po wysłaniu formularza skontaktujemy się, aby omówić stanowisko, warunki współpracy i możliwy termin startu.",
+      "success": {
+        "title": "Zgłoszenie zostało przyjęte.",
+        "text": "Dziękujemy. Otrzymaliśmy formularz i wrócimy z odpowiedzią tak szybko, jak to możliwe."
+      },
+      "errorState": {
+        "title": "Nie udało się wysłać formularza.",
+        "text": "Spróbuj ponownie za chwilę. Jeśli problem się powtórzy, użyj telefonu lub e-maila z sekcji kontaktowej."
+      },
+      "fields": {
+        "fullName": {
+          "label": "Imię i nazwisko",
+          "placeholder": "np. Jan Kowalski",
+          "helper": "Twoje dane kontaktowe do rozmowy rekrutacyjnej."
+        },
+        "phone": {
+          "label": "Numer telefonu",
+          "placeholder": "+48 000 000 000",
+          "helper": "Numer, pod którym możemy szybko oddzwonić."
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "kontakt@firma.pl",
+          "helper": "Na ten adres możemy wysłać dalsze pytania lub potwierdzenie kontaktu."
+        },
+        "role": {
+          "label": "Rodzaj pracy / rola",
+          "placeholder": "Wybierz interesującą Cię rolę",
+          "helper": "To pole pomaga od razu skierować zgłoszenie do odpowiedniej osoby."
+        },
+        "experience": {
+          "label": "Poziom doświadczenia",
+          "placeholder": "Opcjonalnie wybierz poziom doświadczenia",
+          "helper": "Pole opcjonalne, jeśli chcesz od razu zaznaczyć swój poziom."
+        },
+        "location": {
+          "label": "Lokalizacja",
+          "placeholder": "Miasto / województwo / skąd możesz pracować",
+          "helper": "Wystarczy ogólna informacja, skąd jesteś lub gdzie możesz pracować."
+        },
+        "availability": {
+          "label": "Dostępność",
+          "placeholder": "Kiedy możesz zacząć?",
+          "helper": "To pole pomaga ocenić możliwy termin wejścia do zespołu."
+        },
+        "cooperation": {
+          "label": "Forma współpracy",
+          "placeholder": "Wybierz preferowaną formę",
+          "helper": "Opcjonalne, ale pomaga szybciej dopasować ofertę."
+        },
+        "scope": {
+          "label": "Doświadczenie / specjalizacja",
+          "placeholder": "np. cieśla szalunkowy, zbrojarz, brygadzista, kierownik robót",
+          "helper": "Krótko opisz, w czym masz doświadczenie i przy jakich pracach pracowałeś."
+        },
+        "message": {
+          "label": "Wiadomość / kilka słów o sobie",
+          "placeholder": "Napisz, jakiej pracy szukasz, jakie masz doświadczenie, czy potrzebujesz zakwaterowania i od kiedy możesz zacząć.",
+          "helper": "Im lepiej opiszesz sytuację, tym szybciej wrócimy z konkretną odpowiedzią."
+        },
+        "consent": {
+          "label": "Wyrażam zgodę na kontakt w sprawie rekrutacji oraz przetwarzanie danych w celu obsługi zgłoszenia."
+        }
+      },
+      "options": {
+        "role": {
+          "residential": "Cieśla szalunkowy / monolity",
+          "industrial": "Zbrojarz",
+          "commercial": "Betoniarz / prace żelbetowe",
+          "public": "Brygadzista / kierownik robót",
+          "other": "Inna rola"
+        },
+        "experience": {
+          "multiFamily": "Początkujący",
+          "hall": "Doświadczenie średnie",
+          "office": "Doświadczony fachowiec",
+          "service": "Prowadzenie zespołu",
+          "other": "Inny profil"
+        },
+        "availability": {
+          "asap": "Mogę zacząć od razu",
+          "oneToThreeMonths": "W ciągu 1–2 tygodni",
+          "threeToSixMonths": "W ciągu miesiąca",
+          "overSixMonths": "Termin do ustalenia"
+        },
+        "cooperation": {
+          "upTo500k": "Umowa o pracę",
+          "from500kTo2m": "B2B / działalność",
+          "from2mTo5m": "Umowa zlecenie",
+          "over5m": "Praca brygadą",
+          "toDiscuss": "Do ustalenia"
+        }
+      },
+      "errors": {
+        "fullNameRequired": "Podaj imię i nazwisko.",
+        "fullNameMin": "Wpisz pełne imię i nazwisko.",
+        "phoneRequired": "Podaj numer telefonu.",
+        "phoneMin": "Numer telefonu jest zbyt krótki.",
+        "emailRequired": "Podaj adres e-mail.",
+        "emailInvalid": "Wpisz poprawny adres e-mail.",
+        "roleRequired": "Wybierz interesującą Cię rolę.",
+        "locationRequired": "Podaj swoją lokalizację.",
+        "scopeRequired": "Podaj doświadczenie lub specjalizację.",
+        "scopeMin": "Doprecyzuj doświadczenie w kilku słowach.",
+        "messageRequired": "Dodaj kilka słów o sobie.",
+        "messageMin": "Opis powinien mieć przynajmniej kilkanaście znaków.",
+        "consentRequired": "Zgoda jest wymagana, aby wysłać formularz."
+      }
+    },
+    "map": {
+      "kicker": "Lokalizacja",
+      "title": "Spotkajmy się w biurze lub na budowie.",
+      "frameTitle": "Mapa lokalizacji Leleka Construction"
+    }
+  },
+  "vacancies": {
+    "hero": {
+      "kicker": "Kariera",
+      "title": "Praca dla fachowców, którzy chcą działać w uporządkowanym zespole.",
+      "text": "W Leleka Construction budujemy stabilne warunki pracy wokół realnych projektów, terminowych wypłat i czytelnych zasad współpracy. Szukamy ludzi, którzy chcą pracować solidnie i długofalowo.",
+      "badges": [
+        "Oficjalne zatrudnienie",
+        "Zakwaterowanie przy pracy",
+        "Wsparcie formalne i legalizacyjne"
+      ],
+      "panelTitle": "Leleka Construction",
+      "panelText": "Bez chaosu, bez pustych obietnic. Od pierwszego dnia wiadomo, na co można liczyć i jak wygląda współpraca."
+    },
+    "grid": {
+      "kicker": "Oferty pracy",
+      "title": "Aktualne role w zespole wykonawczym.",
+      "cta": "Zobacz ofertę"
+    }
+  },
+  "vacancy": {
+    "hero": {
+      "kicker": "Oferta pracy",
+      "text": "Dołącz do zespołu realizującego projekty żelbetowe w uporządkowanym środowisku pracy, z jasnymi zasadami współpracy i stabilnym zapleczem organizacyjnym."
+    },
+    "sections": {
+      "offers": "Oferujemy",
+      "responsibilities": "Obowiązki",
+      "requirements": "Wymagania"
+    },
+    "cta": {
+      "title": "Chcesz do nas dołączyć?",
+      "text": "Skontaktuj się z nami, aby omówić tę ofertę lub inne możliwości współpracy.",
+      "button": "Skontaktuj się z nami"
+    },
+    "summary": {
+      "title": "Szybki podgląd",
+      "location": "Lokalizacja",
+      "employmentType": "Forma współpracy",
+      "phone": "Telefon"
+    },
+    "related": {
+      "title": "Inne oferty"
+    },
+    "notFound": {
+      "title": "Oferta nie znaleziona",
+      "text": "Ta oferta nie jest już dostępna lub wskazany adres jest nieprawidłowy.",
+      "button": "Powrót do ofert pracy"
+    }
+  }
+}

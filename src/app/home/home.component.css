@@ -38,26 +38,27 @@
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 400px);
-  gap: 34px;
+  gap: var(--section-gap);
   align-items: end;
-  padding-top: clamp(64px, 9vw, 110px);
-  padding-bottom: 72px;
+  padding-top: clamp(56px, 8vw, 104px);
+  padding-bottom: clamp(40px, 6vw, 72px);
 }
 
 .home-hero__copy {
   max-width: 760px;
+  min-width: 0;
 }
 
 .home-hero__copy h1 {
-  margin-top: 24px;
-  max-width: 11ch;
+  margin-top: var(--space-lg);
+  max-width: 13ch;
   font-size: clamp(3.2rem, 6vw, 6.2rem);
   line-height: 0.92;
   color: #fff;
 }
 
 .home-hero__copy p {
-  margin-top: 24px;
+  margin-top: var(--space-lg);
   max-width: 58ch;
   font-size: 1.08rem;
   line-height: 1.85;
@@ -65,7 +66,7 @@
 }
 
 .home-hero__badges {
-  margin-top: 28px;
+  margin-top: var(--space-md);
 }
 
 .home-hero__badges li {
@@ -77,8 +78,8 @@
 .home-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 34px;
+  gap: var(--space-xs);
+  margin-top: var(--space-lg);
 }
 
 .home-hero__actions .button-ghost {
@@ -89,13 +90,14 @@
 
 .home-hero__summary {
   display: grid;
-  gap: 14px;
-  padding: 18px;
+  gap: var(--space-xs);
+  padding: var(--space-xs);
   border-radius: 30px;
+  min-width: 0;
 }
 
 .home-hero__summary-item {
-  padding: 20px 20px 22px;
+  padding: var(--card-pad-tight);
   border-radius: 22px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(234, 241, 248, 0.94));
   border: 1px solid rgba(15, 40, 77, 0.08);
@@ -112,7 +114,7 @@
 
 .home-hero__summary-item strong {
   display: block;
-  margin-top: 10px;
+  margin-top: var(--space-2xs);
   font-family: "Space Grotesk", sans-serif;
   font-size: 2.4rem;
   line-height: 0.95;
@@ -120,7 +122,7 @@
 }
 
 .home-hero__summary-item p {
-  margin-top: 10px;
+  margin-top: var(--space-2xs);
   color: var(--color-ink-700);
   line-height: 1.7;
 }
@@ -135,8 +137,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 24px 28px;
+  gap: var(--content-gap);
+  padding: var(--card-pad-tight);
   border-radius: 28px;
   background: linear-gradient(135deg, var(--color-yellow-500), var(--color-yellow-450));
   box-shadow: 0 28px 56px rgba(242, 194, 48, 0.3);
@@ -159,25 +161,26 @@
 
 .company-overview {
   display: grid;
-  gap: 28px;
+  gap: var(--section-gap);
 }
 
 .company-overview__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 24px;
+  gap: var(--content-gap);
 }
 
 .company-overview__story,
 .company-overview__value {
-  padding: 32px;
+  padding: var(--card-pad);
   border-radius: 30px;
+  min-width: 0;
 }
 
 .company-overview__story {
   display: grid;
   align-content: space-between;
-  gap: 20px;
+  gap: var(--space-sm);
 }
 
 .company-overview__story h3,
@@ -197,13 +200,18 @@
 .company-overview__values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: var(--space-sm);
+  grid-auto-rows: 1fr;
+}
+
+.company-overview__value {
+  height: 100%;
 }
 
 .capabilities {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 28px;
+  gap: var(--hero-gap);
   align-items: center;
 }
 
@@ -215,7 +223,8 @@
 }
 
 .capabilities__content h2 {
-  margin-top: 20px;
+  margin-top: var(--space-md);
+  max-width: 16ch;
   font-size: clamp(2.2rem, 4vw, 4rem);
   line-height: 0.96;
   color: var(--color-navy-950);
@@ -223,17 +232,17 @@
 
 .capabilities__list {
   display: grid;
-  gap: 18px;
-  margin-top: 28px;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 
 .capabilities__list article {
-  padding: 24px 0;
+  padding: var(--space-lg) 0;
   border-bottom: 1px solid rgba(15, 40, 77, 0.1);
 }
 
 .capabilities__list p {
-  margin-top: 10px;
+  margin-top: var(--space-2xs);
   color: var(--color-ink-700);
   line-height: 1.8;
 }
@@ -241,34 +250,35 @@
 .career-banner__layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 0.78fr);
-  gap: 24px;
-  padding: 24px;
+  gap: var(--content-gap);
+  padding: var(--card-pad-tight);
   border-radius: 34px;
   overflow: hidden;
 }
 
 .career-banner__copy {
-  padding: 26px;
+  padding: var(--panel-pad);
   color: #fff;
   align-self: center;
+  min-width: 0;
 }
 
 .career-banner__copy h2 {
-  margin-top: 20px;
-  max-width: 12ch;
+  margin-top: var(--space-md);
+  max-width: 16ch;
   font-size: clamp(2.4rem, 4.2vw, 4.6rem);
   line-height: 0.94;
 }
 
 .career-banner__copy p {
-  margin-top: 18px;
+  margin-top: var(--space-xs);
   max-width: 48ch;
   color: rgba(255, 255, 255, 0.76);
   line-height: 1.8;
 }
 
 .career-banner__copy .button-primary {
-  margin-top: 28px;
+  margin-top: var(--space-lg);
   width: auto;
 }
 
@@ -312,13 +322,13 @@
   }
 
   .home-hero__layout {
-    padding-top: 48px;
-    padding-bottom: 48px;
-    gap: 22px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: var(--space-md);
   }
 
   .home-hero__copy h1 {
-    max-width: 12ch;
+    max-width: 14ch;
     font-size: clamp(2.5rem, 11vw, 4.2rem);
   }
 
@@ -333,19 +343,19 @@
 
   .home-signal {
     margin-top: 0;
-    padding-top: 18px;
+    padding-top: var(--space-sm);
   }
 
   .home-signal__bar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 22px;
+    padding: var(--card-pad-tight);
   }
 
   .company-overview__story,
   .company-overview__value,
   .career-banner__copy {
-    padding: 22px;
+    padding: var(--card-pad-tight);
   }
 
   .career-banner__layout {
@@ -355,5 +365,23 @@
 
   .career-banner__media {
     min-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero__summary,
+  .home-hero__summary-item,
+  .home-signal__bar,
+  .company-overview__story,
+  .company-overview__value {
+    padding: 20px;
+  }
+
+  .capabilities__media img {
+    min-height: 300px;
+  }
+
+  .career-banner__copy {
+    padding: 20px;
   }
 }

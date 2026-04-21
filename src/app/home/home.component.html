@@ -1,141 +1,104 @@
-<main class="home-page">
-  <section class="home-hero">
-    <div class="home-hero__media">
-      <video class="home-hero__video" autoplay muted loop playsinline>
-        <source src="assets/video/Janbud_Budownictwo_Przemyslowe_1.mp4" type="video/mp4" />
-        Twoja przeglądarka nie obsługuje video.
-      </video>
-      <div class="home-hero__shade"></div>
-    </div>
+<ng-container *transloco="let t">
+  <main class="home-page">
+    <section class="home-hero">
+      <div class="home-hero__media">
+        <video class="home-hero__video" autoplay muted loop playsinline>
+          <source src="assets/video/Janbud_Budownictwo_Przemyslowe_1.mp4" type="video/mp4" />
+          {{ t('home.hero.videoFallback') }}
+        </video>
+        <div class="home-hero__shade"></div>
+      </div>
 
-    <div class="page-shell home-hero__layout">
-      <div class="home-hero__copy">
-        <span class="section-kicker section-kicker--inverse">Leleka Construction</span>
-        <h1>Żelbetowe realizacje prowadzone pewnie, czysto i bez chaosu na budowie.</h1>
-        <p>
-          Wykonujemy monolityczne konstrukcje żelbetowe dla inwestycji mieszkaniowych, przemysłowych i komercyjnych.
-          Dowożimy organizację, termin i odpowiedzialność wykonawczą na każdym etapie budowy.
-        </p>
+      <div class="page-shell home-hero__layout">
+        <div class="home-hero__copy">
+          <span class="section-kicker section-kicker--inverse">{{ t('home.hero.kicker') }}</span>
+          <h1>{{ t('home.hero.title') }}</h1>
+          <p>{{ t('home.hero.text') }}</p>
 
-        <ul class="eyebrow-list home-hero__badges">
-          <li>Fundamenty, ściany, stropy</li>
-          <li>Realizacje w całej Polsce</li>
-          <li>Mocne brygady i nadzór</li>
-        </ul>
+          <ul class="eyebrow-list home-hero__badges">
+            <li *ngFor="let badge of t('home.hero.badges')">{{ badge }}</li>
+          </ul>
 
-        <div class="home-hero__actions">
-          <a class="button-primary" routerLink="/contact" (click)="scrollTop()">Porozmawiaj o inwestycji</a>
-          <a class="button-ghost" routerLink="/about" (click)="scrollTop()">Zobacz jak pracujemy</a>
+          <div class="home-hero__actions">
+            <a class="button-primary" routerLink="/vacancies" (click)="scrollTop()">{{ t('home.hero.primaryCta') }}</a>
+            <a class="button-ghost" routerLink="/about" (click)="scrollTop()">{{ t('home.hero.secondaryCta') }}</a>
+          </div>
+        </div>
+
+        <aside class="home-hero__summary card-surface">
+          <div class="home-hero__summary-item" *ngFor="let summary of t('home.hero.summary'); let index = index">
+            <span>{{ summary.label }}</span>
+            <strong>{{ heroSummaryValues[index] }}</strong>
+            <p>{{ summary.text }}</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="home-signal page-shell">
+      <div class="home-signal__bar">
+        <p>{{ t('home.signal.text') }}</p>
+        <span>{{ t('home.signal.locations') }}</span>
+      </div>
+    </section>
+
+    <section class="page-section page-shell company-overview">
+      <div class="company-overview__intro section-heading">
+        <span class="section-kicker">{{ t('home.overview.kicker') }}</span>
+        <h2>{{ t('home.overview.title') }}</h2>
+        <p>{{ t('home.overview.text') }}</p>
+      </div>
+
+      <div class="company-overview__grid">
+        <article class="company-overview__story card-surface">
+          <h3>{{ t('home.overview.story.title') }}</h3>
+          <p>{{ t('home.overview.story.text') }}</p>
+          <a class="button-secondary" routerLink="/about" (click)="scrollTop()">{{ t('home.overview.story.cta') }}</a>
+        </article>
+
+        <div class="company-overview__values">
+          <article class="company-overview__value card-surface" *ngFor="let value of t('home.overview.values')">
+            <h3>{{ value.title }}</h3>
+            <p>{{ value.text }}</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <aside class="home-hero__summary card-surface">
-        <div class="home-hero__summary-item">
-          <span>Od</span>
-          <strong>2018</strong>
-          <p>realizujemy roboty żelbetowe dla wymagających inwestycji</p>
+    <section class="page-section page-shell capabilities">
+      <div class="capabilities__media media-frame">
+        <img src="assets/video/photos/about-photo.png" [attr.alt]="t('home.capabilities.imageAlt')">
+      </div>
+
+      <div class="capabilities__content">
+        <span class="section-kicker">{{ t('home.capabilities.kicker') }}</span>
+        <h2>{{ t('home.capabilities.title') }}</h2>
+        <div class="capabilities__list">
+          <article *ngFor="let capability of t('home.capabilities.items')">
+            <strong>{{ capability.title }}</strong>
+            <p>{{ capability.text }}</p>
+          </article>
         </div>
-        <div class="home-hero__summary-item">
-          <span>Ponad</span>
-          <strong>60+</strong>
-          <p>ukończonych projektów i długofalowych współprac wykonawczych</p>
+      </div>
+    </section>
+
+    <section class="page-section page-shell career-banner">
+      <div class="career-banner__layout dark-panel">
+        <div class="career-banner__copy">
+          <span class="section-kicker section-kicker--inverse">{{ t('home.career.kicker') }}</span>
+          <h2>{{ t('home.career.title') }}</h2>
+          <p>{{ t('home.career.text') }}</p>
+          <a class="button-primary" routerLink="/vacancies" (click)="scrollTop()">{{ t('home.career.cta') }}</a>
         </div>
-        <div class="home-hero__summary-item">
-          <span>Standard</span>
-          <strong>100%</strong>
-          <p>skupienia na jakości, bezpieczeństwie i czytelnym harmonogramie</p>
+
+        <div class="career-banner__media">
+          <img src="assets/video/photos/123.png" [attr.alt]="t('home.career.imageAlt')">
         </div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="home-signal page-shell">
-    <div class="home-signal__bar">
-      <p>Budujemy w oparciu o dyscyplinę wykonawczą, czytelną komunikację i realną odpowiedzialność za końcowy efekt.</p>
-      <span>Warszawa • Wrocław • Cała Polska</span>
-    </div>
-  </section>
-
-  <section class="page-section page-shell company-overview">
-    <div class="company-overview__intro section-heading">
-      <span class="section-kicker">O firmie</span>
-      <h2>Leleka to wykonawca, którego można włączyć do inwestycji bez ryzyka organizacyjnego.</h2>
-      <p>
-        Specjalizujemy się w pracach żelbetowych i budownictwie monolitycznym. Nasze zespoły tworzą doświadczeni
-        inżynierowie, kierownicy oraz brygady wykonawcze, które pracują według planu, a nie improwizacji na budowie.
-      </p>
-    </div>
-
-    <div class="company-overview__grid">
-      <article class="company-overview__story card-surface">
-        <h3>Kompleksowe wykonanie robót żelbetowych</h3>
-        <p>
-          Realizujemy fundamenty, ściany, słupy i stropy, prowadząc roboty z naciskiem na trwałość konstrukcji,
-          bezpieczeństwo i przewidywalność przebiegu budowy.
-        </p>
-        <a class="button-secondary" routerLink="/about" (click)="scrollTop()">Dowiedz się więcej o firmie</a>
-      </article>
-
-      <div class="company-overview__values">
-        <article class="company-overview__value card-surface">
-          <h3>Stabilny proces</h3>
-          <p>Przejrzyste etapy prac, koordynacja ekip i konsekwentne trzymanie harmonogramu.</p>
-        </article>
-        <article class="company-overview__value card-surface">
-          <h3>Silne zaplecze wykonawcze</h3>
-          <p>Doświadczeni fachowcy, którzy rozumieją wymagania inwestycji i tempo budowy.</p>
-        </article>
-        <article class="company-overview__value card-surface">
-          <h3>Partnerska współpraca</h3>
-          <p>Rzetelna komunikacja z inwestorem, szybkie decyzje i odpowiedzialność za rezultat.</p>
-        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="page-section page-shell capabilities">
-    <div class="capabilities__media media-frame">
-      <img src="assets/video/photos/about-photo.png" alt="Realizacja Leleka Construction">
-    </div>
-
-    <div class="capabilities__content">
-      <span class="section-kicker">Zakres</span>
-      <h2>Pracujemy tam, gdzie konstrukcja musi być pewna, a wykonanie dobrze zorganizowane.</h2>
-      <div class="capabilities__list">
-        <article>
-          <strong>Budownictwo mieszkaniowe</strong>
-          <p>Monolity dla wieloetapowych inwestycji, w których liczy się powtarzalna jakość i terminowość.</p>
-        </article>
-        <article>
-          <strong>Obiekty przemysłowe</strong>
-          <p>Realizacje wymagające dyscypliny technologicznej, mocnych ekip i odpowiedzialnego prowadzenia robót.</p>
-        </article>
-        <article>
-          <strong>Projekty komercyjne</strong>
-          <p>Zakres robót dopasowany do skali inwestycji i standardów generalnego wykonawcy.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section page-shell career-banner">
-    <div class="career-banner__layout dark-panel">
-      <div class="career-banner__copy">
-        <span class="section-kicker section-kicker--inverse">Kariera</span>
-        <h2>Buduj z nami projekty, które wymagają fachu i odpowiedzialności.</h2>
-        <p>
-          Szukamy ludzi, którzy chcą pracować w uporządkowanym zespole, przy realnych inwestycjach i na przejrzystych zasadach.
-        </p>
-        <a class="button-primary" routerLink="/vacancies" (click)="scrollTop()">Sprawdź oferty pracy</a>
-      </div>
-
-      <div class="career-banner__media">
-        <img src="assets/video/photos/123.png" alt="Kariera w Leleka Construction">
-      </div>
-    </div>
-  </section>
-
-  <section class="page-shell">
-    <app-stats-banner [stats]="statsItems"></app-stats-banner>
-  </section>
-</main>
+    <section class="page-shell">
+      <app-stats-banner [stats]="companyStats"></app-stats-banner>
+    </section>
+  </main>
+</ng-container>

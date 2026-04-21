@@ -1,62 +1,229 @@
-<main class="contact-page">
-  <section class="page-shell contact-hero">
-    <div class="contact-hero__content">
-      <span class="section-kicker">Kontakt</span>
-      <h1>Rozmawiajmy konkretnie o inwestycji, zakresie i terminach.</h1>
-      <p>
-        Jeśli chcesz omówić współpracę, wycenę lub zaplanować spotkanie, skontaktuj się z nami.
-        Odpowiadamy rzeczowo i pracujemy z inwestycjami na terenie całej Polski.
-      </p>
+<ng-container *transloco="let t">
+  <main class="contact-page">
+    <section class="page-shell contact-hero">
+      <div class="contact-hero__content">
+        <span class="section-kicker">{{ t('contact.hero.kicker') }}</span>
+        <h1>{{ t('contact.hero.title') }}</h1>
+        <p>{{ t('contact.hero.text') }}</p>
 
-      <div class="contact-hero__grid">
-        <article class="contact-card">
-          <strong>Biuro</strong>
-          <p>ul. Osowska 23/3A, 04-302 Warszawa, Mazowieckie</p>
-        </article>
-        <article class="contact-card">
-          <strong>Telefon</strong>
-          <p><a href="tel:+48733071777">+48 733 071 777</a></p>
-        </article>
-        <article class="contact-card">
-          <strong>E-mail</strong>
-          <p><a href="mailto:contact@lelekaconstruction.com">contact&#64;lelekaconstruction.com</a></p>
-        </article>
-        <article class="contact-card">
-          <strong>Godziny pracy</strong>
-          <p>Poniedziałek–Piątek, 8:00–16:00</p>
-        </article>
-      </div>
-    </div>
-
-    <div class="contact-hero__aside">
-      <div class="contact-hero__photo media-frame">
-        <img src="assets/video/photos/contact-photo.jpg" alt="Biuro Leleka Construction">
+        <div class="contact-hero__grid">
+          <article class="contact-card">
+            <strong>{{ t('contact.cards.officeLabel') }}</strong>
+            <p>{{ t('contact.officeAddress') }}</p>
+          </article>
+          <article class="contact-card">
+            <strong>{{ t('contact.cards.phoneLabel') }}</strong>
+            <p><a href="tel:+48733071777">+48 733 071 777</a></p>
+          </article>
+          <article class="contact-card">
+            <strong>{{ t('contact.cards.emailLabel') }}</strong>
+            <p><a href="mailto:contact@lelekaconstruction.com">contact&#64;lelekaconstruction.com</a></p>
+          </article>
+          <article class="contact-card">
+            <strong>{{ t('contact.cards.hoursLabel') }}</strong>
+            <p>{{ t('contact.cards.hoursValue') }}</p>
+          </article>
+        </div>
       </div>
 
-      <div class="contact-hero__panel dark-panel">
-        <strong>Obsługa inwestycji</strong>
-        <p>Warszawa, Wrocław i projekty prowadzone w całej Polsce.</p>
-      </div>
-    </div>
-  </section>
+      <div class="contact-hero__aside">
+        <div class="contact-hero__photo media-frame">
+          <img src="assets/video/photos/contact-photo.jpg" [attr.alt]="t('contact.hero.imageAlt')">
+        </div>
 
-  <section class="page-shell page-section">
-    <div class="contact-map card-surface">
-      <div class="contact-map__head">
-        <span class="section-kicker">Lokalizacja</span>
-        <h2>Spotkajmy się w biurze lub na budowie.</h2>
+        <div class="contact-hero__panel dark-panel">
+          <strong>{{ t('contact.hero.panelTitle') }}</strong>
+          <p>{{ t('contact.hero.panelText') }}</p>
+        </div>
       </div>
-      <div class="contact-map__frame">
-        <iframe
-          width="100%"
-          height="520"
-          style="border:0"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=51.096,17.036&z=15&output=embed">
-        </iframe>
+    </section>
+
+    <section class="page-shell page-section">
+      <div class="contact-inquiry card-surface">
+        <div class="contact-inquiry__intro">
+          <span class="section-kicker">{{ t('contact.inquiry.kicker') }}</span>
+          <h2>{{ t('contact.inquiry.title') }}</h2>
+          <p>{{ t('contact.inquiry.text') }}</p>
+
+          <div class="contact-inquiry__signals">
+            <article class="contact-inquiry__signal" *ngFor="let signal of t('contact.inquiry.signals')">
+              <strong>{{ signal.title }}</strong>
+              <p>{{ signal.text }}</p>
+            </article>
+          </div>
+
+          <div class="contact-inquiry__process dark-panel">
+            <strong>{{ t('contact.inquiry.processTitle') }}</strong>
+            <ol>
+              <li *ngFor="let step of t('contact.inquiry.processSteps')">{{ step }}</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="contact-form card-surface">
+          <div class="contact-form__head">
+            <span class="section-kicker">{{ t('contact.form.kicker') }}</span>
+            <h3>{{ t('contact.form.title') }}</h3>
+            <p>{{ t('contact.form.text') }}</p>
+          </div>
+
+          <div *ngIf="isSuccess" class="contact-form__success" role="status" aria-live="polite">
+            <strong>{{ t('contact.form.success.title') }}</strong>
+            <p>{{ t('contact.form.success.text') }}</p>
+          </div>
+
+          <div *ngIf="isError" class="contact-form__error-state" role="alert" aria-live="assertive">
+            <strong>{{ t('contact.form.errorState.title') }}</strong>
+            <p>{{ t('contact.form.errorState.text') }}</p>
+          </div>
+
+          <form class="contact-form__grid" [formGroup]="inquiryForm" [attr.aria-busy]="isSubmitting" (ngSubmit)="submitInquiry()" novalidate>
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.fullName.label') }}</span>
+              <input
+                type="text"
+                autocomplete="name"
+                formControlName="fullName"
+                [placeholder]="t('contact.form.fields.fullName.placeholder')"
+                [class.is-invalid]="isInvalid('fullName')"
+                [attr.aria-invalid]="isInvalid('fullName')"
+              >
+              <small>{{ t('contact.form.fields.fullName.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('fullName', 'required')">{{ t('contact.form.errors.fullNameRequired') }}</small>
+              <small class="form-error" *ngIf="hasError('fullName', 'minlength')">{{ t('contact.form.errors.fullNameMin') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.phone.label') }}</span>
+              <input
+                type="tel"
+                autocomplete="tel"
+                formControlName="phone"
+                [placeholder]="t('contact.form.fields.phone.placeholder')"
+                [class.is-invalid]="isInvalid('phone')"
+                [attr.aria-invalid]="isInvalid('phone')"
+              >
+              <small>{{ t('contact.form.fields.phone.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('phone', 'required')">{{ t('contact.form.errors.phoneRequired') }}</small>
+              <small class="form-error" *ngIf="hasError('phone', 'minlength')">{{ t('contact.form.errors.phoneMin') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.email.label') }}</span>
+              <input
+                type="email"
+                autocomplete="email"
+                formControlName="email"
+                [placeholder]="t('contact.form.fields.email.placeholder')"
+                [class.is-invalid]="isInvalid('email')"
+                [attr.aria-invalid]="isInvalid('email')"
+              >
+              <small>{{ t('contact.form.fields.email.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('email', 'required')">{{ t('contact.form.errors.emailRequired') }}</small>
+              <small class="form-error" *ngIf="hasError('email', 'email')">{{ t('contact.form.errors.emailInvalid') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.role.label') }}</span>
+              <select formControlName="role" [class.is-invalid]="isInvalid('role')" [attr.aria-invalid]="isInvalid('role')">
+                <option value="">{{ t('contact.form.fields.role.placeholder') }}</option>
+                <option *ngFor="let option of roleOptions" [value]="option">
+                  {{ t('contact.form.options.role.' + option) }}
+                </option>
+              </select>
+              <small>{{ t('contact.form.fields.role.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('role', 'required')">{{ t('contact.form.errors.roleRequired') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.experience.label') }}</span>
+              <select formControlName="experience">
+                <option value="">{{ t('contact.form.fields.experience.placeholder') }}</option>
+                <option *ngFor="let option of experienceOptions" [value]="option">
+                  {{ t('contact.form.options.experience.' + option) }}
+                </option>
+              </select>
+              <small>{{ t('contact.form.fields.experience.helper') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.location.label') }}</span>
+              <input
+                type="text"
+                formControlName="location"
+                [placeholder]="t('contact.form.fields.location.placeholder')"
+                [class.is-invalid]="isInvalid('location')"
+                [attr.aria-invalid]="isInvalid('location')"
+              >
+              <small>{{ t('contact.form.fields.location.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('location', 'required')">{{ t('contact.form.errors.locationRequired') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.availability.label') }}</span>
+              <select formControlName="availability">
+                <option value="">{{ t('contact.form.fields.availability.placeholder') }}</option>
+                <option *ngFor="let option of availabilityOptions" [value]="option">
+                  {{ t('contact.form.options.availability.' + option) }}
+                </option>
+              </select>
+              <small>{{ t('contact.form.fields.availability.helper') }}</small>
+            </label>
+
+            <label class="form-field">
+              <span>{{ t('contact.form.fields.cooperation.label') }}</span>
+              <select formControlName="cooperation">
+                <option value="">{{ t('contact.form.fields.cooperation.placeholder') }}</option>
+                <option *ngFor="let option of cooperationOptions" [value]="option">
+                  {{ t('contact.form.options.cooperation.' + option) }}
+                </option>
+              </select>
+              <small>{{ t('contact.form.fields.cooperation.helper') }}</small>
+            </label>
+
+            <label class="form-field form-field--full">
+              <span>{{ t('contact.form.fields.scope.label') }}</span>
+              <input
+                type="text"
+                formControlName="scope"
+                [placeholder]="t('contact.form.fields.scope.placeholder')"
+                [class.is-invalid]="isInvalid('scope')"
+                [attr.aria-invalid]="isInvalid('scope')"
+              >
+              <small>{{ t('contact.form.fields.scope.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('scope', 'required')">{{ t('contact.form.errors.scopeRequired') }}</small>
+              <small class="form-error" *ngIf="hasError('scope', 'minlength')">{{ t('contact.form.errors.scopeMin') }}</small>
+            </label>
+
+            <label class="form-field form-field--full">
+              <span>{{ t('contact.form.fields.message.label') }}</span>
+              <textarea
+                rows="5"
+                formControlName="message"
+                [placeholder]="t('contact.form.fields.message.placeholder')"
+                [class.is-invalid]="isInvalid('message')"
+                [attr.aria-invalid]="isInvalid('message')"
+              ></textarea>
+              <small>{{ t('contact.form.fields.message.helper') }}</small>
+              <small class="form-error" *ngIf="hasError('message', 'required')">{{ t('contact.form.errors.messageRequired') }}</small>
+              <small class="form-error" *ngIf="hasError('message', 'minlength')">{{ t('contact.form.errors.messageMin') }}</small>
+            </label>
+
+            <label class="form-consent form-field--full" [class.is-invalid]="isInvalid('consent')">
+              <input type="checkbox" formControlName="consent">
+              <span>{{ t('contact.form.fields.consent.label') }}</span>
+            </label>
+            <small class="form-error form-field--full" *ngIf="hasError('consent', 'required')">{{ t('contact.form.errors.consentRequired') }}</small>
+
+            <div class="contact-form__footer form-field--full">
+              <p>{{ t('contact.form.footerText') }}</p>
+              <button class="button-primary" type="submit" [disabled]="isSubmitting">
+                {{ isSubmitting ? t('contact.form.submitLoading') : t('contact.form.submit') }}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
+</ng-container>

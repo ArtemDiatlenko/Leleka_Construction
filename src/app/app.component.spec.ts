@@ -1,23 +1,34 @@
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
-import { TranslocoService } from '@ngneat/transloco';
+import { provideRouter, RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
+
+@Component({
+  selector: 'app-site-header',
+  standalone: true,
+  template: ''
+})
+class SiteHeaderStubComponent {}
+
+@Component({
+  selector: 'app-site-footer',
+  standalone: true,
+  template: ''
+})
+class SiteFooterStubComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [
-        provideRouter([]),
-        {
-          provide: TranslocoService,
-          useValue: {
-            getActiveLang: () => 'pl',
-            setActiveLang: jasmine.createSpy('setActiveLang')
-          }
+      providers: [provideRouter([])]
+    })
+      .overrideComponent(AppComponent, {
+        set: {
+          imports: [RouterOutlet, SiteHeaderStubComponent, SiteFooterStubComponent]
         }
-      ]
-    }).compileComponents();
+      })
+      .compileComponents();
   });
 
   it('should create the app shell', () => {
@@ -25,14 +36,15 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
 
     expect(app).toBeTruthy();
-    expect(app.title).toBe('Leleka Construction');
   });
 
-  it('should render main brand in header', () => {
+  it('should render the layout outlets', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.site-brand__text strong')?.textContent).toContain('Leleka Construction');
+    expect(compiled.querySelector('app-site-header')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
+    expect(compiled.querySelector('app-site-footer')).toBeTruthy();
   });
 });

@@ -1,68 +1,42 @@
-<main class="about-page">
-  <section class="page-shell about-hero">
-    <div class="about-hero__content">
-      <span class="section-kicker">O firmie</span>
-      <h1>Leleka Construction prowadzi roboty żelbetowe z myślą o trwałości i porządku na budowie.</h1>
-      <p>
-        Jesteśmy wykonawcą monolitycznych konstrukcji żelbetowych działającym na rynku polskim od 2018 roku.
-        Realizujemy pełen zakres prac szalunkowych, zbrojarskich i betoniarskich, biorąc odpowiedzialność za każdy etap robót.
-      </p>
-      <p>
-        Nasz zespół tworzą doświadczeni inżynierowie, kierownicy budów oraz fachowcy, którzy łączą praktykę wykonawczą
-        z nowoczesnym podejściem do zarządzania inwestycją. Dzięki temu dowozimy zarówno jakość, jak i stabilność procesu.
-      </p>
+<ng-container *transloco="let t">
+  <main class="about-page">
+    <section class="page-shell about-hero">
+      <div class="about-hero__content">
+        <span class="section-kicker">{{ t('about.hero.kicker') }}</span>
+        <h1>{{ t('about.hero.title') }}</h1>
+        <p>{{ t('about.hero.text1') }}</p>
+        <p>{{ t('about.hero.text2') }}</p>
 
-      <ul class="eyebrow-list">
-        <li>Budownictwo mieszkaniowe</li>
-        <li>Obiekty przemysłowe</li>
-        <li>Obsługa inwestycji w całej Polsce</li>
-      </ul>
-    </div>
+        <ul class="eyebrow-list">
+          <li *ngFor="let badge of t('about.hero.badges')">{{ badge }}</li>
+        </ul>
+      </div>
 
-    <div class="about-hero__media media-frame">
-      <img src="assets/video/photos/about-photo.png" alt="Leleka Construction realizacja">
-    </div>
-  </section>
+      <div class="about-hero__media media-frame">
+        <img src="assets/video/photos/about-photo.png" [attr.alt]="t('about.hero.imageAlt')">
+      </div>
+    </section>
 
-  <section class="page-shell page-section about-framework">
-    <div class="about-framework__intro section-heading">
-      <span class="section-kicker">Jak pracujemy</span>
-      <h2>Nie sprzedajemy obietnic. Dostarczamy przewidywalne wykonanie w wymagających warunkach.</h2>
-      <p>
-        Budujemy proces wokół jakości robót, bezpieczeństwa oraz dobrej komunikacji z inwestorem i generalnym wykonawcą.
-      </p>
-    </div>
+    <section class="page-shell page-section about-framework">
+      <div class="about-framework__intro section-heading">
+        <span class="section-kicker">{{ t('about.framework.kicker') }}</span>
+        <h2>{{ t('about.framework.title') }}</h2>
+        <p>{{ t('about.framework.text') }}</p>
+      </div>
 
-    <div class="about-framework__grid">
-      <article class="about-framework__lead dark-panel">
-        <strong>Leleka Construction</strong>
-        <p>
-          Sprawdzony partner dla projektów, w których liczy się dyscyplina realizacyjna, szybka reakcja i odpowiedzialność za wynik.
-        </p>
-      </article>
+      <div class="about-framework__grid">
+        <article class="about-framework__lead dark-panel">
+          <strong>{{ t('about.framework.leadTitle') }}</strong>
+          <p>{{ t('about.framework.leadText') }}</p>
+        </article>
 
-      <ol class="about-framework__list">
-        <li>
-          <strong>Wysoka jakość wykonania</strong>
-          <span>Każdy etap prac prowadzimy z dbałością o detal, powtarzalność i zgodność z wymaganiami inwestycji.</span>
-        </li>
-        <li>
-          <strong>Terminowość bez improwizacji</strong>
-          <span>Szanujemy harmonogram budowy i organizujemy zespoły tak, aby utrzymać tempo bez chaosu operacyjnego.</span>
-        </li>
-        <li>
-          <strong>Doświadczony zespół</strong>
-          <span>Pracujemy z fachowcami, którzy mają praktykę przy złożonych projektach w całej Polsce.</span>
-        </li>
-        <li>
-          <strong>Pełna odpowiedzialność za zakres</strong>
-          <span>Od fundamentów po stropy i ściany prowadzimy roboty w sposób czytelny i przewidywalny dla inwestora.</span>
-        </li>
-        <li>
-          <strong>Partnerska współpraca</strong>
-          <span>Dbamy o jasną komunikację, szybkie decyzje i kulturę pracy, która ułatwia realizację inwestycji.</span>
-        </li>
-      </ol>
-    </div>
-  </section>
-</main>
+        <ol class="about-framework__list">
+          <li *ngFor="let principle of t('about.framework.items')">
+            <strong>{{ principle.title }}</strong>
+            <span>{{ principle.text }}</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</ng-container>

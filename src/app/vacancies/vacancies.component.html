@@ -1,55 +1,52 @@
-<main class="vacancies-page">
-  <section class="page-shell vacancies-hero">
-    <div class="vacancies-hero__content">
-      <span class="section-kicker">Kariera</span>
-      <h1>Praca dla fachowców, którzy chcą działać w uporządkowanym zespole.</h1>
-      <p>
-        W Leleka Construction budujemy stabilne warunki pracy wokół realnych projektów, terminowych wypłat
-        i czytelnych zasad współpracy. Szukamy ludzi, którzy chcą pracować solidnie i długofalowo.
-      </p>
+<ng-container *transloco="let t">
+  <main class="vacancies-page">
+    <section class="page-shell vacancies-hero">
+      <div class="vacancies-hero__content">
+        <span class="section-kicker">{{ t('vacancies.hero.kicker') }}</span>
+        <h1>{{ t('vacancies.hero.title') }}</h1>
+        <p>{{ t('vacancies.hero.text') }}</p>
 
-      <ul class="eyebrow-list">
-        <li>Oficjalne zatrudnienie</li>
-        <li>Zakwaterowanie przy pracy</li>
-        <li>Wsparcie formalne i legalizacyjne</li>
-      </ul>
-    </div>
+        <ul class="eyebrow-list">
+          <li *ngFor="let badge of t('vacancies.hero.badges')">{{ badge }}</li>
+        </ul>
+      </div>
 
-    <div class="vacancies-hero__panel dark-panel">
-      <strong>Leleka Construction</strong>
-      <p>
-        Bez chaosu, bez pustych obietnic. Od pierwszego dnia wiadomo, na co można liczyć i jak wygląda współpraca.
-      </p>
-    </div>
-  </section>
+      <div class="vacancies-hero__panel dark-panel">
+        <strong>{{ t('vacancies.hero.panelTitle') }}</strong>
+        <p>{{ t('vacancies.hero.panelText') }}</p>
+      </div>
+    </section>
 
-  <section class="page-shell page-section vacancies-grid-section">
-    <div class="vacancies-grid-section__head">
-      <span class="section-kicker">Oferty pracy</span>
-      <h2>Aktualne role w zespole wykonawczym.</h2>
-    </div>
+    <section class="page-shell page-section vacancies-grid-section">
+      <div class="vacancies-grid-section__head">
+        <span class="section-kicker">{{ t('vacancies.grid.kicker') }}</span>
+        <h2>{{ t('vacancies.grid.title') }}</h2>
+      </div>
 
-    <div class="vacancies-grid">
-      <article class="vacancy-card" *ngFor="let v of vacancies; trackBy: trackByPath">
-        <img class="vacancy-card__photo" [src]="v.image || 'assets/video/photos/karier.jpg'" [alt]="v.title">
-        <div class="vacancy-card__overlay"></div>
-        <div class="vacancy-card__content">
-          <div class="vacancy-card__meta">
-            <span>{{ v.location }}</span>
-            <span>{{ v.employmentType }}</span>
+      <div class="vacancies-grid">
+        <article class="vacancy-card" *ngFor="let vacancy of vacancies; trackBy: trackVacancyByPath">
+          <img class="vacancy-card__photo" [src]="vacancy.image || 'assets/video/photos/karier.jpg'" [alt]="vacancy.title">
+          <div class="vacancy-card__overlay"></div>
+          <div class="vacancy-card__content">
+            <div class="vacancy-card__meta">
+              <span>{{ vacancy.location }}</span>
+              <span>{{ vacancy.employmentType }}</span>
+            </div>
+            <h3>{{ vacancy.title }}</h3>
+            <p>{{ vacancy.summary }}</p>
+            <ul class="vacancy-card__highlights">
+              <li *ngFor="let highlight of vacancy.highlights">{{ highlight }}</li>
+            </ul>
+            <a [routerLink]="['/vacancies', vacancy.path]" class="button-primary" [attr.aria-label]="vacancy.title" (click)="scrollTop()">
+              {{ t('vacancies.grid.cta') }}
+            </a>
           </div>
-          <h3>{{ v.title }}</h3>
-          <p>{{ v.summary }}</p>
-          <ul class="vacancy-card__highlights">
-            <li *ngFor="let item of v.highlights">{{ item }}</li>
-          </ul>
-          <a [routerLink]="['/vacancies', v.path]" class="button-primary" [attr.aria-label]="v.title" (click)="scrollTop()">Zobacz ofertę</a>
-        </div>
-      </article>
-    </div>
-  </section>
+        </article>
+      </div>
+    </section>
 
-  <section class="page-shell">
-    <app-stats-banner [stats]="statsItems"></app-stats-banner>
-  </section>
-</main>
+    <section class="page-shell">
+      <app-stats-banner [stats]="vacancyStats"></app-stats-banner>
+    </section>
+  </main>
+</ng-container>

@@ -1,0 +1,114 @@
+<ng-container *transloco="let t">
+  <main class="clients-page">
+    <section class="page-shell clients-hero">
+      <div class="clients-hero__content">
+        <span class="section-kicker">{{ t('clients.hero.kicker') }}</span>
+        <h1>{{ t('clients.hero.title') }}</h1>
+        <p>{{ t('clients.hero.text') }}</p>
+
+        <ul class="eyebrow-list">
+          <li *ngFor="let badge of t('clients.hero.badges')">{{ badge }}</li>
+        </ul>
+
+        <div class="clients-hero__actions">
+          <a class="button-primary" href="mailto:contact@lelekaconstruction.com?subject=Zapytanie%20o%20realizacj%C4%99">
+            {{ t('clients.hero.primaryCta') }}
+          </a>
+          <a class="button-ghost" href="tel:+48733071777">
+            {{ t('clients.hero.secondaryCta') }}
+          </a>
+        </div>
+      </div>
+
+      <div class="clients-hero__aside">
+        <div class="clients-hero__photo media-frame">
+          <img src="assets/video/photos/about-photo.png" [attr.alt]="t('clients.hero.imageAlt')">
+        </div>
+
+        <div class="clients-hero__panel dark-panel">
+          <strong>{{ t('clients.hero.panelTitle') }}</strong>
+          <p>{{ t('clients.hero.panelText') }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell page-section clients-proof">
+      <div class="section-heading">
+        <span class="section-kicker">{{ t('clients.proof.kicker') }}</span>
+        <h2>{{ t('clients.proof.title') }}</h2>
+        <p>{{ t('clients.proof.text') }}</p>
+      </div>
+
+      <div class="clients-proof__grid">
+        <article class="clients-proof__card card-surface" *ngFor="let proofPoint of t('clients.proof.items')">
+          <strong>{{ proofPoint.title }}</strong>
+          <p>{{ proofPoint.text }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-shell page-section clients-scope">
+      <div class="clients-scope__media media-frame">
+        <img src="assets/video/photos/contact-photo.jpg" [attr.alt]="t('clients.scope.imageAlt')">
+      </div>
+
+      <div class="clients-scope__content">
+        <span class="section-kicker">{{ t('clients.scope.kicker') }}</span>
+        <h2>{{ t('clients.scope.title') }}</h2>
+        <p>{{ t('clients.scope.text') }}</p>
+
+        <div class="clients-scope__list">
+          <article *ngFor="let scope of t('clients.scope.items')">
+            <strong>{{ scope.title }}</strong>
+            <p>{{ scope.text }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell page-section clients-process">
+      <div class="section-heading">
+        <span class="section-kicker">{{ t('clients.process.kicker') }}</span>
+        <h2>{{ t('clients.process.title') }}</h2>
+        <p>{{ t('clients.process.text') }}</p>
+      </div>
+
+      <ol class="clients-process__grid">
+        <li class="card-surface" *ngFor="let step of t('clients.process.steps'); let index = index">
+          <span>{{ index + 1 < 10 ? '0' + (index + 1) : index + 1 }}</span>
+          <strong>{{ step.title }}</strong>
+          <p>{{ step.text }}</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="page-shell page-section clients-cta">
+      <div class="clients-cta__layout dark-panel">
+        <div class="clients-cta__copy">
+          <span class="section-kicker section-kicker--inverse">{{ t('clients.cta.kicker') }}</span>
+          <h2>{{ t('clients.cta.title') }}</h2>
+          <p>{{ t('clients.cta.text') }}</p>
+        </div>
+
+        <div class="clients-cta__contact card-surface">
+          <div>
+            <strong>{{ t('clients.cta.phoneLabel') }}</strong>
+            <a href="tel:+48733071777">+48 733 071 777</a>
+          </div>
+          <div>
+            <strong>{{ t('clients.cta.emailLabel') }}</strong>
+            <a href="mailto:contact@lelekaconstruction.com">contact&#64;lelekaconstruction.com</a>
+          </div>
+          <div class="clients-cta__actions">
+            <a class="button-primary" href="mailto:contact@lelekaconstruction.com?subject=Zapytanie%20o%20realizacj%C4%99">
+              {{ t('clients.cta.primaryCta') }}
+            </a>
+            <a class="button-secondary" routerLink="/about">
+              {{ t('clients.cta.secondaryCta') }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</ng-container>

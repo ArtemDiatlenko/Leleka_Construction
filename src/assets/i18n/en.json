@@ -1,33 +1,466 @@
-
-
 {
+  "shell": {
+    "brandAlt": "Leleka Construction",
+    "brandTagline": "Monolithic construction contractor"
+  },
   "nav": {
+    "primary": "Primary navigation",
     "home": "Home",
-    "vacancies": "Vacancies",
-    "contact": "Contact"
-  },
-  "career": {
-    "headline": "Career at Leleka Construction",
-    "intro1": "Leleka Construction is a company that has built its reputation for years on solid foundations – honesty, stability and respect for people.",
-    "intro2": "We offer official employment, paid breaks and free accommodation near the workplace, as well as on‑time payments.",
-    "intro3": "At Leleka there is no chaos or empty promises – from day one you know exactly what to expect. We also support legalization of stay and work in Poland, from documents to permits.",
-    "intro4": "People are the most important at Leleka Construction. Thanks to your experience, knowledge and daily effort, durable and solid structures are created. Your ideas help us grow.",
-    "intro5": "Join a team where your work truly matters, every day brings satisfaction and a sense of stability.",
-    "footer": "Leleka – a reliable partner for hard work.",
-    "cta": "See offers"
-  },
-  "vacancies": {
-    "title": "Vacancies",
-    "seeOffer": "See offer"
-  },
-  "contact": {
-    "title": "Contact",
-    "address": "Address",
-    "phone": "Phone",
-    "email": "Email",
-    "map": "We are on the map"
+    "about": "About",
+    "clients": "Clients",
+    "career": "Careers",
+    "allVacancies": "All vacancies",
+    "contact": "Contact",
+    "cta": "Apply now",
+    "language": "Language",
+    "languageSwitcher": "Choose language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "footer": {
-    "rights": "All rights reserved © Leleka Construction 2025"
+    "brandTitle": "We build a team for people who want real reinforced concrete work on serious projects.",
+    "brandText": "Leleka Construction is not only a contractor. It is also a place for carpenters, rebar workers, foremen and site managers looking for stable work, legal employment and real projects across Poland.",
+    "contactKicker": "Contact",
+    "officeLabel": "Office",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "operationsLabel": "Work locations",
+    "operationsText": "Warsaw, Wroclaw and sites across Poland",
+    "contactCta": "Ask about work",
+    "navigationLabel": "Navigation",
+    "metaText": "Recruitment for reinforced concrete and monolithic works."
+  },
+  "stats": {
+    "ariaLabel": "Company statistics",
+    "founded": "year company was founded",
+    "projects": "completed projects",
+    "cities": "cities where we operate",
+    "commitment": "commitment to every project",
+    "marketYears": "years on the market",
+    "businessPartners": "business partners",
+    "completedProjects": "delivered projects",
+    "teamSize": "specialists in the team"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Leleka Construction",
+      "title": "Join a crew that works on real reinforced concrete projects without site chaos or empty promises.",
+      "text": "We are hiring people for monolithic and reinforced concrete works across Poland. We offer structured site organization, legal cooperation terms, accommodation on selected projects and clear expectations from day one.",
+      "videoFallback": "Your browser does not support video.",
+      "badges": [
+        "Legal employment",
+        "Projects across Poland",
+        "Strong crews and clear rules"
+      ],
+      "primaryCta": "See job openings",
+      "secondaryCta": "See work conditions",
+      "summary": [
+        {
+          "label": "Since",
+          "text": "we have been building teams for reinforced concrete and monolithic works"
+        },
+        {
+          "label": "Over",
+          "text": "delivered projects where you can gain stable and practical experience"
+        },
+        {
+          "label": "Standard",
+          "text": "clear rules, on-time payment and order on site"
+        }
+      ]
+    },
+    "signal": {
+      "text": "We hire people who want to work with discipline, proper pace and clear responsibilities on site.",
+      "locations": "Warsaw • Wroclaw • All Poland"
+    },
+    "overview": {
+      "kicker": "About us",
+      "title": "Leleka is a place for people who want to join a well-organized execution team.",
+      "text": "We work in reinforced concrete and monolithic construction, but the work environment matters as much as the projects themselves. Our teams include engineers, site managers, foremen and skilled workers who know what is expected and how the work is organized.",
+      "story": {
+        "title": "Work across the full reinforced concrete scope",
+        "text": "Our teams work on foundations, walls, columns and slabs. These are real projects where skill, responsibility and team pace matter every day.",
+        "cta": "Learn about the company"
+      },
+      "values": [
+        {
+          "title": "Stable work conditions",
+          "text": "Clear cooperation rules, on-time settlements and work without organizational chaos."
+        },
+        {
+          "title": "Strong execution base",
+          "text": "Experienced foremen and managers who can lead the work and onboard new people properly."
+        },
+        {
+          "title": "Transparent cooperation",
+          "text": "Clear communication, specific expectations and real accountability across the team."
+        }
+      ]
+    },
+    "capabilities": {
+      "kicker": "Where you work",
+      "title": "You join projects where reinforced concrete has to be delivered properly and without improvisation.",
+      "imageAlt": "Leleka Construction project",
+      "items": [
+        {
+          "title": "Residential construction",
+          "text": "Work on multi-stage projects where repeatable quality, pace and crew organization matter."
+        },
+        {
+          "title": "Industrial facilities",
+          "text": "Projects that need discipline, strong crews and people who understand responsibility for the scope."
+        },
+        {
+          "title": "Commercial projects",
+          "text": "Projects run to a high organizational standard and in cooperation with general contractors."
+        }
+      ]
+    },
+    "career": {
+      "kicker": "Careers",
+      "title": "We are looking for people who want to join a strong crew and stay for the long term.",
+      "text": "If you have experience in reinforced concrete, monolithic works or team leadership, check the current roles. If you are still building experience but want real work, we also want to hear from you.",
+      "cta": "See job openings",
+      "imageAlt": "Careers at Leleka Construction"
+    }
+  },
+  "about": {
+    "hero": {
+      "kicker": "About us",
+      "title": "Leleka Construction is a building company that grows together with the people on site.",
+      "text1": "We have operated in reinforced concrete and monolithic works since 2018. We deliver formwork, reinforcement and concreting packages, while also building a stable team for people who want long-term work on clear terms.",
+      "text2": "Our strength is not only the projects. It is also how the job works from the inside: organized sites, accountable managers, strong crews and direct information flow. That makes it easier to work, learn and stay longer.",
+      "badges": [
+        "Real construction sites",
+        "Legal employment",
+        "Work across Poland"
+      ],
+      "imageAlt": "Leleka Construction project"
+    },
+    "framework": {
+      "kicker": "How we work",
+      "title": "We do not sell dreams. We offer real work, strong projects and orderly site organization.",
+      "text": "Our approach to people is built around work quality, safety, on-time arrangements and direct communication on site.",
+      "leadTitle": "Leleka Construction",
+      "leadText": "A strong place for people who want an organized work environment and development on large construction projects.",
+      "items": [
+        {
+          "title": "Legal and transparent cooperation",
+          "text": "From the start you know the rules, the settlement model and what the team expects from you."
+        },
+        {
+          "title": "Organization without chaos",
+          "text": "The site should keep pace, but without improvisation, broken scope or unclear instructions."
+        },
+        {
+          "title": "Experienced people on site",
+          "text": "You work with foremen, managers and specialists who know the pace and standards of large projects."
+        },
+        {
+          "title": "Real projects and real scope",
+          "text": "From foundations to slabs and walls, the work gives you practical experience, stability and a clear role."
+        },
+        {
+          "title": "Respect for work and people",
+          "text": "We value clear communication, quick decisions and normal working conditions instead of empty promises."
+        }
+      ]
+    }
+  },
+  "clients": {
+    "hero": {
+      "kicker": "For clients",
+      "title": "A reliable partner for reinforced concrete and monolithic works on demanding projects.",
+      "text": "If you are looking for a contractor who can deliver the scope, keep the site organized and work clearly with the investor or general contractor, this page is for you. It shows how we work and what the commercial cooperation model looks like.",
+      "badges": [
+        "Reinforced concrete and monolithic works",
+        "Projects across Poland",
+        "Clear execution structure"
+      ],
+      "primaryCta": "Email about a project",
+      "secondaryCta": "Call us",
+      "imageAlt": "Leleka Construction client project",
+      "panelTitle": "Coverage",
+      "panelText": "Warsaw, Wroclaw and investments delivered across Poland."
+    },
+    "proof": {
+      "kicker": "Why Leleka",
+      "title": "Cooperation built to give the investment side more predictability.",
+      "text": "For clients, the scope of works is only part of the decision. The way the execution is organized matters just as much. That is why we focus on clear management, accountable crews and communication that supports decision-making on site.",
+      "items": [
+        {
+          "title": "Clear execution management",
+          "text": "Scope, pace and responsibility are managed in an orderly way, without unnecessary operational chaos."
+        },
+        {
+          "title": "Strong execution base",
+          "text": "We work with crews and site leadership who have practical reinforced concrete and monolithic experience."
+        },
+        {
+          "title": "Partner-style communication",
+          "text": "Construction projects need fast decisions and reliable information. We prioritize both."
+        }
+      ]
+    },
+    "scope": {
+      "kicker": "Scope of cooperation",
+      "title": "We support projects where quality and execution discipline matter.",
+      "text": "We work on residential, industrial and commercial investments. The execution model is adjusted to the reality of the project, the schedule and the standard expected by the investor or general contractor.",
+      "imageAlt": "Scope of cooperation with Leleka Construction",
+      "items": [
+        {
+          "title": "Residential construction",
+          "text": "Reinforced concrete works for multi-stage developments where rhythm, quality and timing matter."
+        },
+        {
+          "title": "Industrial facilities",
+          "text": "Projects that require technological discipline, strong crews and responsible site supervision."
+        },
+        {
+          "title": "Commercial projects",
+          "text": "Execution scope adapted to project scale and general contractor collaboration standards."
+        }
+      ]
+    },
+    "process": {
+      "kicker": "Cooperation process",
+      "title": "We work in a simple and business-focused cooperation model.",
+      "text": "Clients should know what to expect at the start, during execution and in follow-up decisions. That is why we run cooperation in a clear rhythm.",
+      "steps": [
+        {
+          "title": "Scope recognition",
+          "text": "We start by defining the investment type, work scope, site entry conditions and expected schedule."
+        },
+        {
+          "title": "Execution setup",
+          "text": "We align the team, supervision and work model to the scale of the project and its requirements."
+        },
+        {
+          "title": "Delivery and communication",
+          "text": "During execution we focus on quality, work rhythm and communication that helps move the project forward."
+        }
+      ]
+    },
+    "cta": {
+      "kicker": "Let’s talk",
+      "title": "If you want to discuss a project, contact us directly.",
+      "text": "We can talk about work scope, team availability, project location and the right cooperation model for your investment.",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "primaryCta": "Send an email",
+      "secondaryCta": "Learn about the company"
+    }
+  },
+  "contact": {
+    "officeAddress": "23/3A Osowska Street, 04-302 Warsaw, Mazowieckie",
+    "hero": {
+      "kicker": "Contact",
+      "title": "Contact us if you are looking for reinforced concrete work or want to join the crew.",
+      "text": "This contact page is built mainly for recruitment. If you want to ask about work, cooperation terms, available roles or your possible start date, send a short application and we will come back with a concrete answer.",
+      "imageAlt": "Leleka Construction office",
+      "panelTitle": "Where we recruit",
+      "panelText": "Warsaw, Wroclaw and construction projects across Poland."
+    },
+    "cards": {
+      "officeLabel": "Office",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "hoursLabel": "Working hours",
+      "hoursValue": "Monday–Friday, 8:00–16:00"
+    },
+    "inquiry": {
+      "kicker": "Work application",
+      "title": "Leave your details if you want to join the team or start cooperating on our projects.",
+      "text": "This is the fastest way to apply for work, ask about open roles and discuss your possible start date. The more clearly you describe your experience and availability, the faster we can respond with something specific.",
+      "signals": [
+        {
+          "title": "Concrete response",
+          "text": "After receiving your application, we get back to you with information about current opportunities or the next recruitment step."
+        },
+        {
+          "title": "Faster role matching",
+          "text": "Your experience, location and availability help us quickly assess which role or cooperation model fits best."
+        },
+        {
+          "title": "Clear process from the start",
+          "text": "You do not need a full CV to begin. A short description is enough, and we can sort out the details in direct contact."
+        }
+      ],
+      "processTitle": "How it works",
+      "processSteps": [
+        "You send your core details, experience and availability.",
+        "We review the application in the context of role, location and possible start date.",
+        "We reply with feedback, follow-up questions or a proposal for the next conversation."
+      ]
+    },
+    "form": {
+      "kicker": "Work application",
+      "title": "Send a recruitment inquiry",
+      "text": "Fill in the form so we can quickly assess which role or type of cooperation fits you best.",
+      "submit": "Send application",
+      "submitLoading": "Sending...",
+      "footerText": "After submission we can discuss the role, cooperation terms and your possible start date.",
+      "success": {
+        "title": "Your application has been received.",
+        "text": "Thank you. We received the form and will reply as soon as possible."
+      },
+      "errorState": {
+        "title": "The form could not be sent.",
+        "text": "Please try again in a moment. If the issue continues, use the phone number or email listed in the contact section."
+      },
+      "fields": {
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "e.g. John Smith",
+          "helper": "Your contact details for a recruitment conversation."
+        },
+        "phone": {
+          "label": "Phone number",
+          "placeholder": "+48 000 000 000",
+          "helper": "The best number for a quick callback."
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "contact@company.com",
+          "helper": "We can use this address for follow-up questions or confirmation."
+        },
+        "role": {
+          "label": "Type of work / role",
+          "placeholder": "Select the role you are interested in",
+          "helper": "This helps us route the application to the right person immediately."
+        },
+        "experience": {
+          "label": "Experience level",
+          "placeholder": "Optionally select your experience level",
+          "helper": "Optional field if you want to define your profile more precisely."
+        },
+        "location": {
+          "label": "Location",
+          "placeholder": "City / region / where you can work",
+          "helper": "A general location is enough for the first step."
+        },
+        "availability": {
+          "label": "Availability",
+          "placeholder": "When can you start?",
+          "helper": "This helps us assess when you can join the team."
+        },
+        "cooperation": {
+          "label": "Cooperation type",
+          "placeholder": "Choose your preferred form",
+          "helper": "Optional, but useful for faster qualification."
+        },
+        "scope": {
+          "label": "Experience / specialization",
+          "placeholder": "e.g. formwork carpenter, rebar worker, foreman, site manager",
+          "helper": "Briefly describe your experience and what kind of work you have done."
+        },
+        "message": {
+          "label": "Message / a few words about yourself",
+          "placeholder": "Write what kind of work you are looking for, what experience you have, whether you need accommodation and when you can start.",
+          "helper": "The clearer the message, the faster we can reply concretely."
+        },
+        "consent": {
+          "label": "I agree to be contacted regarding recruitment and to data processing for handling my application."
+        }
+      },
+      "options": {
+        "role": {
+          "residential": "Formwork carpenter / monolithic works",
+          "industrial": "Rebar worker",
+          "commercial": "Concrete / reinforced concrete works",
+          "public": "Foreman / works manager",
+          "other": "Other role"
+        },
+        "experience": {
+          "multiFamily": "Entry level",
+          "hall": "Mid-level experience",
+          "office": "Experienced specialist",
+          "service": "Team leadership",
+          "other": "Other profile"
+        },
+        "availability": {
+          "asap": "I can start immediately",
+          "oneToThreeMonths": "Within 1–2 weeks",
+          "threeToSixMonths": "Within a month",
+          "overSixMonths": "To be agreed"
+        },
+        "cooperation": {
+          "upTo500k": "Employment contract",
+          "from500kTo2m": "B2B / self-employed",
+          "from2mTo5m": "Mandate contract",
+          "over5m": "Crew cooperation",
+          "toDiscuss": "To be discussed"
+        }
+      },
+      "errors": {
+        "fullNameRequired": "Enter your full name.",
+        "fullNameMin": "Please provide a full name.",
+        "phoneRequired": "Enter a phone number.",
+        "phoneMin": "The phone number is too short.",
+        "emailRequired": "Enter an email address.",
+        "emailInvalid": "Enter a valid email address.",
+        "roleRequired": "Select the role you are interested in.",
+        "locationRequired": "Enter your location.",
+        "scopeRequired": "Enter your experience or specialization.",
+        "scopeMin": "Clarify your experience in a few words.",
+        "messageRequired": "Add a few words about yourself.",
+        "messageMin": "The description should contain at least a short meaningful brief.",
+        "consentRequired": "Consent is required to submit the form."
+      }
+    },
+    "map": {
+      "kicker": "Location",
+      "title": "Meet us at the office or directly on site.",
+      "frameTitle": "Leleka Construction location map"
+    }
+  },
+  "vacancies": {
+    "hero": {
+      "kicker": "Careers",
+      "title": "Work for specialists who want to be part of an organized execution team.",
+      "text": "At Leleka Construction we build stable working conditions around real projects, on-time pay and clear rules of cooperation. We are looking for people who want to work solidly and long-term.",
+      "badges": [
+        "Official employment",
+        "Accommodation near the site",
+        "Legalization support"
+      ],
+      "panelTitle": "Leleka Construction",
+      "panelText": "No chaos, no empty promises. From day one you know what to expect and how cooperation works."
+    },
+    "grid": {
+      "kicker": "Job openings",
+      "title": "Current roles in the execution team.",
+      "cta": "See offer"
+    }
+  },
+  "vacancy": {
+    "hero": {
+      "kicker": "Job offer",
+      "text": "Join a team delivering reinforced concrete projects in an organized work environment with clear rules and stable operational support."
+    },
+    "sections": {
+      "offers": "We offer",
+      "responsibilities": "Responsibilities",
+      "requirements": "Requirements"
+    },
+    "cta": {
+      "title": "Want to join us?",
+      "text": "Contact us to discuss this role or other cooperation opportunities.",
+      "button": "Contact us"
+    },
+    "summary": {
+      "title": "Quick overview",
+      "location": "Location",
+      "employmentType": "Cooperation type",
+      "phone": "Phone"
+    },
+    "related": {
+      "title": "Other vacancies"
+    },
+    "notFound": {
+      "title": "Vacancy not found",
+      "text": "This role is no longer available or the provided address is invalid.",
+      "button": "Back to vacancies"
+    }
   }
 }

@@ -1,303 +1,387 @@
-/* === Анимация плавного появления страницы === */
 :host {
   display: block;
-  animation: fadeIn 0.9s ease-in-out; /* плавное появление */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px); /* лёгкое движение при входе */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.home-page {
+  padding-bottom: var(--section-space);
 }
 
-/* === Основной блок с видео === */
-.main-content {
-  width:  100%;
-  display:  flex;
-  align-items:   center; /* вертикальное центрирование */
+.home-hero {
   position: relative;
-}
-
-.main-video {
-  width: 100%;
-  object-fit: cover; /* заполняет весь контейнер */
-  display: block;
-  height: 75vh; /* адаптивная высота видео */
-}
-
-.main-textbox {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* центрирование текста */
-  text-align: center;
-  z-index: 1;
-}
-
-.main-title {
-  font-family: 'Titillium Web';
-  font-weight: normal;
-  font-size: 48px;
-  color: #ffffff;
-  line-height: 42px;
-  letter-spacing: 1px;
-}
-
-.main-subtitle {
-  font-family: 'Lato';
-  font-weight: normal;
-  font-size: 24px;
-  color: #ffffff;
-  line-height: 36px;
-  letter-spacing: 1px;
-}
-
-
-.cta-button {
-  display: block;
-  margin: 20px auto 0 auto;
-  padding: 12px 28px;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  color: #333;
-  background-color: #fff; /* фон кнопки */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-
-/* === Фото блок (анимация при наведении) === */
-.photo-box-wrapper {
-  width: 100%;
+  min-height: min(880px, calc(100vh - 18px));
   display: flex;
-  justify-content: center; /* центрирование фото */
-  margin: 40px 0;
-}
-
-.photo-box {
-  width: 60%;
-  perspective: 1000px; /* 3D перспектива для анимации */
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.photo-img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.6s ease;
-  transform-origin: center center;
-}
-
-.photo-box:hover .photo-img {
-  transform: scale(1.05); /* масштаб при наведении */
-}
-
-@media (max-width: 768px) {
-  .photo-box {
-    width: 90%;
-  }
-}
-
-
-/* === Жёлтая полоса под видео === */
-.market-experience-banner {
-  background-color: #f3cb46; /* фоновой цвет */
-  text-align: center; /* центрирование текста */
-  padding: 14px 0;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 10px;
-  margin-top: -10px; /* лёгкое наложение на видео */
-  position: relative;
-  z-index: 5;
-}
-
-.market-experience-banner strong {
-  color: #2b2b2b;
-  font-size: 2.2rem;
-  font-weight: 800;
-}
-
-@media (max-width: 768px) {
-  .market-experience-banner {
-    font-size: 1.2rem;
-    padding: 6px 0;
-    margin-top: -6px;
-  }
-
-  .market-experience-banner strong {
-    font-size: 1.6rem;
-  }
-}
-
-
-/* === Hero-секция с фоновым изображением и текстом === */
-.hero-career {
-  position: relative;
-  width: 100%;
+  align-items: stretch;
   overflow: hidden;
 }
 
-.hero-career .hero-bg {
-  display: block;
-  width: 100%;
-  height: 580px; /* фиксированная высота */
-  object-fit: cover; /* адаптивное заполнение */
-}
-
-.hero-overlay {
+.home-hero__media,
+.home-hero__shade {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* вертикальное центрирование */
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+}
+
+.home-hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-hero__shade {
+  background:
+    linear-gradient(90deg, rgba(6, 18, 38, 0.92) 0%, rgba(10, 27, 53, 0.78) 46%, rgba(10, 27, 53, 0.28) 100%),
+    linear-gradient(180deg, rgba(6, 18, 38, 0.18) 0%, rgba(6, 18, 38, 0.5) 100%);
+}
+
+.home-hero__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 400px);
+  gap: var(--section-gap);
+  align-items: end;
+  padding-top: clamp(56px, 8vw, 104px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+.home-hero__copy {
+  max-width: 760px;
+  min-width: 0;
+}
+
+.home-hero__copy h1 {
+  margin-top: var(--space-lg);
+  max-width: 13ch;
+  font-size: clamp(3.2rem, 6vw, 6.2rem);
+  line-height: 0.92;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45); /* тень текста */
 }
 
-.hero-overlay h1 {
-  font-family: 'Nunito', system-ui, sans-serif;
-  font-size: 48px;
-  font-weight: 800;
-  margin: 0 0 12px 0;
-  line-height: 1.2;
+.home-hero__copy p {
+  margin-top: var(--space-lg);
+  max-width: 58ch;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.82);
 }
 
-.hero-overlay p {
-  font-family: 'Nunito', system-ui, sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.5;
+.home-hero__badges {
+  margin-top: var(--space-md);
 }
 
-.hero-cta-button {
-  margin-top: 24px;
-  background-color: #f3cb46; /* фон кнопки */
-  color: #1a1a1a;
-  padding: 14px 34px;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.25s ease;
+.home-hero__badges li {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
-.hero-cta-button:hover {
-  background-color: #e2ba2e;
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-lg);
 }
 
-
-/* === Адаптивные стили === */
-@media (max-width: 992px) {
-  .hero-career .hero-bg {
-    height: 460px; /* уменьшение высоты */
-  }
-
-  .hero-overlay {
-    padding: 0 24px;
-  }
-
-  .hero-overlay h1 {
-    font-size: 36px;
-  }
-
-  .hero-overlay p {
-    font-size: 18px;
-  }
+.home-hero__actions .button-ghost {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
-@media (max-width: 600px) {
-  .hero-career .hero-bg {
-    height: 360px; /* ещё меньшая высота */
-  }
-
-  .hero-overlay h1 {
-    font-size: 28px;
-  }
-
-  .hero-overlay p {
-    font-size: 16px;
-  }
-
-  .hero-cta-button {
-    font-size: 14px;
-    padding: 10px 24px;
-  }
+.home-hero__summary {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-xs);
+  border-radius: 30px;
+  min-width: 0;
 }
 
-/* === Sekcja opisu firmy === */
-.about-intro {
-  background-color: #f9f9f9;
-  padding: 80px 20px;
-  text-align: center;
+.home-hero__summary-item {
+  padding: var(--card-pad-tight);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(234, 241, 248, 0.94));
+  border: 1px solid rgba(15, 40, 77, 0.08);
 }
 
-.about-intro-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.about-intro h2 {
-  font-family: 'Nunito', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 24px;
-}
-
-.about-intro p {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-.about-btn {
+.home-hero__summary-item span {
   display: inline-block;
-  background-color: #f3cb46;
-  color: #1a1a1a;
-  font-weight: 700;
-  padding: 14px 34px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-500);
 }
 
-.about-btn:hover {
-  background-color: #e2ba2e;
+.home-hero__summary-item strong {
+  display: block;
+  margin-top: var(--space-2xs);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.4rem;
+  line-height: 0.95;
+  color: var(--color-navy-950);
+}
+
+.home-hero__summary-item p {
+  margin-top: var(--space-2xs);
+  color: var(--color-ink-700);
+  line-height: 1.7;
+}
+
+.home-signal {
+  margin-top: -38px;
+  position: relative;
+  z-index: 2;
+}
+
+.home-signal__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--content-gap);
+  padding: var(--card-pad-tight);
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--color-yellow-500), var(--color-yellow-450));
+  box-shadow: 0 28px 56px rgba(242, 194, 48, 0.3);
+  color: var(--color-navy-980);
+}
+
+.home-signal__bar p {
+  max-width: 52ch;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.home-signal__bar span {
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.company-overview {
+  display: grid;
+  gap: var(--section-gap);
+}
+
+.company-overview__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--content-gap);
+}
+
+.company-overview__story,
+.company-overview__value {
+  padding: var(--card-pad);
+  border-radius: 30px;
+  min-width: 0;
+}
+
+.company-overview__story {
+  display: grid;
+  align-content: space-between;
+  gap: var(--space-sm);
+}
+
+.company-overview__story h3,
+.company-overview__value h3,
+.capabilities__list strong {
+  font-size: 1.4rem;
+  line-height: 1.04;
+  color: var(--color-navy-950);
+}
+
+.company-overview__story p,
+.company-overview__value p {
+  line-height: 1.8;
+  color: var(--color-ink-700);
+}
+
+.company-overview__values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-sm);
+  grid-auto-rows: 1fr;
+}
+
+.company-overview__value {
+  height: 100%;
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--hero-gap);
+  align-items: center;
+}
+
+.capabilities__media img {
+  display: block;
+  width: 100%;
+  min-height: 520px;
+  object-fit: cover;
+}
+
+.capabilities__content h2 {
+  margin-top: var(--space-md);
+  max-width: 16ch;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.96;
+  color: var(--color-navy-950);
+}
+
+.capabilities__list {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.capabilities__list article {
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid rgba(15, 40, 77, 0.1);
+}
+
+.capabilities__list p {
+  margin-top: var(--space-2xs);
+  color: var(--color-ink-700);
+  line-height: 1.8;
+}
+
+.career-banner__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.78fr);
+  gap: var(--content-gap);
+  padding: var(--card-pad-tight);
+  border-radius: 34px;
+  overflow: hidden;
+}
+
+.career-banner__copy {
+  padding: var(--panel-pad);
+  color: #fff;
+  align-self: center;
+  min-width: 0;
+}
+
+.career-banner__copy h2 {
+  margin-top: var(--space-md);
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 4.2vw, 4.6rem);
+  line-height: 0.94;
+}
+
+.career-banner__copy p {
+  margin-top: var(--space-xs);
+  max-width: 48ch;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.8;
+}
+
+.career-banner__copy .button-primary {
+  margin-top: var(--space-lg);
+  width: auto;
+}
+
+.career-banner__media {
+  min-height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.career-banner__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1100px) {
+  .home-hero__layout,
+  .company-overview__grid,
+  .capabilities,
+  .career-banner__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero__summary {
+    max-width: 540px;
+  }
+
+  .company-overview__values {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilities__media img {
+    min-height: 420px;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-intro {
-    padding: 60px 16px;
+  .home-hero {
+    min-height: auto;
   }
 
-  .about-intro h2 {
-    font-size: 1.8rem;
+  .home-hero__layout {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: var(--space-md);
   }
 
-  .about-intro p {
+  .home-hero__copy h1 {
+    max-width: 14ch;
+    font-size: clamp(2.5rem, 11vw, 4.2rem);
+  }
+
+  .home-hero__copy p {
     font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .home-hero__actions {
+    flex-direction: column;
+  }
+
+  .home-signal {
+    margin-top: 0;
+    padding-top: var(--space-sm);
+  }
+
+  .home-signal__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--card-pad-tight);
+  }
+
+  .company-overview__story,
+  .company-overview__value,
+  .career-banner__copy {
+    padding: var(--card-pad-tight);
+  }
+
+  .career-banner__layout {
+    padding: 16px;
+    border-radius: 26px;
+  }
+
+  .career-banner__media {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero__summary,
+  .home-hero__summary-item,
+  .home-signal__bar,
+  .company-overview__story,
+  .company-overview__value {
+    padding: 20px;
+  }
+
+  .capabilities__media img {
+    min-height: 300px;
+  }
+
+  .career-banner__copy {
+    padding: 20px;
   }
 }

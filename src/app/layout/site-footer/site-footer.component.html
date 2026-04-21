@@ -1,0 +1,50 @@
+<ng-container *transloco="let t">
+  <footer class="site-footer">
+    <div class="page-shell site-footer__grid">
+      <section class="site-footer__brand dark-panel">
+        <img src="assets/video/photos/white-logo.jpeg" [attr.alt]="t('shell.brandAlt')" class="site-footer__logo">
+        <h2>{{ t('footer.brandTitle') }}</h2>
+        <p>{{ t('footer.brandText') }}</p>
+      </section>
+
+      <section class="site-footer__contact card-surface">
+        <span class="section-kicker">{{ t('footer.contactKicker') }}</span>
+        <div class="site-footer__details">
+          <div>
+            <strong>{{ t('footer.officeLabel') }}</strong>
+            <p>{{ t('contact.officeAddress') }}</p>
+          </div>
+          <div>
+            <strong>{{ t('footer.phoneLabel') }}</strong>
+            <p><a href="tel:+48733071777">+48 733 071 777</a></p>
+          </div>
+          <div>
+            <strong>{{ t('footer.emailLabel') }}</strong>
+            <p><a href="mailto:contact@lelekaconstruction.com">contact&#64;lelekaconstruction.com</a></p>
+          </div>
+          <div>
+            <strong>{{ t('footer.operationsLabel') }}</strong>
+            <p>{{ t('footer.operationsText') }}</p>
+          </div>
+        </div>
+        <a routerLink="/contact" class="button-secondary">{{ t('footer.contactCta') }}</a>
+      </section>
+
+      <section class="site-footer__links">
+        <div class="site-footer__nav card-surface">
+          <strong>{{ t('footer.navigationLabel') }}</strong>
+          <a routerLink="/">{{ t('nav.home') }}</a>
+          <a routerLink="/about">{{ t('nav.about') }}</a>
+          <a routerLink="/clients">{{ t('nav.clients') }}</a>
+          <a routerLink="/vacancies">{{ t('nav.career') }}</a>
+          <a routerLink="/contact">{{ t('nav.contact') }}</a>
+        </div>
+
+        <div class="site-footer__meta">
+          <p>{{ brandName }} © {{ currentYear }}</p>
+          <p>{{ t('footer.metaText') }}</p>
+        </div>
+      </section>
+    </div>
+  </footer>
+</ng-container>

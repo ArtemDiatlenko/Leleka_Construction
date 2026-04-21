@@ -1,79 +1,60 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { VacancyStorage } from '../storage/vacancy-storage';
-import { Subject, takeUntil } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslocoDirective, TranslocoService } from '@ngneat/transloco';
+import { AppLang, toAppLang } from '../core/i18n/app-language';
+import { Vacancy } from '../core/models/vacancy.model';
+import { VacancyService } from '../core/services/vacancy.service';
 
 @Component({
   selector: 'app-vacancy',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoDirective],
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.css']
 })
-export class VacancyComponent implements OnInit, AfterViewInit, OnDestroy {
+export class VacancyComponent implements OnInit {
+  vacancy: Vacancy | null = null;
+  otherVacancies: Vacancy[] = [];
 
-  vacancy: any = null;
-  otherVacancies: any[] = [];
-
-  private destroy$ = new Subject<void>();
-
-  private scrollHandler = this.handleScrollAnimation.bind(this);
+  private readonly destroyRef = inject(DestroyRef);
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private vacancyStorage: VacancyStorage
+    private vacanciesService: VacancyService,
+    private transloco: TranslocoService
   ) {}
 
+  ngOnInit(): void {
+    combineLatest([
+      this.route.paramMap.pipe(map((params: ParamMap) => params.get('path'))),
+      this.transloco.langChanges$.pipe(startWith(this.transloco.getActiveLang()))
+    ])
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(([vacancyPath]) => {
+        const lang = this.getCurrentLang();
 
-  ngOnInit() {
+        if (!vacancyPath) {
+          this.vacancy = null;
+          this.otherVacancies = this.vacanciesService.getAll(lang).slice(0, 3);
+          return;
+        }
 
-    this.route.params.pipe(takeUntil(this.destroy$)).subscribe(params => {
-      const vacancyPath = params['path'];
-      if (vacancyPath) {
-        this.vacancy = this.vacancyStorage.getVacancyByPath(vacancyPath);
-        this.otherVacancies = this.vacancyStorage.getVacanciesExcluding(v => v.path === vacancyPath);
-
-        if (!this.vacancy) {
-          this.router.navigate(['/']);
-        } 
-    }
-    });
-
+        this.vacancy = this.vacanciesService.getByPath(vacancyPath, lang) ?? null;
+        this.otherVacancies = this.vacanciesService.getRelated(vacancyPath, lang);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      });
   }
 
-  ngAfterViewInit(): void {
-    // Trigger initial reveal after the view has mounted
-    requestAnimationFrame(() => this.handleScrollAnimation());
-    window.addEventListener('scroll', this.scrollHandler);
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
-    window.removeEventListener('scroll', this.scrollHandler);
-  }
-
-  handleScrollAnimation() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const triggerBottom = window.innerHeight * 0.9;
-
-    elements.forEach((el: Element) => {
-      const top = el.getBoundingClientRect().top;
-      if (top < triggerBottom) {
-        el.classList.add('visible');
-      }
-    });
-  }
-
-  selectVacancy(selected: any) {
-    this.router.navigate(['/vacancy', selected.path]);
-    this.otherVacancies = this.otherVacancies.filter(v => v.path !== selected.path);
-  }
   scrollTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  private getCurrentLang(): AppLang {
+    return toAppLang(this.transloco.getActiveLang());
   }
 }

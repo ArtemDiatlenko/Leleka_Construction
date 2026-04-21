@@ -1,53 +1,42 @@
-<div class="about-page">
-  <section class="about-hero">
-    <div class="about-hero__text">
-      <h1>Informacje o firmie Leleka Construction</h1>
-      <p>
-        Leleka Construction to sprawdzony wykonawca monolitycznych konstrukcji żelbetowych, obecny na polskim rynku od 2018 roku. 
-        Realizujemy pełen zakres prac szalunkowych, zbrojarskich i betoniarskich – od fundamentów po stropy i ściany – 
-        biorąc pełną odpowiedzialność za każdy etap robót. 
-        Ekipy doświadczonych cieśli, zbrojarzy i betoniarzy zapewniają precyzję, terminowość oraz najwyższe standardy bezpieczeństwa. 
-        Budujemy solidnie i rzetelnie, dostarczając trwałe konstrukcje żelbetowe inwestorom w całej Polsce.
-      </p>
-      <p>
-        Nasz zespół tworzą doświadczeni inżynierowie i kierownicy budów, którzy łączą praktykę z nowoczesnymi standardami zarządzania projektami. 
-        Dzięki elastyczności i zaangażowaniu jesteśmy w stanie realizować najbardziej wymagające inwestycje w całej Polsce.
-      </p>
-    </div>
+<ng-container *transloco="let t">
+  <main class="about-page">
+    <section class="page-shell about-hero">
+      <div class="about-hero__content">
+        <span class="section-kicker">{{ t('about.hero.kicker') }}</span>
+        <h1>{{ t('about.hero.title') }}</h1>
+        <p>{{ t('about.hero.text1') }}</p>
+        <p>{{ t('about.hero.text2') }}</p>
 
-    <div class="about-hero__photo">
-     <img src="assets/video/photos/about-photo.png" alt="Leleka Construction realizacja" />
-    </div>
-  </section>
+        <ul class="eyebrow-list">
+          <li *ngFor="let badge of t('about.hero.badges')">{{ badge }}</li>
+        </ul>
+      </div>
 
-  <section class="about-why">
-  <h2>Dlaczego warto z nami współpracować?</h2>
-  <ol class="about-why__list">
-    <li>
-      <strong>Wysoka jakość wykonania</strong><br>
-      Każdy etap prac realizujemy z dbałością o detale, zgodnie z najwyższymi standardami budownictwa. 
-      Nasze konstrukcje żelbetowe są solidne, trwałe i precyzyjnie wykonane.
-    </li>
-    <li>
-      <strong>Szybkość i terminowość</strong><br>
-      Szanujemy czas naszych klientów – prace prowadzone są sprawnie i zgodnie z harmonogramem, 
-      bez kompromisów w jakości.
-    </li>
-    <li>
-      <strong>Doświadczony zespół specjalistów</strong><br>
-      Nasi cieśle, zbrojarze i betoniarze posiadają wieloletnie doświadczenie zdobyte przy realizacji projektów 
-      w całej Polsce. Dzięki temu gwarantujemy profesjonalne podejście na każdym etapie budowy.
-    </li>
-    <li>
-      <strong>Stabilna i sprawdzona firma</strong><br>
-      Działamy na rynku od 2018 roku, współpracując z wiodącymi deweloperami w Polsce. 
-      Nasze realizacje można zweryfikować w licznych zakończonych inwestycjach.
-    </li>
-    <li>
-      <strong>Pełna odpowiedzialność za wykonanie</strong><br>
-      Przejmujemy kompleksową odpowiedzialność za cały zakres prac — od fundamentów po stropy i ściany — 
-      zapewniając spokój i bezpieczeństwo inwestora.
-    </li>
-  </ol>
-</section>
-</div>
+      <div class="about-hero__media media-frame">
+        <img src="assets/video/photos/about-photo.png" [attr.alt]="t('about.hero.imageAlt')">
+      </div>
+    </section>
+
+    <section class="page-shell page-section about-framework">
+      <div class="about-framework__intro section-heading">
+        <span class="section-kicker">{{ t('about.framework.kicker') }}</span>
+        <h2>{{ t('about.framework.title') }}</h2>
+        <p>{{ t('about.framework.text') }}</p>
+      </div>
+
+      <div class="about-framework__grid">
+        <article class="about-framework__lead dark-panel">
+          <strong>{{ t('about.framework.leadTitle') }}</strong>
+          <p>{{ t('about.framework.leadText') }}</p>
+        </article>
+
+        <ol class="about-framework__list">
+          <li *ngFor="let principle of t('about.framework.items')">
+            <strong>{{ principle.title }}</strong>
+            <span>{{ principle.text }}</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</ng-container>

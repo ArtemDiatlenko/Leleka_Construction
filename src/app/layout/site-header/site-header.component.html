@@ -1,0 +1,95 @@
+<ng-container *transloco="let t">
+  <header class="site-header">
+    <div class="site-header__inner page-shell">
+      <a routerLink="/" class="site-brand" [attr.aria-label]="brandName" (click)="closeNavigation()">
+        <img src="assets/video/photos/logo.png" [attr.alt]="t('shell.brandAlt')" class="site-brand__logo">
+        <div class="site-brand__text">
+          <strong>{{ brandName }}</strong>
+          <span>{{ t('shell.brandTagline') }}</span>
+        </div>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        [class.is-open]="mobileMenuOpen"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="mobileMenuOpen"
+        aria-controls="site-header-panel"
+        [attr.aria-label]="mobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="site-header__backdrop" *ngIf="mobileMenuOpen" (click)="closeNavigation()"></div>
+
+      <div id="site-header-panel" class="site-header__panel" [class.site-header__panel--open]="mobileMenuOpen">
+        <nav class="site-nav" [attr.aria-label]="t('nav.primary')">
+          <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavigation()">
+            {{ t('nav.home') }}
+          </a>
+          <a routerLink="/about" routerLinkActive="is-active" (click)="closeNavigation()">
+            {{ t('nav.about') }}
+          </a>
+          <a routerLink="/clients" routerLinkActive="is-active" (click)="closeNavigation()">
+            {{ t('nav.clients') }}
+          </a>
+
+          <div class="site-nav__group" [class.site-nav__group--open]="careerMenuOpen" [class.is-active]="isCareerRoute">
+            <button
+              class="site-nav__group-toggle"
+              type="button"
+              (click)="toggleCareerMenu($event)"
+              [attr.aria-expanded]="careerMenuOpen"
+              aria-controls="career-menu"
+            >
+              <span>{{ t('nav.career') }}</span>
+              <span class="site-nav__chevron" [class.is-open]="careerMenuOpen"></span>
+            </button>
+            <div id="career-menu" class="site-nav__dropdown">
+              <a routerLink="/vacancies" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavigation()">
+                {{ t('nav.allVacancies') }}
+              </a>
+              <a *ngFor="let vacancy of vacancies" [routerLink]="['/vacancies', vacancy.path]" (click)="closeNavigation()">
+                {{ vacancy.title }}
+              </a>
+            </div>
+          </div>
+
+          <a routerLink="/contact" routerLinkActive="is-active" (click)="closeNavigation()">
+            {{ t('nav.contact') }}
+          </a>
+        </nav>
+
+        <div class="site-header__actions">
+          <div class="lang-switcher" [class.open]="langMenuOpen">
+            <button
+              class="lang-toggle"
+              type="button"
+              (click)="toggleLangMenu($event)"
+              aria-haspopup="listbox"
+              [attr.aria-expanded]="langMenuOpen"
+              [attr.aria-label]="t('nav.languageSwitcher')"
+            >
+              <span class="lang-toggle__label">{{ t('nav.language') }}</span>
+              <span class="lang-code">{{ activeLang.toUpperCase() }}</span>
+            </button>
+            <ul *ngIf="langMenuOpen" class="lang-menu" role="listbox">
+              <li role="option" [attr.aria-selected]="activeLang === option.code" *ngFor="let option of langOptions">
+                <button type="button" [class.is-active]="activeLang === option.code" (click)="setLang(option.code)">
+                  {{ option.code.toUpperCase() }} - {{ option.label }}
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <a routerLink="/contact" class="header-cta button-primary" (click)="closeNavigation()">
+            {{ t('nav.cta') }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+</ng-container>

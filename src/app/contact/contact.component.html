@@ -77,35 +77,44 @@
             <p>{{ t('contact.form.errorState.text') }}</p>
           </div>
 
-          <form class="contact-form__grid" [formGroup]="inquiryForm" [attr.aria-busy]="isSubmitting" (ngSubmit)="submitInquiry()" novalidate>
-            <label class="form-field">
+          <form [formGroup]="inquiryForm" [attr.aria-busy]="isSubmitting" (ngSubmit)="submitInquiry()" novalidate>
+            <fieldset class="contact-form__grid" [disabled]="isSubmitting">
+              <label class="form-honeypot" aria-hidden="true">
+                <span>{{ t('contact.form.fields.companyName.label') }}</span>
+                <input type="text" autocomplete="organization" tabindex="-1" formControlName="companyName">
+              </label>
+
+              <label class="form-field">
               <span>{{ t('contact.form.fields.fullName.label') }}</span>
               <input
                 type="text"
                 autocomplete="name"
+                minlength="3"
+                maxlength="80"
                 formControlName="fullName"
                 [placeholder]="t('contact.form.fields.fullName.placeholder')"
                 [class.is-invalid]="isInvalid('fullName')"
                 [attr.aria-invalid]="isInvalid('fullName')"
               >
               <small>{{ t('contact.form.fields.fullName.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('fullName', 'required')">{{ t('contact.form.errors.fullNameRequired') }}</small>
-              <small class="form-error" *ngIf="hasError('fullName', 'minlength')">{{ t('contact.form.errors.fullNameMin') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('fullName') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-field">
               <span>{{ t('contact.form.fields.phone.label') }}</span>
               <input
                 type="tel"
+                inputmode="tel"
                 autocomplete="tel"
+                maxlength="24"
                 formControlName="phone"
                 [placeholder]="t('contact.form.fields.phone.placeholder')"
                 [class.is-invalid]="isInvalid('phone')"
                 [attr.aria-invalid]="isInvalid('phone')"
+                (input)="cleanPhoneInput($event)"
               >
               <small>{{ t('contact.form.fields.phone.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('phone', 'required')">{{ t('contact.form.errors.phoneRequired') }}</small>
-              <small class="form-error" *ngIf="hasError('phone', 'minlength')">{{ t('contact.form.errors.phoneMin') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('phone') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-field">
@@ -113,32 +122,37 @@
               <input
                 type="email"
                 autocomplete="email"
+                maxlength="120"
                 formControlName="email"
                 [placeholder]="t('contact.form.fields.email.placeholder')"
                 [class.is-invalid]="isInvalid('email')"
                 [attr.aria-invalid]="isInvalid('email')"
               >
               <small>{{ t('contact.form.fields.email.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('email', 'required')">{{ t('contact.form.errors.emailRequired') }}</small>
-              <small class="form-error" *ngIf="hasError('email', 'email')">{{ t('contact.form.errors.emailInvalid') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('email') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-field">
               <span>{{ t('contact.form.fields.role.label') }}</span>
-              <select formControlName="role" [class.is-invalid]="isInvalid('role')" [attr.aria-invalid]="isInvalid('role')">
-                <option value="">{{ t('contact.form.fields.role.placeholder') }}</option>
+              <select formControlName="role" required [class.is-invalid]="isInvalid('role')" [attr.aria-invalid]="isInvalid('role')">
+                <option value="" disabled>{{ t('contact.form.fields.role.placeholder') }}</option>
                 <option *ngFor="let option of roleOptions" [value]="option">
                   {{ t('contact.form.options.role.' + option) }}
                 </option>
               </select>
               <small>{{ t('contact.form.fields.role.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('role', 'required')">{{ t('contact.form.errors.roleRequired') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('role') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
+
+            <div class="role-advice form-field--full" *ngIf="selectedRoleAdviceKey as roleAdviceKey" aria-live="polite">
+              <strong>{{ t(roleAdviceKey + '.title') }}</strong>
+              <p>{{ t(roleAdviceKey + '.text') }}</p>
+            </div>
 
             <label class="form-field">
               <span>{{ t('contact.form.fields.experience.label') }}</span>
               <select formControlName="experience">
-                <option value="">{{ t('contact.form.fields.experience.placeholder') }}</option>
+                <option value="" disabled>{{ t('contact.form.fields.experience.placeholder') }}</option>
                 <option *ngFor="let option of experienceOptions" [value]="option">
                   {{ t('contact.form.options.experience.' + option) }}
                 </option>
@@ -150,30 +164,33 @@
               <span>{{ t('contact.form.fields.location.label') }}</span>
               <input
                 type="text"
+                autocomplete="address-level2"
+                maxlength="80"
                 formControlName="location"
                 [placeholder]="t('contact.form.fields.location.placeholder')"
                 [class.is-invalid]="isInvalid('location')"
                 [attr.aria-invalid]="isInvalid('location')"
               >
               <small>{{ t('contact.form.fields.location.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('location', 'required')">{{ t('contact.form.errors.locationRequired') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('location') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-field">
               <span>{{ t('contact.form.fields.availability.label') }}</span>
-              <select formControlName="availability">
-                <option value="">{{ t('contact.form.fields.availability.placeholder') }}</option>
+              <select formControlName="availability" required [class.is-invalid]="isInvalid('availability')" [attr.aria-invalid]="isInvalid('availability')">
+                <option value="" disabled>{{ t('contact.form.fields.availability.placeholder') }}</option>
                 <option *ngFor="let option of availabilityOptions" [value]="option">
                   {{ t('contact.form.options.availability.' + option) }}
                 </option>
               </select>
               <small>{{ t('contact.form.fields.availability.helper') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('availability') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-field">
               <span>{{ t('contact.form.fields.cooperation.label') }}</span>
               <select formControlName="cooperation">
-                <option value="">{{ t('contact.form.fields.cooperation.placeholder') }}</option>
+                <option value="" disabled>{{ t('contact.form.fields.cooperation.placeholder') }}</option>
                 <option *ngFor="let option of cooperationOptions" [value]="option">
                   {{ t('contact.form.options.cooperation.' + option) }}
                 </option>
@@ -185,35 +202,38 @@
               <span>{{ t('contact.form.fields.scope.label') }}</span>
               <input
                 type="text"
+                autocomplete="off"
+                minlength="6"
+                maxlength="160"
                 formControlName="scope"
                 [placeholder]="t('contact.form.fields.scope.placeholder')"
                 [class.is-invalid]="isInvalid('scope')"
                 [attr.aria-invalid]="isInvalid('scope')"
               >
               <small>{{ t('contact.form.fields.scope.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('scope', 'required')">{{ t('contact.form.errors.scopeRequired') }}</small>
-              <small class="form-error" *ngIf="hasError('scope', 'minlength')">{{ t('contact.form.errors.scopeMin') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('scope') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-field form-field--full">
               <span>{{ t('contact.form.fields.message.label') }}</span>
               <textarea
                 rows="5"
+                minlength="30"
+                maxlength="800"
                 formControlName="message"
                 [placeholder]="t('contact.form.fields.message.placeholder')"
                 [class.is-invalid]="isInvalid('message')"
                 [attr.aria-invalid]="isInvalid('message')"
               ></textarea>
               <small>{{ t('contact.form.fields.message.helper') }}</small>
-              <small class="form-error" *ngIf="hasError('message', 'required')">{{ t('contact.form.errors.messageRequired') }}</small>
-              <small class="form-error" *ngIf="hasError('message', 'minlength')">{{ t('contact.form.errors.messageMin') }}</small>
+              <small class="form-error" *ngIf="getErrorKey('message') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
             </label>
 
             <label class="form-consent form-field--full" [class.is-invalid]="isInvalid('consent')">
               <input type="checkbox" formControlName="consent">
               <span>{{ t('contact.form.fields.consent.label') }}</span>
             </label>
-            <small class="form-error form-field--full" *ngIf="hasError('consent', 'required')">{{ t('contact.form.errors.consentRequired') }}</small>
+            <small class="form-error form-field--full" *ngIf="getErrorKey('consent') as errorKey">{{ t('contact.form.errors.' + errorKey) }}</small>
 
             <div class="contact-form__footer form-field--full">
               <p>{{ t('contact.form.footerText') }}</p>
@@ -221,6 +241,7 @@
                 {{ isSubmitting ? t('contact.form.submitLoading') : t('contact.form.submit') }}
               </button>
             </div>
+            </fieldset>
           </form>
         </div>
       </div>

@@ -8,5 +8,5 @@ export class TranslocoHttpLoader implements TranslocoLoader {
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
-    }
+  }
 }

@@ -296,10 +296,10 @@
     "form": {
       "kicker": "Zgłoszenie do pracy",
       "title": "Wyślij zgłoszenie rekrutacyjne",
-      "text": "Wypełnij formularz, a szybciej ocenimy, do jakiej roli lub typu współpracy możesz pasować.",
+      "text": "Wypełnij krótki formularz. Wrócimy z informacją o najbliższych możliwościach pracy.",
       "submit": "Wyślij zgłoszenie",
       "submitLoading": "Wysyłanie...",
-      "footerText": "Po wysłaniu formularza skontaktujemy się, aby omówić stanowisko, warunki współpracy i możliwy termin startu.",
+      "footerText": "Po wysłaniu skontaktujemy się w sprawie roli, warunków i możliwego terminu startu.",
       "success": {
         "title": "Zgłoszenie zostało przyjęte.",
         "text": "Dziękujemy. Otrzymaliśmy formularz i wrócimy z odpowiedzią tak szybko, jak to możliwe."
@@ -312,62 +312,87 @@
         "fullName": {
           "label": "Imię i nazwisko",
           "placeholder": "np. Jan Kowalski",
-          "helper": "Twoje dane kontaktowe do rozmowy rekrutacyjnej."
+          "helper": "Wpisz imię i nazwisko bez skrótów."
         },
         "phone": {
           "label": "Numer telefonu",
-          "placeholder": "+48 000 000 000",
-          "helper": "Numer, pod którym możemy szybko oddzwonić."
+          "placeholder": "+48 733 071 777",
+          "helper": "Najlepiej z prefiksem kraju."
         },
         "email": {
           "label": "E-mail",
-          "placeholder": "kontakt@firma.pl",
-          "helper": "Na ten adres możemy wysłać dalsze pytania lub potwierdzenie kontaktu."
+          "placeholder": "jan@example.com",
+          "helper": "Na ten adres możemy wysłać potwierdzenie."
+        },
+        "companyName": {
+          "label": "Nazwa firmy"
         },
         "role": {
-          "label": "Rodzaj pracy / rola",
-          "placeholder": "Wybierz interesującą Cię rolę",
-          "helper": "To pole pomaga od razu skierować zgłoszenie do odpowiedniej osoby."
+          "label": "Rola",
+          "placeholder": "Wybierz rolę",
+          "helper": "Wybierz główną rolę, nawet jeśli masz szersze doświadczenie."
         },
         "experience": {
           "label": "Poziom doświadczenia",
-          "placeholder": "Opcjonalnie wybierz poziom doświadczenia",
-          "helper": "Pole opcjonalne, jeśli chcesz od razu zaznaczyć swój poziom."
+          "placeholder": "Wybierz poziom (opcjonalnie)",
+          "helper": "Opcjonalnie."
         },
         "location": {
           "label": "Lokalizacja",
-          "placeholder": "Miasto / województwo / skąd możesz pracować",
-          "helper": "Wystarczy ogólna informacja, skąd jesteś lub gdzie możesz pracować."
+          "placeholder": "np. Wrocław / Mazowieckie",
+          "helper": "Podaj miasto lub region, z którego możesz pracować."
         },
         "availability": {
           "label": "Dostępność",
-          "placeholder": "Kiedy możesz zacząć?",
-          "helper": "To pole pomaga ocenić możliwy termin wejścia do zespołu."
+          "placeholder": "Wybierz termin startu",
+          "helper": "Przybliżony termin wystarczy."
         },
         "cooperation": {
           "label": "Forma współpracy",
-          "placeholder": "Wybierz preferowaną formę",
-          "helper": "Opcjonalne, ale pomaga szybciej dopasować ofertę."
+          "placeholder": "Wybierz formę (opcjonalnie)",
+          "helper": "Opcjonalnie."
         },
         "scope": {
-          "label": "Doświadczenie / specjalizacja",
-          "placeholder": "np. cieśla szalunkowy, zbrojarz, brygadzista, kierownik robót",
-          "helper": "Krótko opisz, w czym masz doświadczenie i przy jakich pracach pracowałeś."
+          "label": "Specjalizacja",
+          "placeholder": "np. szalunki, zbrojenie, prowadzenie brygady",
+          "helper": "Wymień najważniejsze prace lub narzędzia."
         },
         "message": {
-          "label": "Wiadomość / kilka słów o sobie",
-          "placeholder": "Napisz, jakiej pracy szukasz, jakie masz doświadczenie, czy potrzebujesz zakwaterowania i od kiedy możesz zacząć.",
-          "helper": "Im lepiej opiszesz sytuację, tym szybciej wrócimy z konkretną odpowiedzią."
+          "label": "Kilka słów o sobie",
+          "placeholder": "Napisz krótko, jakiej pracy szukasz i od kiedy możesz zacząć.",
+          "helper": "Dodaj informacje o starcie, zakwaterowaniu lub oczekiwaniach."
         },
         "consent": {
           "label": "Wyrażam zgodę na kontakt w sprawie rekrutacji oraz przetwarzanie danych w celu obsługi zgłoszenia."
+        }
+      },
+      "roleAdvice": {
+        "residential": {
+          "title": "Dopisz doświadczenie przy szalunkach",
+          "text": "W wiadomości warto podać systemy szalunkowe, typy konstrukcji oraz prace przy stropach, ścianach lub słupach."
+        },
+        "industrial": {
+          "title": "Dopisz doświadczenie przy zbrojeniu",
+          "text": "Napisz, przy jakich zbrojeniach pracowałeś, czy czytasz rysunek techniczny i od kiedy możesz zacząć."
+        },
+        "commercial": {
+          "title": "Dopisz zakres prac żelbetowych",
+          "text": "Warto wspomnieć o betonowaniu, pielęgnacji betonu, pracy z ekipą i typach obiektów, przy których pracowałeś."
+        },
+        "public": {
+          "title": "Dopisz zakres odpowiedzialności",
+          "text": "Opisz wielkość zespołów, typ inwestycji oraz zadania, za które odpowiadałeś na budowie."
+        },
+        "other": {
+          "title": "Opisz rolę własnymi słowami",
+          "text": "Krótko napisz, jakiego zakresu pracy szukasz i jakie doświadczenie budowlane będzie dla nas najważniejsze."
         }
       },
       "options": {
         "role": {
           "residential": "Cieśla szalunkowy / monolity",
           "industrial": "Zbrojarz",
-          "commercial": "Betoniarz / prace żelbetowe",
+          "commercial": "Betoniarz / żelbet",
           "public": "Brygadzista / kierownik robót",
           "other": "Inna rola"
         },
@@ -379,10 +404,10 @@
           "other": "Inny profil"
         },
         "availability": {
-          "asap": "Mogę zacząć od razu",
+          "asap": "Od razu",
           "oneToThreeMonths": "W ciągu 1–2 tygodni",
           "threeToSixMonths": "W ciągu miesiąca",
-          "overSixMonths": "Termin do ustalenia"
+          "overSixMonths": "Do ustalenia"
         },
         "cooperation": {
           "upTo500k": "Umowa o pracę",
@@ -394,17 +419,24 @@
       },
       "errors": {
         "fullNameRequired": "Podaj imię i nazwisko.",
-        "fullNameMin": "Wpisz pełne imię i nazwisko.",
+        "fullNameInvalid": "Wpisz imię i nazwisko bez cyfr lub symboli.",
+        "fullNameMax": "Imię i nazwisko jest za długie.",
         "phoneRequired": "Podaj numer telefonu.",
-        "phoneMin": "Numer telefonu jest zbyt krótki.",
+        "phoneInvalid": "Wpisz poprawny numer telefonu.",
         "emailRequired": "Podaj adres e-mail.",
         "emailInvalid": "Wpisz poprawny adres e-mail.",
+        "emailMax": "Adres e-mail jest za długi.",
         "roleRequired": "Wybierz interesującą Cię rolę.",
-        "locationRequired": "Podaj swoją lokalizację.",
-        "scopeRequired": "Podaj doświadczenie lub specjalizację.",
-        "scopeMin": "Doprecyzuj doświadczenie w kilku słowach.",
+        "locationRequired": "Podaj miasto lub region.",
+        "locationInvalid": "Wpisz lokalizację bez nietypowych symboli.",
+        "locationMax": "Lokalizacja jest za długa.",
+        "availabilityRequired": "Wybierz przybliżony termin startu.",
+        "scopeRequired": "Podaj specjalizację lub doświadczenie.",
+        "scopeMin": "Dodaj trochę więcej konkretów.",
+        "scopeMax": "Ten opis jest za długi.",
         "messageRequired": "Dodaj kilka słów o sobie.",
-        "messageMin": "Opis powinien mieć przynajmniej kilkanaście znaków.",
+        "messageMin": "Napisz przynajmniej jedno konkretne zdanie.",
+        "messageMax": "Wiadomość jest za długa.",
         "consentRequired": "Zgoda jest wymagana, aby wysłać formularz."
       }
     },

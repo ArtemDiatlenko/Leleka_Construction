@@ -136,20 +136,23 @@
   gap: var(--space-sm);
 }
 
-.contact-inquiry__signal {
+.contact-inquiry__signal,
+.role-advice {
   padding: var(--card-pad-tight);
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(234, 241, 248, 0.82), rgba(255, 255, 255, 0.94));
   border: 1px solid rgba(15, 40, 77, 0.08);
 }
 
-.contact-inquiry__signal strong {
+.contact-inquiry__signal strong,
+.role-advice strong {
   display: block;
   font-size: 1rem;
   color: var(--color-navy-950);
 }
 
-.contact-inquiry__signal p {
+.contact-inquiry__signal p,
+.role-advice p {
   margin-top: var(--space-2xs);
   line-height: 1.72;
   color: var(--color-ink-700);
@@ -201,10 +204,19 @@
 }
 
 .contact-form__grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-xs) var(--space-sm);
   margin-top: var(--space-md);
+  min-inline-size: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
 }
 
 .form-field {
@@ -214,9 +226,9 @@
 }
 
 .form-field > span {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-ink-500);
 }
@@ -227,8 +239,8 @@
   width: 100%;
   min-width: 0;
   min-height: 56px;
-  padding: 16px 18px;
-  border-radius: 20px;
+  padding: 15px 17px;
+  border-radius: 18px;
   border: 1px solid rgba(15, 40, 77, 0.12);
   background: rgba(255, 255, 255, 0.92);
   color: var(--color-navy-950);
@@ -247,14 +259,6 @@
   border-color: rgba(15, 40, 77, 0.2);
 }
 
-.form-field input:disabled,
-.form-field select:disabled,
-.form-field textarea:disabled {
-  color: var(--color-ink-500);
-  background: rgba(234, 241, 248, 0.72);
-  cursor: not-allowed;
-}
-
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
@@ -267,13 +271,14 @@
 .form-field select.is-invalid,
 .form-field textarea.is-invalid,
 .form-consent.is-invalid {
-  border-color: rgba(187, 61, 48, 0.4);
-  box-shadow: 0 0 0 4px rgba(187, 61, 48, 0.08);
+  border-color: rgba(176, 62, 46, 0.34);
+  box-shadow: 0 0 0 3px rgba(176, 62, 46, 0.07);
 }
 
 .form-field small {
+  font-size: 0.86rem;
   color: var(--color-ink-500);
-  line-height: 1.55;
+  line-height: 1.45;
 }
 
 .form-field--full {
@@ -306,7 +311,7 @@
 }
 
 .form-error {
-  color: #b03e2e;
+  color: #9e4337;
   font-weight: 700;
 }
 

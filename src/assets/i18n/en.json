@@ -296,10 +296,10 @@
     "form": {
       "kicker": "Work application",
       "title": "Send a recruitment inquiry",
-      "text": "Fill in the form so we can quickly assess which role or type of cooperation fits you best.",
+      "text": "Fill in the short form. We will come back with the nearest work opportunities.",
       "submit": "Send application",
       "submitLoading": "Sending...",
-      "footerText": "After submission we can discuss the role, cooperation terms and your possible start date.",
+      "footerText": "After submission we will contact you about the role, terms and possible start date.",
       "success": {
         "title": "Your application has been received.",
         "text": "Thank you. We received the form and will reply as soon as possible."
@@ -312,62 +312,87 @@
         "fullName": {
           "label": "Full name",
           "placeholder": "e.g. John Smith",
-          "helper": "Your contact details for a recruitment conversation."
+          "helper": "Use your first and last name."
         },
         "phone": {
           "label": "Phone number",
-          "placeholder": "+48 000 000 000",
-          "helper": "The best number for a quick callback."
+          "placeholder": "+48 733 071 777",
+          "helper": "Preferably with the country code."
         },
         "email": {
           "label": "E-mail",
-          "placeholder": "contact@company.com",
-          "helper": "We can use this address for follow-up questions or confirmation."
+          "placeholder": "john@example.com",
+          "helper": "We can send confirmation to this address."
+        },
+        "companyName": {
+          "label": "Company name"
         },
         "role": {
-          "label": "Type of work / role",
-          "placeholder": "Select the role you are interested in",
-          "helper": "This helps us route the application to the right person immediately."
+          "label": "Role",
+          "placeholder": "Select a role",
+          "helper": "Choose your main role, even if your experience is broader."
         },
         "experience": {
           "label": "Experience level",
-          "placeholder": "Optionally select your experience level",
-          "helper": "Optional field if you want to define your profile more precisely."
+          "placeholder": "Select level (optional)",
+          "helper": "Optional."
         },
         "location": {
           "label": "Location",
-          "placeholder": "City / region / where you can work",
-          "helper": "A general location is enough for the first step."
+          "placeholder": "e.g. Wroclaw / Mazowieckie",
+          "helper": "Enter the city or region you can work from."
         },
         "availability": {
           "label": "Availability",
-          "placeholder": "When can you start?",
-          "helper": "This helps us assess when you can join the team."
+          "placeholder": "Select start date",
+          "helper": "An approximate date is enough."
         },
         "cooperation": {
           "label": "Cooperation type",
-          "placeholder": "Choose your preferred form",
-          "helper": "Optional, but useful for faster qualification."
+          "placeholder": "Select type (optional)",
+          "helper": "Optional."
         },
         "scope": {
-          "label": "Experience / specialization",
-          "placeholder": "e.g. formwork carpenter, rebar worker, foreman, site manager",
-          "helper": "Briefly describe your experience and what kind of work you have done."
+          "label": "Specialization",
+          "placeholder": "e.g. formwork, reinforcement, crew leadership",
+          "helper": "List the main work or tools you know."
         },
         "message": {
-          "label": "Message / a few words about yourself",
-          "placeholder": "Write what kind of work you are looking for, what experience you have, whether you need accommodation and when you can start.",
-          "helper": "The clearer the message, the faster we can reply concretely."
+          "label": "A few words about yourself",
+          "placeholder": "Briefly write what work you want and when you can start.",
+          "helper": "Add details about start date, accommodation or expectations."
         },
         "consent": {
           "label": "I agree to be contacted regarding recruitment and to data processing for handling my application."
+        }
+      },
+      "roleAdvice": {
+        "residential": {
+          "title": "Add your formwork experience",
+          "text": "In the message, mention formwork systems, structure types and any work on slabs, walls or columns."
+        },
+        "industrial": {
+          "title": "Add your reinforcement experience",
+          "text": "Write what reinforcement work you have done, whether you read technical drawings and when you can start."
+        },
+        "commercial": {
+          "title": "Add your reinforced concrete scope",
+          "text": "It helps to mention concreting, curing, crew work and the types of sites where you have worked."
+        },
+        "public": {
+          "title": "Add your area of responsibility",
+          "text": "Describe team sizes, project types and the tasks you were responsible for on site."
+        },
+        "other": {
+          "title": "Describe the role in your own words",
+          "text": "Briefly write what type of work you are looking for and which construction experience matters most."
         }
       },
       "options": {
         "role": {
           "residential": "Formwork carpenter / monolithic works",
           "industrial": "Rebar worker",
-          "commercial": "Concrete / reinforced concrete works",
+          "commercial": "Concrete / reinforced concrete",
           "public": "Foreman / works manager",
           "other": "Other role"
         },
@@ -379,7 +404,7 @@
           "other": "Other profile"
         },
         "availability": {
-          "asap": "I can start immediately",
+          "asap": "Immediately",
           "oneToThreeMonths": "Within 1–2 weeks",
           "threeToSixMonths": "Within a month",
           "overSixMonths": "To be agreed"
@@ -394,17 +419,24 @@
       },
       "errors": {
         "fullNameRequired": "Enter your full name.",
-        "fullNameMin": "Please provide a full name.",
+        "fullNameInvalid": "Use first and last name without numbers or symbols.",
+        "fullNameMax": "The name is too long.",
         "phoneRequired": "Enter a phone number.",
-        "phoneMin": "The phone number is too short.",
+        "phoneInvalid": "Enter a valid phone number.",
         "emailRequired": "Enter an email address.",
         "emailInvalid": "Enter a valid email address.",
+        "emailMax": "The email address is too long.",
         "roleRequired": "Select the role you are interested in.",
-        "locationRequired": "Enter your location.",
-        "scopeRequired": "Enter your experience or specialization.",
-        "scopeMin": "Clarify your experience in a few words.",
+        "locationRequired": "Enter a city or region.",
+        "locationInvalid": "Enter the location without unusual symbols.",
+        "locationMax": "The location is too long.",
+        "availabilityRequired": "Select an approximate start date.",
+        "scopeRequired": "Enter your specialization or experience.",
+        "scopeMin": "Add a little more detail.",
+        "scopeMax": "This description is too long.",
         "messageRequired": "Add a few words about yourself.",
-        "messageMin": "The description should contain at least a short meaningful brief.",
+        "messageMin": "Write at least one specific sentence.",
+        "messageMax": "The message is too long.",
         "consentRequired": "Consent is required to submit the form."
       }
     },
